@@ -1,0 +1,26 @@
+<template name="dya">
+
+
+
+
+{{#each questions}}
+
+<paper-shadow class="card title"  z="2">
+
+
+{{#if isRDO}}
+{{> RDO}}
+{{/if}}
+{{> graph}}
+
+
+</paper-shadow>
+
+
+
+
+
+{{/each}}
+    <!-- {{> slider}} -->
+    {{> comment}}
+</template>

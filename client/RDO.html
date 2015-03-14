@@ -1,0 +1,11 @@
+<template name='RDO'>
+  <div class='control'>
+    <h1>{{title}}</h1>
+    <paper-radio-group role="radiogroup" style='display:block'>
+      {{#each opts}}
+      <paper-radio-button label='{{this}}' toggles='true'></paper-radio-button><br><br>
+      {{/each}}
+    </paper-radio-group>
+    <paper-button raised >Ok</paper-button>
+  </div>
+</template>

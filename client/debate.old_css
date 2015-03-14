@@ -1,0 +1,224 @@
+/* CSS declarations go here */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+
+*{
+  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+  font-family: 'Ubuntu Condensed', sans-serif;
+   font-weight: 100;
+}
+
+html{
+  /*background-color: #A2B8D3;*/
+  /*background-image:url('background.jpg');*/
+  /*background: url('background.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;*/
+}
+[drawer]{
+  font-color:black;
+  background-color: #fff;
+}
+.adminTitle{
+  padding-left:2%;
+  padding-top:2%;
+  margin-bottom:0px;
+}
+.adminMenu{
+  padding-left:3%;
+  margin-top:0px;
+}
+.adminCard{
+  background-color:white;
+  margin-left:2%;
+  margin-right:2%;
+}
+#cmmtBox{
+
+  max-width:650px;
+  display:block;
+  margin-bottom:30px;
+  clear:both;
+  margin:0 auto;
+  font-size:1.7em;
+}
+#cmmtCont{
+  margin:0 auto;
+  max-width:960px;
+}
+
+.comment{
+  display:inline-block;
+  float:both;
+  font-size:1.2em;
+  background-color:white;
+  padding:25px;
+  width:220px;
+  min-height:120px;
+  margin-top:25px;
+}
+.agree{
+  background-color:#f15c51;
+}
+.neutral{
+  background-color:#ffffff;
+}
+.disagree{
+  background-color:#354353;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-slice.ct-donut{
+  stroke:#f15c51;
+}
+.ct-chart .ct-series.ct-series-b .ct-slice.ct-donut{
+  stroke:#ffffff;
+}
+.ct-chart .ct-series.ct-series-c .ct-slice.ct-donut{
+  stroke:#354353;
+}
+
+paper-slider{
+  display:block;
+  margin:0 auto;
+  text-align:center;
+  margin-top:40px;
+  /*border:1px solid red;*/
+  width:90%;
+  height:50px;
+  max-width:660px;
+
+}
+
+paper-slider::shadow .expand:not(.pin) > #sliderKnob > #sliderKnobInner{
+  background-color: red;
+  /*width:60px;*/
+  height:60px;
+}
+
+
+paper-slider::shadow #sliderBar{
+  height:10px;
+  /*background-color:transparent;*/
+}
+paper-slider::shadow #sliderKnob{
+  width:40px;
+  height:40px;
+}
+paper-slider::shadow #sliderBar::shadow #activeProgress {
+
+}
+
+
+paper-slider::shadow #sliderBar::shadow #progressContainer{
+
+}
+
+paper-slider::shadow #sliderKnobInner{
+  width:40px;
+  height:40px;
+}
+
+#graph{
+  float:left;
+  width:75%;
+}
+#key{
+  float:right;
+  width:20%;
+}
+
+.key{
+  margin-top:10px;
+  display:block;
+  float:both;
+  padding:10px;
+  font-size:1.5em;
+}
+
+paper-tabs, core-toolbar{
+  background-color:#00bcd4;
+}
+paper-tabs::shadow{
+  background-color:#ffffff;
+}
+
+paper-tab::shadow #ink {
+  /*color: #ff4081;*/
+}
+
+paper-tabs::shadow #selectionBar {
+  /*background-color: #ff4081;*/
+}
+paper-tabs {
+  margin-top:20px;
+  margin-bottom:50px;
+}
+.ct-chart.ct-square{
+  min-width:250px;
+}
+.ct-chart .ct-label{
+  /*max-width:50%;*/
+  font-size:1.75em;
+}
+.instructions{
+  display:block;
+  margin:0 auto;
+  width:40%;
+  text-align:center;
+}
+.chart-container{
+  text-align:center;
+  max-width:550px;
+  display:block;
+  margin:0 auto;
+  display:none;
+}
+.title,#debatetitle,#bgimg{
+  font-size:3em;
+  max-width:100%;
+  margin: 0 auto;
+  margin-top:20px;
+  text-align:center;
+  background-color:white;
+  display:block;
+}
+
+.scores{
+  float:both;
+  display:inline-block;
+  margin-top:50px;
+  width:30%;
+  text-align:center;
+}
+#debateLink{
+  font-size:1.5em;
+  margin:0 auto;
+  text-align:center;
+}
+#make{
+  margin:0 auto;
+  margin-top:50px;
+  display:block;
+  font-size:1.5em;
+}
+
+.menu{
+  background-color:white;
+}
+
+.colSel{
+  margin:0 auto;
+  text-align:center;
+  margin-top:20px;
+}
+
+@media all and (max-width: 450px){
+  #key{
+    font-size:.6em;
+  }
+  .title, #debatetitle, #bgimg{
+    font-size:1.2em;
+    max-width:90%;
+  }
+}

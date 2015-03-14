@@ -1,0 +1,13 @@
+<template name="comment">
+  <div id="cmmtBox">
+  <input type="text" is="core-input" placeholder="Comment" aria-label="Comment" class="the_item">
+  <core-icon-button icon="arrow-forward" title="arrow-forward" id='cmmt'></core-icon-button>
+</div>
+<div id='cmmtCont'>
+  {{#each comments}}
+  <paper-shadow class="card comment {{side}}" z="4">
+    {{comment}}
+    </paper-shadow>
+  {{/each}}
+</div>
+</template>
