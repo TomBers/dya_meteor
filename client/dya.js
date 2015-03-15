@@ -1,5 +1,5 @@
 Template.dya.helpers({
-  isSlider: function(){
+  isSLD: function(){
     return this.type === 'SLD';
   },
   isCHK: function(){

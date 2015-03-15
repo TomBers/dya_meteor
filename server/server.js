@@ -13,6 +13,12 @@ Meteor.methods({
   saveRes: function(qn,dat,usr){
     return Votes.update({qn:qn,usr:usr},{qn:qn,usr:usr,res:dat},{upsert:true});
   },
+  saveCHK: function(qn,dat,usr){
+    return Votes.insert({qn:qn,usr:usr,res:dat});
+  },
+  removeCHK: function(qn,dat,usr){
+    return Votes.remove({qn:qn,res:dat,usr:usr});
+  },
   comment: function(debate,usr,side,comment){
     var dte = new Date();
     Comments.insert({debate:debate,usr:usr,side:side,comment:comment,DateTime:dte});

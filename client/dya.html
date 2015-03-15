@@ -6,11 +6,16 @@
 {{#each questions}}
 
 <paper-shadow class="card title"  z="2">
-
-
+{{#if isCHK}}
+{{> CHK}}
+{{/if}}
 {{#if isRDO}}
 {{> RDO}}
 {{/if}}
+{{#if isSLD}}
+{{> SLD}}
+{{/if}}
+
 {{> graph}}
 
 

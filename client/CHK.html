@@ -3,7 +3,9 @@
 <h1>{{title}}</h1>
 
 {{#each opts}}
-<paper-checkbox label='{{this}}' toggles='true' style='display:block'></paper-checkbox><br><br>
+{{#if visible}}
+<paper-checkbox label='{{this}}' toggles='true' style='display:block;margin-left:100px'></paper-checkbox><br><br>
+{{/if}}
 {{/each}}
 
 <paper-button raised>Ok</paper-button>

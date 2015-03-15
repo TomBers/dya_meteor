@@ -1,22 +1,7 @@
 <template name="SLD">
   <h1>{{title}}</h1>
 
-
-  <paper-slider min="0" max="2" value="{{sideNo}}"></paper-slider>
-  <h4 style="text-align:center">{{side}}</h4>
-
-  <div class='chart-container'>
-    <div id='graph'>
-      <div class='ct-chart ct-square'></div>
-    </div>
-    <div id='key'>
-      <div class='key agree' >{{agree}} <br>Agree</div>
-      <div class='key neutral'>{{neutral}} Neutral</div>
-      <div class='key disagree'>{{disagree}} Disagree</div>
-      <h2>Total : {{total}}</h2>
-    </div>
-  </div>
-
-
-
+  <paper-slider min="0" max="{{max}}" value="{{startVal}}" style="margin-left:100px"></paper-slider>
+  {{sldLabel}}
+  <paper-button raised>Ok</paper-button>
 </template>
