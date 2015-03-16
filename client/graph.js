@@ -14,7 +14,7 @@ Template.graph.rendered = function(){
 
   this.autorun(function (template) {
     var qn = this._templateInstance.data._id;
-  
+
     // console.log(template);
     // console.log(this);
     var responses = Votes.find({qn:qn},{fields :{res :1 }}).fetch();
@@ -31,21 +31,37 @@ Template.graph.rendered = function(){
     // console.log(fdat);
 
     var data = {
+      labels: fdat[0],
       series: fdat[1]
     };
 
+
+
     var options = {
-  width: '300px',
-  height: '200px'
-};
+    labelInterpolationFnc: function(value) {
+      return value[0]
+    }
+  };
+
+  var responsiveOptions = [
+    ['screen and (min-width: 640px)', {
+      chartPadding: 30,
+      labelOffset: 100,
+      labelDirection: 'explode',
+      labelInterpolationFnc: function(value) {
+        return value;
+      }
+    }],
+    ['screen and (min-width: 1024px)', {
+      labelOffset: 80,
+      chartPadding: 20
+    }]
+  ];
+
 
     var sum = function(a, b) { return a + b };
 
-    new Chartist.Pie('#'+qn, data,options, {
-      labelInterpolationFnc: function(value) {
-        return Math.round(value / data.series.reduce(sum) * 100) + '%';
-      }
-    });
+    new Chartist.Pie('#'+qn, data,options,responsiveOptions);
 
 
   });

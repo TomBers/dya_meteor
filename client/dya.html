@@ -5,18 +5,20 @@
 
 {{#each questions}}
 
-<paper-shadow class="card title"  z="2">
+
 {{#if isCHK}}
+<div class="shadow" id="{{_id}}_card">
 {{> CHK}}
-{{> graph}}
+</div>
 {{/if}}
-{{#if isRDO}}
+{{#if isRDO  }}
+<div class="shadow" id="{{_id}}_card">
 {{> RDO}}
-{{> graph}}
+</div>
 {{/if}}
 {{#if isSLD}}
 {{> SLD}}
-{{> graph}}
+
 {{/if}}
 {{#if isLND}}
 {{> LND}}
@@ -25,8 +27,11 @@
 
 
 
-</paper-shadow>
+
 
 {{/each}}
+{{#if started}}
+<button class='finished'>Finished</button>
+{{/if}}
     <!-- {{> comment}} -->
 </template>

@@ -4,9 +4,14 @@
 
 {{#each opts}}
 {{#if visible}}
-<paper-checkbox label='{{this}}' toggles='true' style='display:block;margin-left:100px'></paper-checkbox><br><br>
+<div class='chbWrapper'>
+<input name="{{this}}" value="{{this}}" class='chk' type="checkbox" /><label>{{this}}</label>
+</div>
+<!-- <paper-checkbox label='{{this}}' toggles='true' class='chk'></paper-checkbox> -->
 {{/if}}
-{{/each}}
 
-<paper-button raised>Ok</paper-button>
+{{/each}}
+<div class='hider'>
+Ok
+</div>
 </template>

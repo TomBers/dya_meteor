@@ -61,20 +61,27 @@ Router.map(function() {
     }
   });
   this.route('dya', {
-    path: '/dya',
-    template: 'dya',
-    data: function() {
-      return {questions : Debates.find({},{sort: {DateTime:-1}}).fetch()};
-    }
-  });
-
-
-  this.route('debates', {
     path: '/:_id',
     template: 'dya',
     data: function() {
-      return Debates.findOne({_id:this.params._id});
+      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
     }
   });
+  this.route('results', {
+    path: '/results/:_id',
+    template: 'results',
+    data: function() {
+      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+    }
+  });
+
+
+  // this.route('debates', {
+  //   path: '/:_id',
+  //   template: 'dya',
+  //   data: function() {
+  //     return Debates.findOne({_id:this.params._id});
+  //   }
+  // });
 
 });

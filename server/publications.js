@@ -14,3 +14,7 @@ Meteor.publish("debates", function () {
       Meteor.publish("history", function () {
           return History.find();
         });
+
+        Meteor.publish("count", function () {
+            return Count.find();
+          });

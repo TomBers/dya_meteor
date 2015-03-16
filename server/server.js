@@ -10,6 +10,9 @@ Meteor.methods({
       ,DateTime:dte
       });
   },
+  countRes: function(survey){
+    return Count.insert({survey:survey});
+  },
   saveRes: function(qn,dat,usr){
     return Votes.update({qn:qn,usr:usr},{qn:qn,usr:usr,res:dat},{upsert:true});
   },
