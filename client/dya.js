@@ -7,6 +7,10 @@ Template.dya.helpers({
   },
   isRDO: function(){
     return this.type === 'RDO';
+  },
+  isLND: function(){
+    return this.type === 'LND';
   }
+
 
 })

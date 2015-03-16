@@ -8,24 +8,25 @@
 <paper-shadow class="card title"  z="2">
 {{#if isCHK}}
 {{> CHK}}
+{{> graph}}
 {{/if}}
 {{#if isRDO}}
 {{> RDO}}
+{{> graph}}
 {{/if}}
 {{#if isSLD}}
 {{> SLD}}
+{{> graph}}
+{{/if}}
+{{#if isLND}}
+{{> LND}}
 {{/if}}
 
-{{> graph}}
+
 
 
 </paper-shadow>
 
-
-
-
-
 {{/each}}
-    <!-- {{> slider}} -->
-    {{> comment}}
+    <!-- {{> comment}} -->
 </template>
