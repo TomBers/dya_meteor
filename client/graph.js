@@ -1,4 +1,12 @@
-
+Template.graph.helpers({
+  cnt: function(){
+    // console.log(this);
+    return Count.find({survey:this.survey}).fetch().length;
+  },
+  res: function(){
+    return Session.get(this._id+'_res');
+  }
+});
 
 // Template.graph.helpers({
 //   qnID: function(){
@@ -8,6 +16,7 @@
 
 Template.graph.rendered = function(){
   Meteor.subscribe('votes');
+  Meteor.subscribe('count');
 //   Session.set(this.data._id)
 // console.log(this);
   // console.log(this.data._id);
@@ -25,6 +34,7 @@ Template.graph.rendered = function(){
     });
 
     var fdat = formatAndCount(all);
+    Session.set(qn+'_res',fdat);
     // var data = {
     //   labels : fdat[0],
     //   series : [ fdat[1] ]

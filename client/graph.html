@@ -1,3 +1,8 @@
 <template name='graph'>
+  <br><br>
+  Question Count : {{cnt}}<br><br>
+  {{#each res}}
+  {{this}}<br><br>
+  {{/each}}
     <div class='ct-chart' id="{{this._id}}"></div>
 </template>
