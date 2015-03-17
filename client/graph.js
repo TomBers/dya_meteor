@@ -1,4 +1,4 @@
-Meteor.subscribe('votes');
+
 
 // Template.graph.helpers({
 //   qnID: function(){
@@ -7,6 +7,7 @@ Meteor.subscribe('votes');
 // });
 
 Template.graph.rendered = function(){
+  Meteor.subscribe('votes');
 //   Session.set(this.data._id)
 // console.log(this);
   // console.log(this.data._id);

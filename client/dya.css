@@ -9,7 +9,6 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
 }
 img {
   height:auto;
-  width:100%;
   max-width:300px;
 }
 h1{
@@ -70,9 +69,16 @@ label{
     /*margin-left:10%;*/
   display:block;
   }
+  input.chk{
+
+    width:12px;
+    height:12px;
+  }
   label{
-    margin-left:10%;
-    top:-40px;
-    left:10px;
+    border:1px solid red;
+    margin-left:2%;
+    top:8px;
+    /*top:-40px;
+    left:10px;*/
   }
 }
