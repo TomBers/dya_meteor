@@ -30,12 +30,7 @@ Template.dya.helpers({
 
 Template.dya.events({
   'click button.finished':function(e,template){
-    var tmp = template.data.questions;
-    // console.log(tmp[0].survey);
-    Meteor.call('countRes',tmp[0].survey, function(e,d){    
       alert('Thank you');
       location.reload();
-    });
-
   }
 });

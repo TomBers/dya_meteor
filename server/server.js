@@ -10,13 +10,12 @@ Meteor.methods({
       ,DateTime:dte
       });
   },
-  countRes: function(survey){
-    return Count.insert({survey:survey});
-  },
   saveRes: function(qn,dat,usr){
+    Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
     return Votes.update({qn:qn,usr:usr},{qn:qn,usr:usr,res:dat},{upsert:true});
   },
   saveCHK: function(qn,dat,usr){
+    Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
     return Votes.insert({qn:qn,usr:usr,res:dat});
   },
   removeCHK: function(qn,dat,usr){

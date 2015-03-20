@@ -1,7 +1,6 @@
 Template.graph.helpers({
   cnt: function(){
-    // console.log(this);
-    return Count.find({survey:this.survey}).fetch().length;
+    return Count.find({qn:this._id}).fetch().length;
   },
   res: function(){
     return Session.get(this._id+'_res');
