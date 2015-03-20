@@ -6,6 +6,5 @@
 
 meteor-platform
 mfpierre:chartist-js
-jquery
 iron:router
 meteorhacks:fast-render

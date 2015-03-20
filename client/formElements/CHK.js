@@ -57,28 +57,24 @@ Template.CHK.helpers({
 })
 
 Template.CHK.events({
-  // 'click paper-button':function(e,template){
-  //   // alert(template.data._id);
-  //
-  //   $('#'+template.data._id+'_card').hide();
-  //
-  // },
   'click .chk':function(e,template){
 
+    var checked = e.currentTarget.className.split(' ')[1];
 
-    if(!e.currentTarget.checked){
-      Meteor.call('removeCHK',template.data._id,e.currentTarget.name,Session.get('usr'));
+
+    if(checked == 'checked'){
+      Meteor.call('removeCHK',template.data._id,e.currentTarget.id,Session.get('usr'));
       var tmp = Session.get(template.data._id);
       tmp.splice(tmp.indexOf(e.currentTarget.name),1);
       Session.set(template.data._id,tmp);
-
+      e.currentTarget.className = 'chk';
 
     }else{
       var tmp = Session.get(template.data._id);
-      tmp.push(e.currentTarget.name);
+      tmp.push(e.currentTarget.id);
       Session.set(template.data._id,tmp);
-
-      Meteor.call('saveCHK',template.data._id,e.currentTarget.name,Session.get('usr'));
+      e.currentTarget.className = 'chk checked';
+      Meteor.call('saveCHK',template.data._id,e.currentTarget.id,Session.get('usr'));
     }
 
   }

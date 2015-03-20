@@ -36,11 +36,16 @@ h1{
   text-align:center;
   margin-top:20px;
 }
-.chbWrapper{
+.chk{
+  font-size:2.5em;
   display:inline-block;
-  padding:5px;
+  padding:20px;
   margin:5px;
-  /*border:1px solid blue;*/
+  border:1px solid black;
+}
+.checked{
+  color:white;
+  background-color:black;
 }
 input[type="radio"]{
   width:50px;

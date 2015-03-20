@@ -2,7 +2,9 @@
 
     <h1>{{title}}</h1>
       {{#each opts}}
-      <input type="radio" name="{{../_id}}" class='rdo' value="{{this}}"><label>{{this}}</label>
+      <div class='chk' id='{{this}}'>
+      {{this}}
+      </div>
       {{/each}}
     <div class='hider'>
     Ok
