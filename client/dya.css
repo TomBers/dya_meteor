@@ -6,6 +6,7 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
   border-left:1px solid black;
   box-shadow: 10px 10px 5px #888888;
   margin-bottom:15px;
+  padding-left:20px;
 }
 img {
   height:auto;
@@ -13,7 +14,7 @@ img {
 }
 h1{
   padding-top:20px;
-  padding-left:30px;
+  /*padding-left:30px;*/
 }
 .finished{
   display:block;
@@ -67,6 +68,16 @@ label{
   font-size:1.5em;
   position: relative;
   top:-15px;
+}
+
+.control-label{
+  border:1px solid red;
+  display:inline-block;
+  min-width:200px;
+  top:0px;
+}
+.panel{
+  margin-top:20px;
 }
 
 @media all and (max-width: 450px){

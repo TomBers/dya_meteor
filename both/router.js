@@ -19,6 +19,29 @@ Router.map(function() {
     path: '/create',
     template: 'create'
   });
+  this.route('/makeQn', {
+    path: '/makeQn',
+    template: 'makeQn'
+  });
+
+  this.route('/editQn', {
+    path: '/editQn/:_id',
+    template: 'editQn',
+    data: function() {
+      // console.log(Debates.findOne({_id:this.params._id}).fetch());
+      return Debates.findOne({_id:this.params._id});
+    }
+  });
+
+  this.route('/editSurvey', {
+    path: '/editSurvey/:_id',
+    template: 'editSurvey',
+    data: function() {
+      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+    }
+  });
+
+
 
   this.route('analysis', {
     path: '/analysis/:_id',
@@ -60,6 +83,15 @@ Router.map(function() {
       return this.params._id;
     }
   });
+
+  this.route('singleView', {
+    path: '/singleView/:_id/:page',
+    template: 'dya',
+    data: function() {
+      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch()};
+    }
+  });
+
   this.route('dya', {
     path: '/:_id',
     template: 'dya',

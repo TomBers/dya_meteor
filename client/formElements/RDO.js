@@ -1,5 +1,5 @@
 Template.RDO.rendered = function(){
-Session.setDefault('usr',Math.random());
+
 
 $('.hider').unbind().on('click',function(evt){
   // console.log(evt);

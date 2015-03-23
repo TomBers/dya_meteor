@@ -1,13 +1,6 @@
-// Session.set('path',this.location.pathname);
-Session.setDefault('started',false);
-
-// Template.dya.rendered = function(){
-//
-//   $('.finished').on('click',function(evt){
-//     alert('Thank you');
-//     location.reload();
-//   });
-// }
+// Session.setDefault('started',false);
+Session.setDefault('started',true);
+Session.setDefault('usr',Math.random());
 
 Template.dya.helpers({
   isSLD: function(){
@@ -30,7 +23,11 @@ Template.dya.helpers({
 
 Template.dya.events({
   'click button.finished':function(e,template){
-      alert('Thank you');
-      location.reload();
+    Session.keys = {};
+    Session.setDefault('started',false);
+    Session.setDefault('usr',Math.random());
+
+      // alert('Thank you');
+      // location.reload();
   }
 });

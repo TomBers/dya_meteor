@@ -1,7 +1,7 @@
 Template.CHK.rendered = function(){
 Session.setDefault('usr',Math.random());
 Session.setDefault(this.data._id,[]);
-// console.log(this);
+// console.log(this.data);
 
 $('.hider').unbind().on('click',function(evt){
   // console.log(evt);

@@ -8,3 +8,5 @@ meteor-platform
 mfpierre:chartist-js
 iron:router
 meteorhacks:fast-render
+aldeed:autoform
+aldeed:collection2
