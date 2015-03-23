@@ -39,6 +39,23 @@ Debates.attachSchema(new SimpleSchema({
    label: "Depends On",
    max: 200
  },
+ showBtn: {
+   type: Boolean,
+   label: "Show next button",
+   autoform: {
+     afFieldInput: {
+       type: "select",
+      options: function () {
+        return [
+          {label: "Yes", value: true},
+          {label: "No", value: false},
+        ];
+      }
+     }
+   }
+ },
+
+
  type: {
    type: String,
    label: "Type",
