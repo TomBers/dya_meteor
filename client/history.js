@@ -1,10 +1,10 @@
 Session.setDefault('dbtID',0);
 Meteor.subscribe('history');
-Meteor.subscribe('debates');
+Meteor.subscribe('Questions');
 
 Template.history.helpers({
   debate: function(){
-    return Debates.findOne({_id:Session.get('dbtID')});
+    return Questions.findOne({_id:Session.get('dbtID')});
   }
 });
 

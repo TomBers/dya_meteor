@@ -1,9 +1,9 @@
 Router.configure({
 layoutTemplate: 'layout',
-waitOn: function() { return Meteor.subscribe('debates'); },
+waitOn: function() { return Meteor.subscribe('Questions'); },
   fastRender: true
 // data: function() {
-//   return {debates : Debates.find().fetch()}
+//   return {Questions : Questions.find().fetch()}
 // }
 });
 
@@ -28,8 +28,8 @@ Router.map(function() {
     path: '/editQn/:_id',
     template: 'editQn',
     data: function() {
-      // console.log(Debates.findOne({_id:this.params._id}).fetch());
-      return Debates.findOne({_id:this.params._id});
+      // console.log(Questions.findOne({_id:this.params._id}).fetch());
+      return Questions.findOne({_id:this.params._id});
     }
   });
 
@@ -37,7 +37,7 @@ Router.map(function() {
     path: '/editSurvey/:_id',
     template: 'editSurvey',
     data: function() {
-      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
     }
   });
 
@@ -55,7 +55,7 @@ Router.map(function() {
     path: '/admin/',
     template: 'admin',
     data: function() {
-      return {debates : Debates.find({},{sort: {DateTime:-1}}).fetch()};
+      return {Questions : Questions.find({},{sort: {DateTime:-1}}).fetch()};
     }
   });
 
@@ -64,7 +64,7 @@ Router.map(function() {
     path: '/edit/:_id',
     template: 'create',
     data: function() {
-      return Debates.findOne({_id:this.params._id});
+      return Questions.findOne({_id:this.params._id});
     }
   });
 
@@ -85,10 +85,11 @@ Router.map(function() {
   });
 
   this.route('singleView', {
-    path: '/singleView/:_id/:page',
+    path: '/:_id/:page',
     template: 'dya',
     data: function() {
-      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch()};
+      var tparam = {surveyType:'SV',survey:this.params._id,noPages:4,endLink:'http://bbc.co.uk'};
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch(),params:tparam};
     }
   });
 
@@ -96,23 +97,24 @@ Router.map(function() {
     path: '/:_id',
     template: 'dya',
     data: function() {
-      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+      var tparam = {surveyType:'SV',noPages:4,survey:this.params._id};
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch(),params:tparam};
     }
   });
   this.route('results', {
     path: '/results/:_id',
     template: 'results',
     data: function() {
-      return {questions : Debates.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
     }
   });
 
 
-  // this.route('debates', {
+  // this.route('Questions', {
   //   path: '/:_id',
   //   template: 'dya',
   //   data: function() {
-  //     return Debates.findOne({_id:this.params._id});
+  //     return Questions.findOne({_id:this.params._id});
   //   }
   // });
 

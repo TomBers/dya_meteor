@@ -5,30 +5,30 @@
 
 {{#each questions}}
 
-
-{{#if isCHK}}
-<div class="shadow" id="{{_id}}_card">
-{{> CHK}}
-</div>
-{{/if}}
-{{#if isRDO  }}
-<div class="shadow" id="{{_id}}_card">
-{{> RDO}}
-</div>
-{{/if}}
-{{#if isSLD}}
-{{> SLD}}
-
-{{/if}}
 {{#if isLND}}
 {{> LND}}
 {{/if}}
 
 
 
+{{#if isCHK}}
+
+{{> CHK }}
+
+{{/if}}
+{{#if isRDO }}
+
+{{> RDO }}
+
+{{/if}}
+{{#if isSLD}}
+{{> SLD}}
+{{/if}}
 
 {{/each}}
-{{#if started}}
+
+
+{{#if showFinish}}
 <button class='finished'>Finished</button>
 {{/if}}
     <!-- {{> comment}} -->

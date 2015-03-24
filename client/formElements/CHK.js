@@ -1,47 +1,12 @@
 Template.CHK.rendered = function(){
-Session.setDefault('usr',Math.random());
 Session.setDefault(this.data._id,[]);
-// console.log(this.data);
-
-$('.hider').unbind().on('click',function(evt){
-  // console.log(evt);
-
-  $('#'+evt.currentTarget.parentElement.id).hide();
-  $('html,body').scrollTop(0);
-});
-
-// $('paper-checkbox').unbind().on('change',function(evt){
-//   // alert('clicked');
-//   var checked = evt.currentTarget.checked;
-//   var ans = evt.currentTarget.label_;
-//   // console.log(evt.currentTarget.parentElement);
-//   var tmp = evt.currentTarget.parentElement.id.split('_');
-//   var tid = tmp[0];
-//
-//   if(!checked){
-//     Meteor.call('removeCHK',tid,ans,Session.get('usr'));
-//     var tmp = Session.get(tid);
-//     tmp.splice(tmp.indexOf(ans),1);
-//     Session.set(tid,tmp);
-//
-//
-//   }else{
-//     var tmp = Session.get(tid);
-//     tmp.push(ans);
-//     Session.set(tid,tmp);
-//
-//     Meteor.call('saveCHK',tid,ans,Session.get('usr'));
-//   }
-//
-// });
-
-
 }
 
-
-
 Template.CHK.helpers({
-
+  showBtn:function(){
+    if(Session.get('params').surveyType == 'DB'){return false;}
+    else{return true;}
+  },
   visible: function(){
     if(Template.parentData().dependsOn){
       try{

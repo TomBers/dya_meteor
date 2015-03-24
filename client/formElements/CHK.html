@@ -1,5 +1,8 @@
 <template name='CHK'>
 
+  <div class="shadow" id="{{_id}}_card">
+
+  <div class='qnAns'>
 <h1>{{title}}</h1>
 
 {{#each opts}}
@@ -10,7 +13,16 @@
 {{/if}}
 
 {{/each}}
+
+{{#if showBtn}}
 <div class='hider'>
 Ok
+</div>
+{{/if}}
+</div>
+<div class='graphRight'>
+      {{> graph}}
+</div>
+
 </div>
 </template>

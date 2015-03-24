@@ -1,17 +1,59 @@
 Votes = new Mongo.Collection("votes");
 Comments = new Mongo.Collection("comments");
-Debates = new Mongo.Collection("debates");
+Questions = new Mongo.Collection("questions");
 History = new Mongo.Collection("history");
 Count = new Mongo.Collection("count");
+Survey = new Mongo.Collection("survey");
 
-
-Debates.allow({
+Survey.allow({
   insert: function () { return true; },
   update: function () { return true; },
   remove: function () { return true; }
 });
 
-Debates.attachSchema(new SimpleSchema({
+Survey.attachSchema(new SimpleSchema({
+  title: {
+    type: String,
+    label: "Title",
+    max: 200
+  },
+  surveyType: {
+    type: String,
+    label: "Survey Type",
+    autoform: {
+      afFieldInput: {
+        type: "select",
+       options: function () {
+         return [
+           {label: "Continuous Scrolling", value: 'CS'},
+           {label: "Single Page", value: 'SP'},
+           {label: "Debate", value: 'DB'}
+         ];
+       }
+      }
+    }
+  },
+  noPages: {
+   type: Number,
+   label: "Number of Pages",
+   min: 0
+ },
+ endLink: {
+   type: String,
+   label: "End Link",
+   max: 200
+ }
+  }));
+// surveyType:'SV',survey:this.params._id,noPages:4,endLink:'http://bbc.co.uk'
+
+
+Questions.allow({
+  insert: function () { return true; },
+  update: function () { return true; },
+  remove: function () { return true; }
+});
+
+Questions.attachSchema(new SimpleSchema({
   title: {
     type: String,
     label: "Title",
@@ -39,22 +81,6 @@ Debates.attachSchema(new SimpleSchema({
    label: "Depends On",
    max: 200
  },
- showBtn: {
-   type: Boolean,
-   label: "Show next button",
-   autoform: {
-     afFieldInput: {
-       type: "select",
-      options: function () {
-        return [
-          {label: "Yes", value: true},
-          {label: "No", value: false},
-        ];
-      }
-     }
-   }
- },
-
 
  type: {
    type: String,

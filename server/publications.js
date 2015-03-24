@@ -1,5 +1,5 @@
-Meteor.publish("debates", function () {
-    return Debates.find();
+Meteor.publish("Questions", function () {
+    return Questions.find();
   });
 
 

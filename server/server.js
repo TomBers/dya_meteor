@@ -28,9 +28,9 @@ Meteor.methods({
   makeDebate: function(title,ac,nc,dc,url,did){
     var dte = new Date();
     if (did == ''){
-    return Debates.insert({title:title,ac:ac,nc:nc,dc:dc,url:url,DateTime:dte});
+    return Questions.insert({title:title,ac:ac,nc:nc,dc:dc,url:url,DateTime:dte});
   }else{
-    return Debates.update({_id:did},{_id:did,title:title,ac:ac,nc:nc,dc:dc,url:url,DateTime:dte},{upsert:false});
+    return Questions.update({_id:did},{_id:did,title:title,ac:ac,nc:nc,dc:dc,url:url,DateTime:dte},{upsert:false});
   }
 },
 clearDebate: function(debate,del){
@@ -38,7 +38,7 @@ clearDebate: function(debate,del){
   Votes.remove({debate:debate});
   History.remove({debate:debate});
   if(del){
-  Debates.remove({_id:debate});
+  Questions.remove({_id:debate});
 }
 }
 });

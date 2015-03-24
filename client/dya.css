@@ -6,8 +6,25 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
   border-left:1px solid black;
   box-shadow: 10px 10px 5px #888888;
   margin-bottom:15px;
-  padding-left:20px;
+  padding-left:0px;
 }
+.shadow:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+.qnAns{
+  float: left;
+  width: 64%;
+  border:1px solid blue;
+}
+.graphRight{
+  border:1px solid red;
+  float: right;
+    width: 30%;
+  margin-right:5%;
+}
+
 img {
   height:auto;
   max-width:300px;
@@ -25,8 +42,10 @@ h1{
 .hider{
 
   font-size:1.5em;
+  max-width:300px;
+  margin:0 auto;
   display:block;
-  border-top:1px solid black;
+  border:1px solid black;
   text-align:center;
   margin-top:20px;
 }
@@ -44,7 +63,7 @@ h1{
   margin:5px;
   border:1px solid black;
 }
-.checked{
+.chk:hover,.rdo:hover,.hider:hover,.checked{
   color:white;
   background-color:black;
 }
@@ -96,5 +115,19 @@ label{
     top:8px;
     /*top:-40px;
     left:10px;*/
+  }
+  .shadow{
+
+    width:100%;
+    border-top:none;
+    border-left:none;
+    box-shadow: none;
+    margin-bottom:15px;
+    padding-left:5px;
+  }
+  .qnAns,.graphRight{
+    float: none;
+    width: auto;
+
   }
 }
