@@ -1,6 +1,8 @@
 Router.configure({
 layoutTemplate: 'layout',
-waitOn: function() { return Meteor.subscribe('Questions'); },
+waitOn: function() {
+  Meteor.subscribe('Survey');
+  return Meteor.subscribe('Questions'); },
   fastRender: true
 // data: function() {
 //   return {Questions : Questions.find().fetch()}
@@ -33,13 +35,26 @@ Router.map(function() {
     }
   });
 
+  this.route('/makeSurvey', {
+    path: '/makeSurvey',
+    template: 'makeSurvey'
+  });
+
   this.route('/editSurvey', {
     path: '/editSurvey/:_id',
     template: 'editSurvey',
     data: function() {
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+      return Survey.findOne({title:this.params._id});
     }
   });
+
+  // this.route('/editSurvey', {
+  //   path: '/editSurvey/:_id',
+  //   template: 'editSurvey',
+  //   data: function() {
+  //     return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+  //   }
+  // });
 
 
 
@@ -88,8 +103,8 @@ Router.map(function() {
     path: '/:_id/:page',
     template: 'dya',
     data: function() {
-      var tparam = {surveyType:'SV',survey:this.params._id,noPages:4,endLink:'http://bbc.co.uk'};
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch(),params:tparam};
+
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });
 
@@ -97,8 +112,7 @@ Router.map(function() {
     path: '/:_id',
     template: 'dya',
     data: function() {
-      var tparam = {surveyType:'SV',noPages:4,survey:this.params._id};
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch(),params:tparam};
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });
   this.route('results', {

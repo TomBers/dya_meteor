@@ -27,6 +27,7 @@ Template.dya.helpers({
 })
 
 Template.dya.rendered = function(){
+  console.log(this.data.params);
   Session.set('params',this.data.params);
   // if(!this.data.params.showLND){Session.set('started',true);}
 }
@@ -40,12 +41,12 @@ Template.dya.events({
   'click .hider,.starter':function(e,template){
     Session.set('started',true);
 
-    if(Session.get('params').surveyType == 'SV'){
+    if(Session.get('params').surveyType == 'SP'){
       Session.set('page',Session.get('page')+1);
 
 
       if(Session.get('page') <= Session.get('params').noPages){
-        Router.go('/'+Session.get('params').survey+'/'+Session.get('page'));
+        Router.go('/'+Session.get('params').title+'/'+Session.get('page'));
       }else{
         window.location = Session.get('params').endLink;
       }

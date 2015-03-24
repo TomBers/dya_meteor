@@ -18,3 +18,6 @@ Meteor.publish("Questions", function () {
         Meteor.publish("count", function () {
             return Count.find();
           });
+          Meteor.publish("Survey", function () {
+              return Survey.find();
+            });
