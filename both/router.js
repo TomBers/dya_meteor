@@ -17,13 +17,18 @@ Router.map(function() {
     template: 'home'
   });
 
-  this.route('/create', {
-    path: '/create',
-    template: 'create'
-  });
+  // this.route('/create', {
+  //   path: '/create',
+  //   template: 'create'
+  // });
+
+
   this.route('/makeQn', {
-    path: '/makeQn',
-    template: 'makeQn'
+    path: '/makeQn/:_id',
+    template: 'makeQn',
+    data: function(){
+      return {survey:this.params._id};
+    }
   });
 
   this.route('/editQn', {
@@ -96,6 +101,30 @@ Router.map(function() {
     template: 'del',
     data: function() {
       return this.params._id;
+    }
+  });
+
+  this.route('debate', {
+    path: '/debate/:_id',
+    template: 'dya',
+    data: function() {
+      console.log('debate');
+      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}}).fetch();
+      var tmpParam = Survey.findOne({title:this.params._id});
+      tmpParam.surveyType = "DB";
+      console.log(tmpParam);
+      return {questions : tmpQ,params:tmpParam};
+    }
+  });
+
+  this.route('tablet', {
+    path: '/tablet/:_id',
+    template: 'dya',
+    data: function() {
+      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}}).fetch();
+      var tmpParam = Survey.findOne({title:this.params._id});
+      tmpParam.surveyType ='CS';
+      return {questions : tmpQ,params:tmpParam};
     }
   });
 
