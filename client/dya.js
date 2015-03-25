@@ -1,7 +1,8 @@
 // Session.setDefault('started',false);
 Session.setDefault('started',false);
-Session.setDefault('usr',Math.random());
+Session.setDefaultPersistent('usr',Math.random())
 Session.setDefault('page',0);
+Session.setDefault('surveyLength',0);
 Session.setDefault('params',null);
 
 Template.dya.helpers({
@@ -21,22 +22,28 @@ Template.dya.helpers({
     return Session.get('started');
   },
   showFinish:function(){
+    try{
     if(Session.get('params').surveyType == 'CS' && Session.get('started')){return true;}
     else{return false;}
+  }catch(e){}
+  return false;
   }
 })
 
 Template.dya.rendered = function(){
-  console.log(this.data.params);
   Session.set('params',this.data.params);
-  // if(!this.data.params.showLND){Session.set('started',true);}
+  Session.set('surveyLength',this.data.questions.length);
+
 }
 
 Template.dya.events({
   'click button.finished':function(e,template){
-    Session.keys = {};
+    var tmpS = Session.get('params');
+    // Session.keys = {};
+    Session.clear();
     Session.setDefault('started',false);
-    Session.setDefault('usr',Math.random());
+    Session.setPersistent('usr',Math.random());
+    Session.set('params',tmpS);
   },
   'click .hider,.starter':function(e,template){
     Session.set('started',true);
@@ -44,12 +51,15 @@ Template.dya.events({
     if(Session.get('params').surveyType == 'SP'){
       Session.set('page',Session.get('page')+1);
 
-
-      if(Session.get('page') <= Session.get('params').noPages){
-        Router.go('/'+Session.get('params').title+'/'+Session.get('page'));
+      if(Session.get('page') >= Session.get('surveyLength') ){
+        window.location.assign(Session.get('params').endLink);
       }else{
-        window.location = Session.get('params').endLink;
+        Router.go('/'+Session.get('params').title+'/'+Session.get('page'));
       }
+
+
+
+
     }else{
       // console.log(e);
     $('#'+e.currentTarget.parentNode.parentNode.id).hide();

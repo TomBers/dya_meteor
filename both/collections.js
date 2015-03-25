@@ -33,11 +33,6 @@ Survey.attachSchema(new SimpleSchema({
       }
     }
   },
-  noPages: {
-   type: Number,
-   label: "Number of Pages",
-   min: 0
- },
  endLink: {
    type: String,
    label: "End Link",
@@ -106,6 +101,15 @@ Questions.attachSchema(new SimpleSchema({
         type: "text"
       }
     }
-  }
+  },
+  cols: {
+     type: [String],
+     optional: true,
+     autoform: {
+       afFieldInput: {
+         type: "text"
+       }
+     }
+   }
 
 }));

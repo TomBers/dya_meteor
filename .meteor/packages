@@ -10,3 +10,4 @@ iron:router
 meteorhacks:fast-render
 aldeed:autoform
 aldeed:collection2
+u2622:persistent-session

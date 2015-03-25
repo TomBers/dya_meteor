@@ -48,6 +48,8 @@ Template.graph.rendered = function(){
 
 
     var options = {
+      donut: true
+      ,donutWidth:90,
     labelInterpolationFnc: function(value) {
       return value[0]
     }
@@ -63,8 +65,8 @@ Template.graph.rendered = function(){
       }
     }],
     ['screen and (min-width: 1024px)', {
-      labelOffset: 80,
-      chartPadding: 20
+      labelOffset: -20,
+      chartPadding: 0
     }]
   ];
 
@@ -72,6 +74,7 @@ Template.graph.rendered = function(){
     var sum = function(a, b) { return a + b };
 
     new Chartist.Pie('#'+qn, data,options,responsiveOptions);
+
 
 
   });

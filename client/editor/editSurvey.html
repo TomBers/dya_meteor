@@ -1,4 +1,12 @@
 <template name='editSurvey'>
 
+{{#with survey}}
   {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update'}}
+{{/with}}
+
+  {{#each questions}}
+  {{title}} <a href='/editQn/{{_id}}'>edit</a><br><br>
+  {{/each}}
+  <br><br>
+  <a href='/makeQn/'>Add Question</a>
 </template>

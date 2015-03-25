@@ -44,7 +44,7 @@ Router.map(function() {
     path: '/editSurvey/:_id',
     template: 'editSurvey',
     data: function() {
-      return Survey.findOne({title:this.params._id});
+      return {survey:Survey.findOne({title:this.params._id}), questions: Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
     }
   });
 
@@ -103,8 +103,10 @@ Router.map(function() {
     path: '/:_id/:page',
     template: 'dya',
     data: function() {
+      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch();
+      var tmpParam = Survey.findOne({title:this.params._id});
+      return {questions : tmpQ,params:tmpParam};
 
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });
 
