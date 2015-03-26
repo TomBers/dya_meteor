@@ -1,6 +1,6 @@
-// Session.setDefault('started',false);
+Session.setDefaultPersistent('usr', Random.fraction());
+
 Session.setDefault('started',false);
-Session.setDefaultPersistent('usr',Math.random())
 Session.setDefault('page',0);
 Session.setDefault('surveyLength',0);
 Session.setDefault('params',null);
@@ -42,7 +42,7 @@ Template.dya.events({
     // Session.keys = {};
     Session.clear();
     Session.setDefault('started',false);
-    Session.setPersistent('usr',Math.random());
+    Session.update('usr', Random.fraction());
     Session.set('params',tmpS);
   },
   'click .hider,.starter':function(e,template){

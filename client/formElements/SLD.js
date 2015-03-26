@@ -1,5 +1,3 @@
-Session.setDefault('usr',Math.random());
-
 Template.SLD.helpers({
 
   sldLabel: function(){
