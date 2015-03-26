@@ -40,8 +40,8 @@ Router.map(function() {
     }
   });
 
-  this.route('/makeSurvey', {
-    path: '/makeSurvey',
+  this.route('/createSurvey', {
+    path: '/createSurvey',
     template: 'makeSurvey'
   });
 

@@ -35,6 +35,7 @@ Survey.attachSchema(new SimpleSchema({
   },
  endLink: {
    type: String,
+   optional: true,
    label: "End Link",
    max: 200
  }
