@@ -1,13 +1,15 @@
 <template name="comment">
   <div id="cmmtBox">
-  <input type="text" is="core-input" placeholder="Comment" aria-label="Comment" class="the_item">
-  <core-icon-button icon="arrow-forward" title="arrow-forward" id='cmmt'></core-icon-button>
+    <textarea rows="4" cols="50" placeholder="Comment">
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+</textarea>
+<div class='cmmt'>
+Comment
+</div>
 </div>
 <div id='cmmtCont'>
   {{#each comments}}
-  <paper-shadow class="card comment {{side}}" z="4">
     {{comment}}
-    </paper-shadow>
   {{/each}}
 </div>
 </template>

@@ -2,13 +2,33 @@ Meteor.methods({
   vote: function(debate,usr,val) {
     Votes.update({debate:debate,usr:usr},{debate:debate,usr:usr,side:val},{upsert:true});
     var dte = new Date();
-    History.insert({debate:debate
+    analysis.insert({debate:debate
       ,usr:usr
       ,agree:Votes.find({debate:debate,side:'Agree'}).fetch().length
       ,neutral:Votes.find({debate:debate,side:'Neutral'}).fetch().length
       ,disagree:Votes.find({debate:debate,side:'Disagree'}).fetch().length
       ,DateTime:dte
       });
+  },
+  regInterest: function(qn,usr,dat,rate){
+    var dte = new Date();
+    var nT = 0;
+    try{
+    var tTot = Analysis.find({question:qn,res:dat,rating:rate},{sort: {DateTime:-1},limit:1}).fetch();
+    // console.log(tTot);
+    nT = ++tTot[0].total;
+  }catch(e){
+    nT = 1;
+  }
+    return Analysis.insert({
+      question:qn
+      ,usr:usr
+      ,DateTime:dte
+      ,res:dat
+      ,rating:rate
+      ,total:nT
+      });
+
   },
   saveRes: function(qn,dat,usr){
     Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
@@ -36,7 +56,7 @@ Meteor.methods({
 clearDebate: function(debate,del){
   Comments.remove({debate:debate});
   Votes.remove({debate:debate});
-  History.remove({debate:debate});
+  analysis.remove({debate:debate});
   if(del){
   Questions.remove({_id:debate});
 }

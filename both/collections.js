@@ -1,7 +1,7 @@
 Votes = new Mongo.Collection("votes");
 Comments = new Mongo.Collection("comments");
 Questions = new Mongo.Collection("questions");
-History = new Mongo.Collection("history");
+Analysis = new Mongo.Collection("analysis");
 Count = new Mongo.Collection("count");
 Survey = new Mongo.Collection("survey");
 
@@ -77,7 +77,21 @@ Questions.attachSchema(new SimpleSchema({
    label: "Depends On",
    max: 200
  },
-
+ visible: {
+   type: Boolean,
+   label: "Is this visible?",
+   autoform: {
+     afFieldInput: {
+       type: "select",
+      options: function () {
+        return [
+          {label: "Yes", value: true},
+          {label: "No", value: false},
+        ];
+      }
+     }
+   }
+ },
  type: {
    type: String,
    label: "Type",
@@ -88,7 +102,8 @@ Questions.attachSchema(new SimpleSchema({
         return [
           {label: "Landing Page", value: 'LND'},
           {label: "Single Choice", value: 'RDO'},
-          {label: "Multiple Choice", value: 'CHK'}
+          {label: "Multiple Choice", value: 'CHK'},
+          {label: "Register Interest", value: 'RI'}
         ];
       }
      }

@@ -11,8 +11,8 @@ Meteor.publish("Questions", function () {
         return Comments.find();
       });
 
-      Meteor.publish("history", function () {
-          return History.find();
+      Meteor.publish("Analysis", function () {
+          return Analysis.find();
         });
 
         Meteor.publish("count", function () {

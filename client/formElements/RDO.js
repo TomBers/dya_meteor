@@ -1,14 +1,12 @@
 Template.RDO.helpers({
 showBtn:function(){
-  
+
   if(Session.get('params').surveyType == 'DB'){return false;}
   else{return true;}
 }});
 
 Template.RDO.events({
   'click .chk':function(e,template){
-    // alert('BOB');
-    // alert(e.currentTarget.id);
     template.$( ".chk.checked" ).removeClass( "checked" );
 
     e.currentTarget.className = 'chk checked';

@@ -65,7 +65,7 @@ Router.map(function() {
 
   this.route('analysis', {
     path: '/analysis/:_id',
-    template: 'history',
+    template: 'analysis',
     data: function() {
       return this.params._id;
     }
@@ -109,7 +109,7 @@ Router.map(function() {
     template: 'dya',
     data: function() {
       console.log('debate');
-      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}}).fetch();
+      var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch();
       var tmpParam = Survey.findOne({title:this.params._id});
       tmpParam.surveyType = "DB";
       console.log(tmpParam);
@@ -121,7 +121,7 @@ Router.map(function() {
     path: '/tablet/:_id',
     template: 'dya',
     data: function() {
-      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}}).fetch();
+      var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch();
       var tmpParam = Survey.findOne({title:this.params._id});
       tmpParam.surveyType ='CS';
       return {questions : tmpQ,params:tmpParam};
@@ -132,7 +132,7 @@ Router.map(function() {
     path: '/:_id/:page',
     template: 'dya',
     data: function() {
-      var tmpQ = Questions.find({survey:this.params._id},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch();
+      var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch();
       var tmpParam = Survey.findOne({title:this.params._id});
       return {questions : tmpQ,params:tmpParam};
 
@@ -143,7 +143,7 @@ Router.map(function() {
     path: '/:_id',
     template: 'dya',
     data: function() {
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
+      return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });
   this.route('results', {

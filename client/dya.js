@@ -18,10 +18,14 @@ Template.dya.helpers({
   isLND: function(){
     return this.type === 'LND' && !Session.get('started');
   },
+  isRI: function(){
+    return this.type === 'RI' && Session.get('started');
+  },
   started: function(){
     return Session.get('started');
   },
   showFinish:function(){
+  
     try{
     if(Session.get('params').surveyType == 'CS' && Session.get('started')){return true;}
     else{return false;}

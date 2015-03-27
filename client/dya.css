@@ -39,7 +39,7 @@ h1{
   min-height:50px;
   margin:25px auto;
 }
-.hider{
+.hider,.cmmt{
 
   font-size:1.5em;
   max-width:300px;
@@ -56,14 +56,14 @@ h1{
   text-align:center;
   margin-top:20px;
 }
-.chk{
+.chk,.scale{
   font-size:2.5em;
   display:inline-block;
   padding:20px;
   margin:5px;
   border:1px solid black;
 }
-.chk:hover,.rdo:hover,.hider:hover,.checked{
+.chk:hover,.rdo:hover,.hider:hover,.checked,.scale:hover{
   color:white;
   background-color:black;
 }
@@ -88,6 +88,14 @@ label{
   position: relative;
   top:-15px;
 }
+
+textarea {
+  display:block;
+  resize: none;
+  margin:20px auto;
+  font-size:2em;
+}
+
 
 .control-label{
   border:1px solid red;
