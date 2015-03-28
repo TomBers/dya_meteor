@@ -12,20 +12,32 @@ Meteor.subscribe('Analysis');
 Template.analysis.rendered = function(){
 
   this.autorun(function () {
-    var hist = Analysis.find({question:'JiekQBmn5qXA9nxrp'},{sort: {DateTime:1}}).fetch();
 
+    var hist = Analysis.find({question:this._templateInstance.data},{sort: {DateTime:1}}).fetch();
+    // console.log(hist);
+
+          // var res = [];
           var lbs = [];
           var rat = [];
           var series = [];
           var lastVal = [];
 
           hist.forEach(function(e){
+          //   if($.inArray(e.res, res) == '-1'){
+          //   res.push(res);
+          //   }
+
+
             if($.inArray(e.rating, rat) == '-1'){
               rat.push(e.rating);
               series[rat.indexOf(e.rating)] = [];
               lastVal[rat.indexOf(e.rating)] = 0;
             }
           });
+
+
+
+
           hist.forEach(function(e){
               lbs.push(e.DateTime.toLocaleTimeString());
 
@@ -77,6 +89,8 @@ new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
 
 
   });
+
+
 
 }
 
