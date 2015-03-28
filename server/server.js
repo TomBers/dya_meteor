@@ -41,6 +41,10 @@ Meteor.methods({
   removeCHK: function(qn,dat,usr){
     return Votes.remove({qn:qn,res:dat,usr:usr});
   },
+  makeComment: function(qn,usr,cmt,side,rank){
+    var dte = new Date();
+    Comments.insert({qn:qn,usr:usr,side:side,comment:cmt,rank:rank,DateTime:dte});
+  },
   comment: function(debate,usr,side,comment){
     var dte = new Date();
     Comments.insert({debate:debate,usr:usr,side:side,comment:comment,DateTime:dte});

@@ -1,7 +1,7 @@
 <template name='RI'>
   <div class="shadow" id="{{_id}}_card">
 
-<div>
+<div id="{{_id}}_PI">
     <h1>{{title}}</h1>
       {{#each opts}}
       <div class='chk' id='{{this}}'>
@@ -10,7 +10,7 @@
       {{/each}}
 </div>
 
-<div>
+<div id={{_id}}_RANK>
 <h1>How important is this?</h1>
 <div class='scale'>1</div>
 <div class='scale'>2</div>
@@ -21,7 +21,20 @@
 
 </div>
 
-{{> comment}}
+<div id={{_id}}_CMMT>
+  <h1>Would you like to comment?</h1>
+    <textarea rows="4" cols="50" placeholder="Comment"></textarea>
+<div class='cmmt'>
+Comment
+</div>
+
+<div class='skip'>
+Skip
+</div>
+
+</div>
+
+
 
 
 </div>
