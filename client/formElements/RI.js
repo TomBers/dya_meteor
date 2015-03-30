@@ -1,6 +1,7 @@
 Template.RI.rendered = function(){
 Session.setDefault(this.data._id,'');
 Session.setDefault(this.data._id+'_rank','');
+Session.setDefault(this.data._id+'_dya','');
 
 $('#'+this.data._id+'_RANK').hide();
 $('#'+this.data._id+'_CMMT').hide();
@@ -8,22 +9,24 @@ $('#'+this.data._id+'_CMMT').hide();
 }
 
 Template.RI.events({
-  'click .chk':function(e,template){
-    // alert('BOB');
-    // alert(e.currentTarget.id);
+  'click .chk.agree':function(e,template){
+  
+    // console.log(e.currentTarget.previousElementSibling.innerText);
     template.$( ".chk.checked" ).removeClass( "checked" );
-
-    e.currentTarget.className = 'chk checked';
-    Session.set(template.data._id,e.currentTarget.id);
+    e.currentTarget.className = 'chk agree checked';
+    Session.set(template.data._id,e.currentTarget.previousElementSibling.innerText);
+    Session.set(template.data._id+'_dya','Agree');
 
     $('#'+template.data._id+'_RANK').show();
+  },
+  'click .chk.disagree':function(e,template){
 
-    // Save Response
-    // Meteor.call('saveRes',template.data._id,e.currentTarget.id,Session.get('usr'));
+    template.$( ".chk.checked" ).removeClass( "checked" );
+    e.currentTarget.className = 'chk disagree checked';
+    Session.set(template.data._id,e.currentTarget.previousElementSibling.previousElementSibling.innerText);
+    Session.set(template.data._id+'_dya','Disagree');
 
-    // Get a agreement score
-
-    // Offer comment
+    $('#'+template.data._id+'_RANK').show();
   },
   'click .scale':function(e,template){
     template.$( ".chk.checked" ).removeClass( "checked" );
@@ -31,8 +34,10 @@ Template.RI.events({
     $('#'+template.data._id+'_PI').hide();
     $('#'+template.data._id+'_RANK').hide();
     $('#'+template.data._id+'_CMMT').show();
-    Session.set(template.data._id+'_rank',e.currentTarget.innerText);
-    Meteor.call('regInterest',template.data._id,Session.get('usr'),Session.get(template.data._id),e.currentTarget.innerText, function(e,d){
+    Session.set(template.data._id+'_rank', Session.get(template.data._id+'_dya')+' '+e.currentTarget.innerText);
+    var rank = Session.get(template.data._id+'_dya')+' '+e.currentTarget.innerText;
+
+    Meteor.call('regInterest',template.data._id,Session.get('usr'),Session.get(template.data._id),rank, function(e,d){
 
     });
 

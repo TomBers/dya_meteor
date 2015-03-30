@@ -12,83 +12,107 @@ Meteor.subscribe('Analysis');
 Template.analysis.rendered = function(){
 
   this.autorun(function () {
-
-    var hist = Analysis.find({question:this._templateInstance.data},{sort: {DateTime:1}}).fetch();
-    // console.log(hist);
-
-          // var res = [];
-          var lbs = [];
-          var rat = [];
-          var series = [];
-          var lastVal = [];
-
-          hist.forEach(function(e){
-          //   if($.inArray(e.res, res) == '-1'){
-          //   res.push(res);
-          //   }
+    var ratings = [{rating:'Agree Very Important',div:'avi'}
+    ,{rating:'Agree Somewhat Important',div:'asi'}
+    ,{rating:'Disagree Very Important',div:'dvi'}
+    ,{rating:'Disagree Somewhat Important',div:'dsi'}];
 
 
-            if($.inArray(e.rating, rat) == '-1'){
-              rat.push(e.rating);
-              series[rat.indexOf(e.rating)] = [];
-              lastVal[rat.indexOf(e.rating)] = 0;
-            }
-          });
+    var qn = this._templateInstance.data;
 
+    var options = {
+    seriesBarDistance: 15
+    };
 
-
-
-          hist.forEach(function(e){
-              lbs.push(e.DateTime.toLocaleTimeString());
-
-
-              for(var i = 0; i < rat.length;i++){
-                if(rat.indexOf(e.rating) == i){
-                  series[rat.indexOf(e.rating)].push(e.total);
-                  lastVal[i] = e.total;
-                }else{
-
-                  series[i].push(lastVal[i]);
-                }
-              }
-
-
-
-          });
-
-
-          var data = {
-            labels: lbs,
-            series: series
-          };
-
-var options = {
-  seriesBarDistance: 15
-};
-
-var responsiveOptions = [
-  ['screen and (min-width: 641px) and (max-width: 1024px)', {
-    seriesBarDistance: 10,
-    axisX: {
-      labelInterpolationFnc: function (value) {
-        return value;
+    var responsiveOptions = [
+    ['screen and (min-width: 641px) and (max-width: 1024px)', {
+      seriesBarDistance: 10,
+      axisX: {
+        labelInterpolationFnc: function (value) {
+          return value;
+        }
       }
-    }
-  }],
-  ['screen and (max-width: 640px)', {
-    seriesBarDistance: 5,
-    axisX: {
-      labelInterpolationFnc: function (value) {
-        return value[0];
+    }],
+    ['screen and (max-width: 640px)', {
+      seriesBarDistance: 5,
+      axisX: {
+        labelInterpolationFnc: function (value) {
+          return value[0];
+        }
       }
-    }
-  }]
-];
+    }]
+    ];
 
-new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+
+    ratings.forEach(function(e){
+
+      var data = drawDat(qn,e.rating,e.div);
+      new Chartist.Line('.'+e.div, data, options, responsiveOptions);
+    });
+
+
+
 
 
   });
+
+
+
+}
+
+function drawDat(qn,rating,div){
+
+  var hist = Analysis.find({question:qn,rating:rating},{sort: {DateTime:1}}).fetch();
+
+        var res = [];
+        var lbs = [];
+        var rat = [];
+        var series = [];
+        var lastVal = [];
+
+        hist.forEach(function(e){
+        //   if($.inArray(e.res, res) == '-1'){
+        //   res.push(res);
+        //   }
+
+
+          if($.inArray(e.res, res) == '-1'){
+            res.push(e.res);
+            series[res.indexOf(e.res)] = [];
+            lastVal[res.indexOf(e.res)] = 0;
+          }
+        });
+
+
+
+
+        hist.forEach(function(e){
+            lbs.push(e.DateTime.toLocaleTimeString());
+
+
+            for(var i = 0; i < res.length;i++){
+              if(res.indexOf(e.res) == i){
+                series[res.indexOf(e.res)].push(e.total);
+                lastVal[i] = e.total;
+              }else{
+
+                series[i].push(lastVal[i]);
+              }
+            }
+
+
+
+        });
+
+
+        return {
+          labels: lbs,
+          series: series
+        };
+
+
+
+
 
 
 
