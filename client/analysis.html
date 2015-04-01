@@ -1,15 +1,71 @@
 <template name="analysis">
+<style>
+.Very{
+  border-left:10px solid red;
+}
 
-<h1>Agree Very Important</h1>
+.ct-chart .ct-series.ct-series-a .ct-line,.ct-chart .ct-series.ct-series-a .ct-point{
+  stroke:#{{cols.[0]}};
+}
+.ct-chart .ct-series.ct-series-b .ct-line,.ct-chart .ct-series.ct-series-b .ct-point{
+  stroke:#{{cols.[1]}};
+}
+.ct-chart .ct-series.ct-series-c .ct-line,.ct-chart .ct-series.ct-series-c .ct-point{
+  stroke:#{{cols.[2]}};
+}
+.ct-chart .ct-series.ct-series-d .ct-line,.ct-chart .ct-series.ct-series-d .ct-point{
+  stroke:#{{cols.[3]}};
+}
+.ct-chart .ct-series.ct-series-e .ct-line,.ct-chart .ct-series.ct-series-e .ct-point{
+  stroke:#{{cols.[4]}};
+}
+.ct-chart .ct-series.ct-series-f .ct-line,.ct-chart .ct-series.ct-series-f .ct-point{
+  stroke:#{{cols.[5]}};
+}
+.ct-chart .ct-series.ct-series-g .ct-line,.ct-chart .ct-series.ct-series-g .ct-point{
+  stroke:#{{cols.[6]}};
+}
+.ct-chart .ct-series.ct-series-h .ct-line,.ct-chart .ct-series.ct-series-h .ct-point{
+  stroke:#{{cols.[7]}};
+}
+
+
+</style>
+
+
+
+  <h1>Agree Very Important</h1>
   <div class='ct-chart avi' ></div>
+  {{#each keys 'Agree Very Important'}}
+  <div style='color:#{{setCol}}'>{{label}}</div>
+  {{/each}}
 
   <h1>Agree Somewhat Important</h1>
-    <div class='ct-chart asi' ></div>
+  <div class='ct-chart asi' ></div>
+  {{#each keys 'Agree Somewhat Important'}}
+  <div style='color:#{{setCol}}'>{{label}}</div>
+  {{/each}}
 
-    <h1>Disagree Very Important</h1>
-      <div class='ct-chart dvi' ></div>
+  <h1>Disagree Very Important</h1>
+  <div class='ct-chart dvi' ></div>
+  {{#each keys 'Disagree Very Important'}}
+  <div style='color:#{{setCol}}'>{{label}}</div>
+  {{/each}}
 
-      <h1>Disgree Somewhat Important</h1>
-        <div class='ct-chart dsi' ></div>
+  <h1>Disagree Somewhat Important</h1>
+  <div class='ct-chart dsi' ></div>
+  {{#each keys 'Disagree Somewhat Important'}}
+  <div style='color:#{{setCol}}'>{{label}}</div>
+  {{/each}}
+
+  <div class='commentBox'>
+    <h1>Comments</h1>
+    {{#each comments}}
+    <div class='{{rank}}' style='border-right:5px solid #{{col side}}'>
+    {{comment}}
+  </div>
+    {{/each}}
+  </div>
+
 
 </template>

@@ -14,8 +14,8 @@ Template.graph.helpers({
 // });
 
 Template.graph.rendered = function(){
-  Meteor.subscribe('votes');
-  Meteor.subscribe('count');
+  Meteor.subscribe('Votes');
+  Meteor.subscribe('Count');
 //   Session.set(this.data._id)
 // console.log(this);
   // console.log(this.data._id);
@@ -23,29 +23,26 @@ Template.graph.rendered = function(){
 
   this.autorun(function (template) {
     var qn = this._templateInstance.data._id;
+    var labels = this._templateInstance.data.opts;
 
     // console.log(template);
     // console.log(this);
     var responses = Votes.find({qn:qn},{fields :{res :1 }}).fetch();
-    var all = [];
+
+    var series = [];
+    for(i = 0;i < labels.length;i++){
+      series[i] = 0;
+    }
+    var cnt = 0;
     responses.forEach(function(key,value){
-      all.push(key.res);
+      series[labels.indexOf(key.res)]++;
+      cnt++;
     });
 
-    var fdat = formatAndCount(all);
-    Session.set(qn+'_res',fdat);
-    // var data = {
-    //   labels : fdat[0],
-    //   series : [ fdat[1] ]
-    // };
-    // console.log(fdat);
-
     var data = {
-      labels: fdat[0],
-      series: fdat[1]
+      labels: labels,
+      series: series
     };
-
-
 
     var options = {
       donut: true
@@ -72,29 +69,12 @@ Template.graph.rendered = function(){
 
 
     var sum = function(a, b) { return a + b };
-
+    if(cnt > 0){
     new Chartist.Pie('#'+qn, data,options,responsiveOptions);
-
+  }
 
 
   });
 
 
-}
-
-function formatAndCount(arr) {
-  var a = [], b = [], prev;
-
-  arr.sort();
-  for ( var i = 0; i < arr.length; i++ ) {
-    if ( arr[i] !== prev ) {
-      a.push(arr[i]);
-      b.push(1);
-    } else {
-      b[b.length-1]++;
-    }
-    prev = arr[i];
-  }
-
-  return [a, b];
 }

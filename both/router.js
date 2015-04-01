@@ -67,7 +67,7 @@ Router.map(function() {
     path: '/analysis/:_id',
     template: 'analysis',
     data: function() {
-      return this.params._id;
+      return Questions.findOne({_id:this.params._id});
     }
   });
 

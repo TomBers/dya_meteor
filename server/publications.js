@@ -3,11 +3,11 @@ Meteor.publish("Questions", function () {
   });
 
 
-  Meteor.publish("votes", function () {
+  Meteor.publish("Votes", function () {
       return Votes.find();
     });
 
-    Meteor.publish("comments", function () {
+    Meteor.publish("Comments", function () {
         return Comments.find();
       });
 
@@ -15,7 +15,7 @@ Meteor.publish("Questions", function () {
           return Analysis.find();
         });
 
-        Meteor.publish("count", function () {
+        Meteor.publish("Count", function () {
             return Count.find();
           });
           Meteor.publish("Survey", function () {

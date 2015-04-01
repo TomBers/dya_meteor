@@ -1,15 +1,35 @@
-// Session.setDefault('dbtID',0);
+Session.setDefault('cols',null);
+Session.setDefault('opts',null);
 Meteor.subscribe('Analysis');
-// Meteor.subscribe('Questions');
+Meteor.subscribe('Comments');
 //
-// Template.analysis.helpers({
-//   debate: function(){
-//     return Questions.findOne({_id:Session.get('dbtID')});
-//   }
-// });
-//
-//
+Template.analysis.helpers({
+  comments: function(){
+    return Comments.find({qn:this._id});
+  },
+  col: function(opt){
+    var t = Session.get('opts').indexOf(opt);
+    return Session.get('cols')[t];
+  },
+  cols:function(){
+    return Session.get('cols');
+  },
+  keys:function(opt){
+    var tmp =[];
+    var i =0;
+    Session.get('opts').forEach(function(e){
+      // var tc =
+      tmp.push({label:e,setCol:Session.get('cols')[i]});
+      i++;
+    });
+    return tmp;
+  }
+});
+
 Template.analysis.rendered = function(){
+
+  Session.set('cols',this.data.cols);
+  Session.set('opts',this.data.opts);
 
   this.autorun(function () {
     var ratings = [{rating:'Agree Very Important',div:'avi'}
@@ -17,8 +37,8 @@ Template.analysis.rendered = function(){
     ,{rating:'Disagree Very Important',div:'dvi'}
     ,{rating:'Disagree Somewhat Important',div:'dsi'}];
 
-
-    var qn = this._templateInstance.data;
+    // console.log(this);
+    var qn = this._templateInstance.data._id;
 
     var options = {
     seriesBarDistance: 15
@@ -45,9 +65,12 @@ Template.analysis.rendered = function(){
 
 
     ratings.forEach(function(e){
+      var data = drawDat(qn,e.rating);
 
-      var data = drawDat(qn,e.rating,e.div);
+    if(data.labels.length > 0){
       new Chartist.Line('.'+e.div, data, options, responsiveOptions);
+  }
+
     });
 
 
@@ -60,48 +83,31 @@ Template.analysis.rendered = function(){
 
 }
 
-function drawDat(qn,rating,div){
+function drawDat(qn,rating){
 
   var hist = Analysis.find({question:qn,rating:rating},{sort: {DateTime:1}}).fetch();
+  var lbs = [];
+  var series = [];
+  var lastVal = [];
+  var sides = Session.get('opts');
 
-        var res = [];
-        var lbs = [];
-        var rat = [];
-        var series = [];
-        var lastVal = [];
-
-        hist.forEach(function(e){
-        //   if($.inArray(e.res, res) == '-1'){
-        //   res.push(res);
-        //   }
-
-
-          if($.inArray(e.res, res) == '-1'){
-            res.push(e.res);
-            series[res.indexOf(e.res)] = [];
-            lastVal[res.indexOf(e.res)] = 0;
-          }
-        });
-
-
-
+      for(j=0 ; j < sides.length; j++){
+        series[j] = [];
+        lastVal[j] = 0;
+      }
+        // console.log(sides.indexOf('SNP'));
 
         hist.forEach(function(e){
             lbs.push(e.DateTime.toLocaleTimeString());
 
-
-            for(var i = 0; i < res.length;i++){
-              if(res.indexOf(e.res) == i){
-                series[res.indexOf(e.res)].push(e.total);
+            for(var i = 0; i < sides.length;i++){
+              if(sides.indexOf(e.res) == i){
+                series[sides.indexOf(e.res)].push(e.total);
                 lastVal[i] = e.total;
               }else{
-
                 series[i].push(lastVal[i]);
               }
             }
-
-
-
         });
 
 

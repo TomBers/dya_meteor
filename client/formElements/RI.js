@@ -10,7 +10,7 @@ $('#'+this.data._id+'_CMMT').hide();
 
 Template.RI.events({
   'click .chk.agree':function(e,template){
-  
+
     // console.log(e.currentTarget.previousElementSibling.innerText);
     template.$( ".chk.checked" ).removeClass( "checked" );
     e.currentTarget.className = 'chk agree checked';
@@ -18,6 +18,7 @@ Template.RI.events({
     Session.set(template.data._id+'_dya','Agree');
 
     $('#'+template.data._id+'_RANK').show();
+    $('#'+template.data._id+'_PI').hide();
   },
   'click .chk.disagree':function(e,template){
 
@@ -27,6 +28,7 @@ Template.RI.events({
     Session.set(template.data._id+'_dya','Disagree');
 
     $('#'+template.data._id+'_RANK').show();
+    $('#'+template.data._id+'_PI').hide();
   },
   'click .scale':function(e,template){
     template.$( ".chk.checked" ).removeClass( "checked" );
