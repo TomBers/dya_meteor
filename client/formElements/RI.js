@@ -9,7 +9,7 @@ $('#'+this.data._id+'_CMMT').hide();
 }
 
 Template.RI.events({
-  'click .chk.agree':function(e,template){
+  'click .chk.agree, .hider, touchstart .chk.agree, .hider':function(e,template){
 
     // console.log(e.currentTarget.previousElementSibling.innerText);
     template.$( ".chk.checked" ).removeClass( "checked" );
@@ -20,7 +20,7 @@ Template.RI.events({
     $('#'+template.data._id+'_RANK').show();
     $('#'+template.data._id+'_PI').hide();
   },
-  'click .chk.disagree':function(e,template){
+  'click .chk.disagree, touchstart .chk.disagree':function(e,template){
 
     template.$( ".chk.checked" ).removeClass( "checked" );
     e.currentTarget.className = 'chk disagree checked';
@@ -30,7 +30,7 @@ Template.RI.events({
     $('#'+template.data._id+'_RANK').show();
     $('#'+template.data._id+'_PI').hide();
   },
-  'click .scale':function(e,template){
+  'click .scale, touchstart .scale':function(e,template){
     template.$( ".chk.checked" ).removeClass( "checked" );
 
     $('#'+template.data._id+'_PI').hide();
@@ -48,7 +48,7 @@ Template.RI.events({
     // console.log(e);
     // console.log(template);
   },
-  'click .cmmt':function(e,template){
+  'click .cmmt, touchstart .cmmt':function(e,template){
     var cmt = template.find('textarea').value;
     var qn = template.data._id;
     var side = Session.get(template.data._id);
@@ -61,7 +61,7 @@ Template.RI.events({
     $('#'+template.data._id+'_CMMT').hide();
 
   },
-  'click .skip':function(e,template){
+  'click .skip, touchstart .skip':function(e,template){
     template.find('textarea').value='';
     $('#'+template.data._id+'_PI').show();
     $('#'+template.data._id+'_RANK').hide();

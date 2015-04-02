@@ -25,7 +25,7 @@ Template.dya.helpers({
     return Session.get('started');
   },
   showFinish:function(){
-  
+
     try{
     if(Session.get('params').surveyType == 'CS' && Session.get('started')){return true;}
     else{return false;}
@@ -41,7 +41,7 @@ Template.dya.rendered = function(){
 }
 
 Template.dya.events({
-  'click button.finished':function(e,template){
+  'click button.finished, touchstart button.finished':function(e,template){
     var tmpS = Session.get('params');
     // Session.keys = {};
     Session.clear();
@@ -49,7 +49,7 @@ Template.dya.events({
     Session.update('usr', Random.fraction());
     Session.set('params',tmpS);
   },
-  'click .hider,.starter':function(e,template){
+  'click .hider,.starter, touchstart .hider,.starter':function(e,template){
     Session.set('started',true);
 
     if(Session.get('params').surveyType == 'SP'){

@@ -6,7 +6,8 @@ showBtn:function(){
 }});
 
 Template.RDO.events({
-  'click .chk':function(e,template){
+  'click .chk, touchstart .chk':function(e,template){
+    // e.preventDefault();
     template.$( ".chk.checked" ).removeClass( "checked" );
 
     e.currentTarget.className = 'chk checked';

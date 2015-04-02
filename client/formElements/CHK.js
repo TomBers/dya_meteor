@@ -22,7 +22,7 @@ Template.CHK.helpers({
 })
 
 Template.CHK.events({
-  'click .chk':function(e,template){
+  'click .chk, touchstart .chk':function(e,template){
 
     var checked = e.currentTarget.className.split(' ')[1];
 
