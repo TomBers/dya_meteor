@@ -3,14 +3,15 @@ Session.setDefault(this.data._id,'');
 Session.setDefault(this.data._id+'_rank','');
 Session.setDefault(this.data._id+'_dya','');
 
+
 $('#'+this.data._id+'_RANK').hide();
 $('#'+this.data._id+'_CMMT').hide();
 
 }
 
 Template.RI.events({
-  'click .chk.agree, .hider, touchstart .chk.agree, .hider':function(e,template){
-
+  'click .chk.agree, .hider, touchend .chk.agree, .hider':function(e,template){
+    e.preventDefault()
     // console.log(e.currentTarget.previousElementSibling.innerText);
     template.$( ".chk.checked" ).removeClass( "checked" );
     e.currentTarget.className = 'chk agree checked';
@@ -19,9 +20,10 @@ Template.RI.events({
 
     $('#'+template.data._id+'_RANK').show();
     $('#'+template.data._id+'_PI').hide();
-  },
-  'click .chk.disagree, touchstart .chk.disagree':function(e,template){
 
+  },
+  'click .chk.disagree, touchend .chk.disagree':function(e,template){
+    e.preventDefault()
     template.$( ".chk.checked" ).removeClass( "checked" );
     e.currentTarget.className = 'chk disagree checked';
     Session.set(template.data._id,e.currentTarget.previousElementSibling.previousElementSibling.innerText);
@@ -29,8 +31,11 @@ Template.RI.events({
 
     $('#'+template.data._id+'_RANK').show();
     $('#'+template.data._id+'_PI').hide();
+
   },
-  'click .scale, touchstart .scale':function(e,template){
+  'click .scale, touchend .scale':function(e,template){
+    e.preventDefault()
+
     template.$( ".chk.checked" ).removeClass( "checked" );
 
     $('#'+template.data._id+'_PI').hide();
@@ -43,25 +48,31 @@ Template.RI.events({
 
     });
 
+
     // alert(Session.get(template.data._id));
     // alert(e.currentTarget.innerText);
     // console.log(e);
     // console.log(template);
   },
-  'click .cmmt, touchstart .cmmt':function(e,template){
+  'click .cmmt, touchend .cmmt':function(e,template){
+    e.preventDefault()
     var cmt = template.find('textarea').value;
+
+    if(cmt != ''){
     var qn = template.data._id;
     var side = Session.get(template.data._id);
     var rank = Session.get(template.data._id+'_rank');
 
     Meteor.call('makeComment',qn,Session.get('usr'),cmt,side,rank);
+  }
     template.find('textarea').value = '';
     $('#'+template.data._id+'_PI').show();
     $('#'+template.data._id+'_RANK').hide();
     $('#'+template.data._id+'_CMMT').hide();
 
   },
-  'click .skip, touchstart .skip':function(e,template){
+  'click .skip, touchend .skip':function(e,template){
+    e.preventDefault()
     template.find('textarea').value='';
     $('#'+template.data._id+'_PI').show();
     $('#'+template.data._id+'_RANK').hide();

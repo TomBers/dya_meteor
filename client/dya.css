@@ -103,6 +103,7 @@ label{
 }
 
 textarea {
+  max-width:100%;
   display:block;
   resize: none;
   margin:20px auto;
@@ -140,6 +141,10 @@ textarea {
     top:8px;
     /*top:-40px;
     left:10px;*/
+  }
+  textarea {
+    margin:0px auto;
+    font-size:1.2em;
   }
   .shadow{
 
