@@ -103,10 +103,10 @@ label{
 }
 
 textarea {
-  max-width:100%;
+  width:95%;
   display:block;
   resize: none;
-  margin:20px auto;
+  margin:0px auto;
   font-size:2em;
 }
 
