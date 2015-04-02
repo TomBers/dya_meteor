@@ -17,12 +17,14 @@ Template.analysis.helpers({
   keys:function(opt){
     var tmp =[];
     var i =0;
+    if(Session.get('opts')){
     Session.get('opts').forEach(function(e){
       // var tc =
       tmp.push({label:e,setCol:Session.get('cols')[i]});
       i++;
     });
     return tmp;
+  }else{return null;}
   }
 });
 
@@ -97,7 +99,12 @@ function drawDat(qn,rating){
       }
         // console.log(sides.indexOf('SNP'));
 
+        var div = Math.floor(hist.length/15);
+      
+        var cnt = 0;
+
         hist.forEach(function(e){
+          if((cnt % div) == 0 || div == 0){
             lbs.push(e.DateTime.toLocaleTimeString());
 
             for(var i = 0; i < sides.length;i++){
@@ -108,7 +115,10 @@ function drawDat(qn,rating){
                 series[i].push(lastVal[i]);
               }
             }
+          }
+          cnt++;
         });
+
 
 
         return {
