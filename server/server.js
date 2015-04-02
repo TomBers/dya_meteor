@@ -38,6 +38,10 @@ Meteor.methods({
     Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
     return Votes.insert({qn:qn,usr:usr,res:dat});
   },
+  changeVisible: function(qn,show){
+    return Questions.update({_id:qn},{$set:{visible:show}});
+    // return Votes.insert({qn:qn,usr:usr,res:dat});
+  },
   removeCHK: function(qn,dat,usr){
     return Votes.remove({qn:qn,res:dat,usr:usr});
   },

@@ -1,9 +1,24 @@
+
+
 Template.graph.helpers({
   cnt: function(){
     return Count.find({qn:this._id}).fetch().length;
   },
   res: function(){
     return Session.get(this._id+'_res');
+  },
+  keys:function(){
+    var tmp =[];
+    var i =0;
+    var cols = this.cols;
+    var count = Session.get(this._id);
+    // console.log(count);
+    this.opts.forEach(function(e){
+      // var tc =
+      tmp.push({label:e,setCol:cols[i],count:count[i]});
+      i++;
+    });
+    return tmp;
   }
 });
 
@@ -16,6 +31,9 @@ Template.graph.helpers({
 Template.graph.rendered = function(){
   Meteor.subscribe('Votes');
   Meteor.subscribe('Count');
+
+  Session.setDefault(this.data._id,null);
+
 //   Session.set(this.data._id)
 // console.log(this);
   // console.log(this.data._id);
@@ -39,6 +57,8 @@ Template.graph.rendered = function(){
       cnt++;
     });
 
+    Session.set(this._templateInstance.data._id,series);
+
     var data = {
       labels: labels,
       series: series
@@ -47,9 +67,10 @@ Template.graph.rendered = function(){
     var options = {
       donut: true
       ,donutWidth:90,
-    labelInterpolationFnc: function(value) {
-      return value[0]
-    }
+      showLabel: false
+    // labelInterpolationFnc: function(value) {
+    //   return value[0]
+    // }
   };
 
   var responsiveOptions = [
@@ -57,9 +78,9 @@ Template.graph.rendered = function(){
       chartPadding: 30,
       labelOffset: 100,
       labelDirection: 'explode',
-      labelInterpolationFnc: function(value) {
-        return value;
-      }
+      // labelInterpolationFnc: function(value) {
+      //   return value;
+      // }
     }],
     ['screen and (min-width: 1024px)', {
       labelOffset: -20,

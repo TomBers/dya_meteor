@@ -4,7 +4,14 @@
   {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update'}}
 {{/with}}
 
+<br><br><br>
+
   {{#each questions}}
+  <label class="isVisible">
+  <input type="checkbox" checked="{{visible}}" />
+  Visible
+</label>
+
   {{title}} <a href='/editQn/{{_id}}'>edit</a><br><br>
   {{/each}}
   <br><br>

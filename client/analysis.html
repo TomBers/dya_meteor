@@ -60,8 +60,10 @@
 
   <div class='commentBox'>
     <h1>Comments</h1>
+    <div class='Agree'>Agree</div>
+    <div class='Disagree'>Disagree</div>
     {{#each comments}}
-    <div class='{{rank}}' style='border-right:5px solid #{{col side}}'>
+    <div class='{{rank}}' style='color: #{{col side}}'>
     {{comment}}
   </div>
     {{/each}}

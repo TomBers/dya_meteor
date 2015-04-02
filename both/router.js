@@ -22,6 +22,13 @@ Router.map(function() {
   //   template: 'create'
   // });
 
+  this.route('results', {
+    path: '/results/:_id',
+    template: 'results',
+    data: function() {
+      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+    }
+  });
 
   this.route('/makeQn', {
     path: '/makeQn/:_id',
@@ -146,13 +153,7 @@ Router.map(function() {
       return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });
-  this.route('results', {
-    path: '/results/:_id',
-    template: 'results',
-    data: function() {
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
-    }
-  });
+
 
 
   // this.route('Questions', {

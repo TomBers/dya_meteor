@@ -1,7 +1,14 @@
 <template name='results'>
 
   {{#each questions}}
+  {{#if drawGraph type}}
+  <div class='graphBox'>
   {{title}}
   {{> graph}}
+</div>
+  {{else}}
+  <!-- {{> analysis}} -->
+
+  {{/if}}
   {{/each}}
 </template>

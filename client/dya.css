@@ -15,8 +15,21 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
 }
 .qnAns{
   float: left;
-  width: 64%;
-  border:1px solid blue;
+  width: 100%;
+  /*border:1px solid blue;*/
+}
+.commentBox{
+  font-size:1.2em;
+}
+.Agree{
+  padding-left:10px;
+  float: left;
+  width: 45%;
+}
+.Disagree{
+  padding-left:10px;
+  float: right;
+  width: 45%;
 }
 .graphRight{
   border:1px solid red;
@@ -96,7 +109,11 @@ textarea {
   font-size:2em;
 }
 
-
+.graphBox{
+  border:1px solid red;
+  display:inline-block;
+  width:400px;
+}
 .control-label{
   border:1px solid red;
   display:inline-block;
