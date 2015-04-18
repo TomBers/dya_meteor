@@ -1,39 +1,41 @@
 <template name="dya">
 
+  {{#each questions}}
+
+  {{#if showLND}}
+  {{#if isLND}}
+  {{> LND}}
+  {{/if}}
+  {{else}}
 
 
+  {{#if isCHK}}
+  {{> CHK }}
+  {{/if}}
 
-{{#each questions}}
+  {{#if isRDO }}
+  {{> RDO }}
+  {{/if}}
 
-{{#if isLND}}
-{{> LND}}
-{{/if}}
+  {{#if isSLD}}
+  {{> SLD}}
+  {{/if}}
 
+  {{#if isRI}}
+  {{> RI}}
+  {{/if}}
 
+  {{#if isVID}}
+  {{> VID}}
+  {{/if}}
 
-{{#if isCHK}}
+  {{/if}}
 
-{{> CHK }}
-
-{{/if}}
-{{#if isRDO }}
-
-{{> RDO }}
-
-{{/if}}
-{{#if isSLD}}
-{{> SLD}}
-{{/if}}
-
-{{#if isRI}}
-{{> RI}}
-{{/if}}
-
-{{/each}}
+  {{/each}}
 
 
-{{#if showFinish}}
-<button class='finished'>Finished</button>
-{{/if}}
-    <!-- {{> comment}} -->
+  {{#if showFinish}}
+  <button class='finished'>Finished</button>
+  {{/if}}
+  <!-- {{> comment}} -->
 </template>

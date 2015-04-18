@@ -7,12 +7,15 @@
 <br><br><br>
 
   {{#each questions}}
+
+  {{#if showVisible}}
   <label class="isVisible">
   <input type="checkbox" checked="{{visible}}" />
   Visible
 </label>
+{{/if}}
 
-  {{title}} <a href='/editQn/{{_id}}'>edit</a><br><br>
+  {{title}} <a href='/editQn/{{_id}}'>Edit</a>  <a href='/clear/{{_id}}'>Clear responses</a><br><br>
   {{/each}}
   <br><br>
   <a href='/makeQn/{{survey.title}}'>Add Question</a>

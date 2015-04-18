@@ -3,3 +3,9 @@ Template.editSurvey.events({
   Meteor.call('changeVisible',this._id,event.currentTarget.checked);
 }
 });
+
+Template.editSurvey.helpers({
+  showVisible: function(){
+    return this.type != 'LND';
+  }
+});

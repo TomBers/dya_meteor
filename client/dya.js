@@ -1,28 +1,33 @@
 Session.setDefaultPersistent('usr', Random.fraction());
 
-Session.setDefault('started',false);
+// Session.setDefault('started',false);
 Session.setDefault('page',0);
 Session.setDefault('surveyLength',0);
 Session.setDefault('params',null);
 
+
 Template.dya.helpers({
   isSLD: function(){
-    return this.type === 'SLD' && Session.get('started');
+    return this.type === 'SLD';
   },
   isCHK: function(){
-    return this.type === 'CHK' && Session.get('started');
+    return this.type === 'CHK';
   },
   isRDO: function(){
-    return this.type === 'RDO' && Session.get('started');
+    return this.type === 'RDO';
   },
   isLND: function(){
-    return this.type === 'LND' && !Session.get('started');
+    return this.type === 'LND';
   },
   isRI: function(){
-    return this.type === 'RI' && Session.get('started');
+    return this.type === 'RI';
   },
-  started: function(){
-    return Session.get('started');
+  isVID: function(){
+    return this.type === 'VID';
+  },
+  showLND: function(){
+
+    return Session.get(this.survey+'_showLND');
   },
   showFinish:function(){
 
@@ -35,8 +40,10 @@ Template.dya.helpers({
 })
 
 Template.dya.rendered = function(){
+
   Session.set('params',this.data.params);
   Session.set('surveyLength',this.data.questions.length);
+  Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
 
 }
 
@@ -45,12 +52,12 @@ Template.dya.events({
     var tmpS = Session.get('params');
     // Session.keys = {};
     Session.clear();
-    Session.setDefault('started',false);
+    Session.setPersistent(tmpS.title+'_showLND',true);
     Session.update('usr', Random.fraction());
     Session.set('params',tmpS);
   },
   'click .hider,.starter, touchstart .hider,.starter':function(e,template){
-    Session.set('started',true);
+    Session.setPersistent(Session.get('params').title+'_showLND',false);
 
     if(Session.get('params').surveyType == 'SP'){
       Session.set('page',Session.get('page')+1);

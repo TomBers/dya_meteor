@@ -36,29 +36,32 @@
 </style>
 
 
-
+<div id='avi'>
   <h1>Agree Very Important</h1>
-  <div class='ct-chart avi' ></div>
+  <div class='ct-chart avi'></div>
   {{#each keys 'Agree Very Important'}}
-  <div style='color:#{{setCol}}'>{{label}}</div>
+  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
   {{/each}}
+</div>
+
+
 
   <h1>Agree Somewhat Important</h1>
   <div class='ct-chart asi' ></div>
   {{#each keys 'Agree Somewhat Important'}}
-  <div style='color:#{{setCol}}'>{{label}}</div>
+  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
   {{/each}}
 
   <h1>Disagree Very Important</h1>
   <div class='ct-chart dvi' ></div>
   {{#each keys 'Disagree Very Important'}}
-  <div style='color:#{{setCol}}'>{{label}}</div>
+  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
   {{/each}}
 
   <h1>Disagree Somewhat Important</h1>
   <div class='ct-chart dsi' ></div>
   {{#each keys 'Disagree Somewhat Important'}}
-  <div style='color:#{{setCol}}'>{{label}}</div>
+  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
   {{/each}}
 
   <div class='commentBox'>

@@ -21,6 +21,12 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
 .commentBox{
   font-size:1.2em;
 }
+
+.key{
+  display:inline-block;
+  font-size:1.5em;
+}
+
 .Agree{
   padding-left:10px;
   float: left;
@@ -32,7 +38,7 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
   width: 45%;
 }
 .graphRight{
-  border:1px solid red;
+  /*border:1px solid red;*/
   float: right;
     width: 32%;
   margin-right:2%;
@@ -40,7 +46,7 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
 
 img {
   height:auto;
-  max-width:300px;
+  max-width:100%;
 }
 h1{
   padding-top:20px;
@@ -111,12 +117,12 @@ textarea {
 }
 
 .graphBox{
-  border:1px solid red;
+  /*border:1px solid red;*/
   display:inline-block;
   width:400px;
 }
 .control-label{
-  border:1px solid red;
+  /*border:1px solid red;*/
   display:inline-block;
   min-width:200px;
   top:0px;

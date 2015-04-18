@@ -1,8 +1,11 @@
 Template.RDO.helpers({
 showBtn:function(){
-
+  try{
   if(Session.get('params').surveyType == 'DB'){return false;}
   else{return true;}
+}catch(e){
+  return true;
+}
 }});
 
 Template.RDO.events({

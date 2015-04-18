@@ -99,7 +99,7 @@ Router.map(function() {
     path: '/clear/:_id',
     template: 'clear',
     data: function() {
-      return this.params._id;
+      return  Questions.findOne({_id:this.params._id});
     }
   });
 

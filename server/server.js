@@ -61,10 +61,12 @@ Meteor.methods({
     return Questions.update({_id:did},{_id:did,title:title,ac:ac,nc:nc,dc:dc,url:url,DateTime:dte},{upsert:false});
   }
 },
-clearDebate: function(debate,del){
-  Comments.remove({debate:debate});
-  Votes.remove({debate:debate});
-  analysis.remove({debate:debate});
+clearDebate: function(qn,del){
+
+  Comments.remove({qn:qn});
+  Votes.remove({qn:qn});
+  Analysis.remove({question:qn});
+  Count.remove({qn:qn});
   if(del){
   Questions.remove({_id:debate});
 }
