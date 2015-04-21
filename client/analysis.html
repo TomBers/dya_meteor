@@ -36,38 +36,21 @@
 </style>
 
 
-<div id='avi'>
-  <h1>Agree Very Important</h1>
-  <div class='ct-chart avi'></div>
-  {{#each keys 'Agree Very Important'}}
+{{#each piOpts}}
+
+<div id='{{this}}' style="border:1px solid black;display:block;">
+  <h1>{{this}}</h1>
+  <div class='ct-chart ct-double-octave {{this}}'></div>
+  {{#each keys}}
   <div class='key' style='color:#{{setCol}}'>{{label}}</div>
   {{/each}}
 </div>
 
+{{/each}}
 
-
-  <h1>Agree Somewhat Important</h1>
-  <div class='ct-chart asi' ></div>
-  {{#each keys 'Agree Somewhat Important'}}
-  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
-  {{/each}}
-
-  <h1>Disagree Very Important</h1>
-  <div class='ct-chart dvi' ></div>
-  {{#each keys 'Disagree Very Important'}}
-  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
-  {{/each}}
-
-  <h1>Disagree Somewhat Important</h1>
-  <div class='ct-chart dsi' ></div>
-  {{#each keys 'Disagree Somewhat Important'}}
-  <div class='key' style='color:#{{setCol}}'>{{label}}</div>
-  {{/each}}
 
   <div class='commentBox'>
     <h1>Comments</h1>
-    <div class='Agree'>Agree</div>
-    <div class='Disagree'>Disagree</div>
     {{#each comments}}
     <div class='{{rank}}' style='color: #{{col side}}'>
     {{comment}}

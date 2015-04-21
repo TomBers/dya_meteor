@@ -45,6 +45,12 @@ Template.dya.rendered = function(){
   Session.set('surveyLength',this.data.questions.length);
   Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
 
+  sAlert.config({
+       effect: 'stackslide',
+       position: 'top',
+       timeout: 1000
+   });
+
 }
 
 Template.dya.events({

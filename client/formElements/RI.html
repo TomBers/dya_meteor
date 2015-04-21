@@ -3,31 +3,30 @@
 
 <div id="{{_id}}_PI">
     <h1>{{title}}</h1>
+
       {{#each opts}}
+
       <h2>{{this}}</h2>
+      <div>
+      {{#each ../piOpts}}
 
-      <div class='chk agree'>Agree</div>
-      <div class='chk disagree'>Disagree</div>
+      <div class='chk'>{{this}}</div>
       {{/each}}
-</div>
-
-<div id={{_id}}_RANK>
-<h1>How important is this?</h1>
-<div class='scale'>Very Important</div>
-<div class='scale'>Somewhat Important</div>
-
-
+      <div class='qry'>QUERY</div>
+    </div>
+      {{/each}}
 
 </div>
 
-<div id={{_id}}_CMMT>
+
+<div id="{{_id}}_CMMT" style="display:none">
   <h1>Would you like to comment?</h1>
     <textarea rows="4" cols="50" placeholder="Comment"></textarea>
 <div class='cmmt'>
 Comment
 </div>
 
-<div class='skip'>
+<div class='cmmt'>
 Skip
 </div>
 

@@ -1,5 +1,4 @@
 
-//
 Template.analysis.helpers({
   comments: function(){
     return Comments.find({qn:this._id});
@@ -15,7 +14,7 @@ Template.analysis.helpers({
   cols:function(){
     return Session.get('cols');
   },
-  keys:function(opt){
+  keys:function(){
     var tmp =[];
     var i =0;
     if(Session.get('opts')){
@@ -33,6 +32,7 @@ Template.analysis.helpers({
 
 Template.analysis.rendered = function(){
 
+  // console.log(this.data);
   Session.setDefault('cols',null);
   Session.setDefault('opts',null);
   Meteor.subscribe('Analysis');
@@ -40,14 +40,14 @@ Template.analysis.rendered = function(){
 
   Session.set('cols',this.data.cols);
   Session.set('opts',this.data.opts);
+  var ratings = [];
+  this.data.piOpts.forEach(function(key,val){
+    ratings.push({rating:key,div:key});
+  });
 
   this.autorun(function () {
-    var ratings = [{rating:'Agree Very Important',div:'avi'}
-    ,{rating:'Agree Somewhat Important',div:'asi'}
-    ,{rating:'Disagree Very Important',div:'dvi'}
-    ,{rating:'Disagree Somewhat Important',div:'dsi'}];
 
-    // console.log(this);
+
     var qn = this._templateInstance.data._id;
 
     var options = {
