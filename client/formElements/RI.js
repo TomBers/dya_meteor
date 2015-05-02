@@ -33,6 +33,7 @@ Template.RI.events({
 
     Meteor.call('makeComment',qn,Session.get('usr'),cmt);
   }
+  sAlert.success('Thanks');
     template.find('textarea').value = '';
     $('#'+template.data._id+'_PI').show();
     $('#'+template.data._id+'_CMMT').hide();

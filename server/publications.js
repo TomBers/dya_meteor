@@ -1,23 +1,29 @@
-Meteor.publish("Questions", function () {
-    return Questions.find();
-  });
+Meteor.publish("Questions", function (survey) {
+  return Questions.find({survey:survey});
+});
+
+Meteor.publish("questionById", function (id) {
+  return Questions.find({_id:id});
+});
 
 
-  Meteor.publish("Votes", function () {
-      return Votes.find();
-    });
+Meteor.publish("Votes", function (qn) {
+  return Votes.find({qn:qn});
+});
 
-    Meteor.publish("Comments", function () {
-        return Comments.find();
-      });
+Meteor.publish("Count", function (qn) {
+  Counts.publish(this,'qnCnt', Count.find({qn:qn}));
+});
 
-      Meteor.publish("Analysis", function () {
-          return Analysis.find();
-        });
+Meteor.publish("Comments", function (qn) {
+  return Comments.find({qn:qn});
+});
 
-        Meteor.publish("Count", function () {
-            return Count.find();
-          });
-          Meteor.publish("Survey", function () {
-              return Survey.find();
-            });
+Meteor.publish("Analysis", function (id) {
+  return Analysis.find({question:id});
+});
+
+
+Meteor.publish("Survey", function (survey) {
+  return Survey.find({title:survey});
+});

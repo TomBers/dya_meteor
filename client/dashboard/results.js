@@ -3,5 +3,10 @@ Template.results.helpers({
       if(type == "RI" || type == "LND"){return false;}
       else{return true;}
 
+    },
+    notLND:function(type){
+      if(type == "LND"){return false;}
+      else{return true;}
+
     }
 })

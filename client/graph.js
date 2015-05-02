@@ -2,23 +2,26 @@
 
 Template.graph.helpers({
   cnt: function(){
-    return Count.find({qn:this._id}).fetch().length;
+    return Counts.get('qnCnt');
   },
   res: function(){
     return Session.get(this._id+'_res');
   },
   keys:function(){
+    if(this.cols.length>0 && this.opts.length > 0){
     var tmp =[];
     var i =0;
     var cols = this.cols;
     var count = Session.get(this._id);
-    // console.log(count);
     this.opts.forEach(function(e){
       // var tc =
       tmp.push({label:e,setCol:cols[i],count:count[i]});
       i++;
     });
     return tmp;
+  }else{
+    return null;
+  }
   }
 });
 
@@ -29,8 +32,8 @@ Template.graph.helpers({
 // });
 
 Template.graph.rendered = function(){
-  Meteor.subscribe('Votes');
-  Meteor.subscribe('Count');
+  Meteor.subscribe('Votes',this.data._id);
+  Meteor.subscribe('Count',this.data._id);
 
   Session.setDefault(this.data._id,null);
 
