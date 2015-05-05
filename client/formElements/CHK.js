@@ -4,8 +4,12 @@ Session.setDefault(this.data._id,[]);
 
 Template.CHK.helpers({
   showBtn:function(){
+    try{
     if(Session.get('params').surveyType == 'DB'){return false;}
     else{return true;}
+  }catch(e){
+    return true;
+  }
   },
   visible: function(){
     if(Template.parentData().dependsOn){

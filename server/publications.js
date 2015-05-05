@@ -12,7 +12,7 @@ Meteor.publish("Votes", function (qn) {
 });
 
 Meteor.publish("Count", function (qn) {
-  Counts.publish(this,'qnCnt', Count.find({qn:qn}));
+  Counts.publish(this, ''+qn, Count.find({qn:qn}));
 });
 
 Meteor.publish("Comments", function (qn) {

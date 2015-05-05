@@ -119,15 +119,15 @@ Questions.attachSchema(new SimpleSchema({
       }
     }
   },
-  piOpts: {
-     type: [String],
-     optional: true,
-     autoform: {
-       afFieldInput: {
-         type: "text"
-       }
-     }
-   },
+  // piOpts: {
+  //    type: [String],
+  //    optional: true,
+  //    autoform: {
+  //      afFieldInput: {
+  //        type: "text"
+  //      }
+  //    }
+  //  },
   cols: {
      type: [String],
      optional: true,

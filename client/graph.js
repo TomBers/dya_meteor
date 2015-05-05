@@ -2,26 +2,36 @@
 
 Template.graph.helpers({
   cnt: function(){
-    return Counts.get('qnCnt');
+    return Counts.get(''+this._id);
   },
-  res: function(){
-    return Session.get(this._id+'_res');
-  },
+  // res: function(){
+  //   return Session.get(this._id+'_res');
+  // },
   keys:function(){
-    if(this.cols.length>0 && this.opts.length > 0){
-    var tmp =[];
-    var i =0;
-    var cols = this.cols;
-    var count = Session.get(this._id);
-    this.opts.forEach(function(e){
-      // var tc =
-      tmp.push({label:e,setCol:cols[i],count:count[i]});
-      i++;
-    });
-    return tmp;
-  }else{
-    return null;
-  }
+
+    try{
+      var colL = this.cols.length;
+      var optsL = this.opts.length;
+
+      if( colL > 0 && optsL > 0){
+      var tmp =[];
+      var i =0;
+      var cols = this.cols;
+      var count = Session.get(this._id);
+      this.opts.forEach(function(e){
+        // var tc =
+        tmp.push({label:e,setCol:cols[i],count:count[i]});
+        i++;
+      });
+      return tmp;
+    }else{
+      return null;
+    }
+
+    }catch(e){
+      return null;
+    }
+
   }
 });
 
