@@ -11,7 +11,8 @@ fastRender: true
 Router.map(function() {
   this.route('/', {
     path: '/',
-    template: 'home'
+    template: 'home',
+    
   });
 
   // this.route('/create', {

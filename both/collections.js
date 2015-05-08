@@ -103,6 +103,7 @@ Questions.attachSchema(new SimpleSchema({
           {label: "Landing Page", value: 'LND'},
           {label: "Single Choice", value: 'RDO'},
           {label: "Multiple Choice", value: 'CHK'},
+          {label: "Comment", value: 'CMMT'},
           {label: "Register Interest", value: 'RI'},
           {label: "Video", value: 'VID'}
         ];

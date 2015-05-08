@@ -16,6 +16,9 @@ Template.dya.helpers({
   isRDO: function(){
     return this.type === 'RDO';
   },
+  isCMMT: function(){
+    return this.type === 'CMMT';
+  },
   isLND: function(){
     return this.type === 'LND';
   },

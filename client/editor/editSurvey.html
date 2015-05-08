@@ -1,22 +1,44 @@
 <template name='editSurvey'>
 
+<div class='container'>
+
 {{#with survey}}
   {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update'}}
-{{/with}}
+
 
 <br><br><br>
+<a href='/results/{{title}}'><h1>See Results</h1></a>
+{{/with}}
 
+<div class='col-md-12'>
   {{#each questions}}
-
+  <div class='row'>
+  <div class='col-md-2'>
   {{#if showVisible}}
   <label class="isVisible">
   <input type="checkbox" checked="{{visible}}" />
   Visible
 </label>
 {{/if}}
-
-  {{title}} <a href='/editQn/{{_id}}'>Edit</a>  <a href='/clear/{{_id}}'>Clear responses</a><br><br>
+</div>
+<div class='col-md-2'>
+  {{title}}
+</div>
+<div class='col-md-2'>
+  {{#if isRI type}}<a href='/track/{{_id}}'>Track</a>{{else}}<a href='/results/{{survey}}'>Result</a>{{/if}}
+</div>
+<div class='col-md-2'>
+  <a href='/editQn/{{_id}}'>Edit</a>
+</div>
+  <div class='col-md-2'>
+  <a href='/clear/{{_id}}'>Clear responses</a>
+</div>
+</div>
   {{/each}}
+</div>
+
   <br><br>
   <a href='/makeQn/{{survey.title}}'>Add Question</a>
+
+</div>
 </template>

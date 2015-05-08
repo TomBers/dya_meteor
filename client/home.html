@@ -1,13 +1,223 @@
 <template name='home'>
-  <core-toolbar id="navheader"><span>Home</span></core-toolbar>
-  <div style="margin-left:10px">
-  <h1>Welcome to DoYouAgree Debate</h1>
-  <p style="font-size:1.2em">This is a <strong>protoype</strong> for a debate app.  The goal is to provide real time voting
-    and commenting, using mobile devices.  <br><br>All the data is collected by the system, so you can see what people thing,
-    and track when the changes occured.  <br>Collecting when every person votes (or changed their mind) you can see
-    map what arguments changed peoples minds.
-    <br><br>
-    It is full customisable and simple to use.<br>
-    </p>
+  <style>
+  body{
+	font-family: 'Source Sans Pro', sans-serif;
+	color:#354353;
+}
+
+h1{
+	font-size:32px;
+	font-weight:700;
+}
+
+h2{
+	font-size:24px;
+	color:#f15c51;
+	font-weight:300;
+}
+h3{
+	fontsize:18px;
+	font-weight:700;
+}
+p{
+	font-weight:400;
+}
+
+.btn {border-radius: 0;}
+ul{
+	-webkit-padding-start:0px;
+}
+a.navbar-brand {
+    margin-bottom: 12px;
+}
+.container{
+/*	border:1px solid red;*/
+}
+#topNav{
+	background:white;
+	border:none;
+}
+
+#logo{
+	padding-top:80px;
+}
+#login{
+	position:absolute;
+	top:-75px;
+/*	left:-110px;*/
+	left:-75px;
+text-transform:lowercase;
+}
+
+.mkpts{
+  padding-top:20px;
+  background:#354353;
+}
+.mkpts h2,p {
+  text-align: center;
+  font-weight: normal;
+  color:white;
+}
+.img-circle{
+  display:block;
+  margin:0 auto;
+}
+/*.marketing{
+	margin-top:40px;
+	padding-top:20px;
+	background:#354353;
+}
+
+
+
+
+.marketing .col-sm-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+  color:white;
+}
+.marketing .col-sm-4 p {
+	color:white;
+  margin-right: 10px;
+  margin-left: 10px;
+}*/
+
+.navbar-nav{
+	padding-top:95px;
+	padding-left:200px;
+}
+
+
+.navbar-nav ul{
+	padding-left:20px;
+}
+
+ul.nav.navbar-nav li a {
+
+	text-transform:uppercase;
+/*    color: red;*/
+}
+
+ul.nav.navbar-nav li a:hover {color:#f15c51;}
+
+@media screen and (max-width: 1200px){
+	.navbar-nav{
+
+		padding-left:0px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.navbar-nav{
+		padding-top:0px;
+		padding-left:0px;
+	}
+	#logo{
+		padding-top:10px;
+	}
+	#login{
+		position:relative;
+		top:0px;
+		left:0px;
+	   text-transform:lowercase;
+	}
+
+}
+  </style>
+
+
+<div class="container">
+  <div class="col-sm-10-offset-1">
+    <div id="topNav" class="navbar navbar-default navbar-static-top" >
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/index.php"><img id="logo" src="dya_logo.png"></a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/index.php#examples">How to Use</a></li>
+          <li><a href="/prices">Pricing</a></li>
+          <li><a href="/pages/contact_page.php">Contact</a></li>
+
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
   </div>
+
+  <div class='col-sm-12' >
+    <img src='marketingImage.jpg' style='max-width:1010;width:100%;height:auto'>
+    <!-- <div class="col-sm-4" style='border:2px solid red'></div>
+    <div class="col-sm-4" style='border:2px solid red'></div>
+    <div class="col-sm-4" style='border:2px solid red'></div> -->
+
+
+		 <div class="col-sm-4 mkpts" >
+			<img class="img-circle" src="share.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Simple to share</h2>
+			<p>1-click share across social networks also embed in your website or emails</p>
+
+		</div>
+		<div class="col-sm-4 mkpts" >
+			<img class="img-circle" src="phone.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Works on any device</h2>
+			<p>Our responsive website works a wide range of devices (smartphone, tablet, web browsers)</p>
+
+		</div>
+		<div class="col-sm-4 mkpts">
+			<img class="img-circle" src="questions.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Customise</h2>
+			<p>Create customised surveys with slider, single/multiple choice, comments and quizzes easily</p>
+
+		</div>
+
+
+		<div class="col-sm-4 mkpts">
+			<img class="img-circle" src="graph.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Your Data</h2>
+			<p>Analyse all responses in your easy to use dashboard which can be exported to work with all spreadsheets</p>
+
+		</div>
+		<div class="col-sm-4 mkpts">
+			<img class="img-circle" src="secure.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Highly secure</h2>
+			<p>We ensure your data is yours; private and under your control</p>
+
+		</div>
+		<div class="col-sm-4 mkpts">
+			<img class="img-circle" src="smile.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+			<h2>Free demos</h2>
+			<p>Free Demo and expert managed services are available</p>
+		</div>
+
+    <h2>Past Clients:</h2>
+    <div class="col-sm-4 clients">
+			<img class="img-circle" src="smile.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+		
+		</div>
+
+    <div class="col-sm-4 clients">
+			<img class="img-circle" src="smile.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+
+		</div>
+
+    <div class="col-sm-4 clients">
+			<img class="img-circle" src="smile.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
+
+		</div>
+
+</div>
+
+
+</div>
+
 </template>

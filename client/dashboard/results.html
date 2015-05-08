@@ -1,17 +1,23 @@
 <template name='results'>
-
+<div class='container'>
   {{#each questions}}
   {{#if drawGraph type}}
+  <div class='col-sm-6'>
   <div class='graphBox'>
     <h1>{{title}}</h1>
   {{> graph}}
 </div>
-  {{else}}
-  {{#if notLND type}}
-  <a href="/track/{{_id}}">More Analysis</a>
+</div>
+{{/if}}
+  {{#if isRI type}}
+  <!-- <a href="/track/{{_id}}">More Analysis</a> -->
   {{/if}}
-  <!-- {{> analysis}} -->
+  {{#if isCMMT type}}
+  {{> showCmmts}}
+
 
   {{/if}}
   {{/each}}
+
+</div>
 </template>
