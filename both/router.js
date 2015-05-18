@@ -24,10 +24,11 @@ Router.map(function() {
     path: '/results/:_id',
     template: 'results',
     waitOn: function(){
-      return Meteor.subscribe('Questions',this.params._id);
+      Meteor.subscribe('Questions',this.params._id);
+      return Meteor.subscribe('Survey',this.params._id);
     },
     data: function() {
-      return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+      return {survey:Survey.findOne({title:this.params._id}),questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
     }
   });
 

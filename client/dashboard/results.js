@@ -10,5 +10,21 @@ Template.results.helpers({
     isCMMT:function(type){
       if(type == "CMMT"){return true;}
       else{return false;}
+    },
+    cols:function(){
+      var cls = [];
+      this.survey.cols.forEach(function(e){
+        cls.push(e.col);
+      })
+      Session.set('cols',cls);
+      return null;
+    },
+    modQns:function(){
+      this.questions.forEach(function(e){
+        e.cols = Session.get('cols');
+      })
+      return this.questions;
+
+
     }
 })

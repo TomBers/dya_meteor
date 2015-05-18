@@ -33,6 +33,33 @@ Survey.attachSchema(new SimpleSchema({
       }
     }
   },
+  // cols: {
+  //   //  type: [String],
+  //   type: String,
+  //    optional: true,
+  //    autoform: {
+  //      afFieldInput: {
+  //        type: "bootstrap-minicolors"
+  //      }
+  //    }
+  //  },
+
+  cols:{
+    type:Array,
+    optional:true
+  },
+  'cols.$':{
+    type: Object
+  },
+  'cols.$.col': {
+    type: String,
+       optional: true,
+       autoform: {
+         afFieldInput: {
+           type: "bootstrap-minicolors"
+         }
+       }
+ },
  endLink: {
    type: String,
    optional: true,
@@ -129,14 +156,6 @@ Questions.attachSchema(new SimpleSchema({
   //      }
   //    }
   //  },
-  cols: {
-     type: [String],
-     optional: true,
-     autoform: {
-       afFieldInput: {
-         type: "text"
-       }
-     }
-   }
+
 
 }));

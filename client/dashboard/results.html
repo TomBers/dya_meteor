@@ -1,11 +1,15 @@
 <template name='results'>
 <div class='container'>
-  {{#each questions}}
+
+  {{cols}}
+  {{#each modQns}}
   {{#if drawGraph type}}
   <div class='col-sm-6'>
   <div class='graphBox'>
     <h1>{{title}}</h1>
+
   {{> graph}}
+
 </div>
 </div>
 {{/if}}

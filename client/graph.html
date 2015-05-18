@@ -1,34 +1,34 @@
 <template name='graph'>
   <style>
   .ct-chart .ct-series.ct-series-a .ct-slice.ct-donut{
-    stroke:#{{this.cols.[0]}};
+    stroke:{{this.cols.[0]}};
   }
   .ct-chart .ct-series.ct-series-b .ct-slice.ct-donut{
-    stroke:#{{this.cols.[1]}};
+    stroke:{{this.cols.[1]}};
   }
   .ct-chart .ct-series.ct-series-c .ct-slice.ct-donut{
-    stroke:#{{this.cols.[2]}};
+    stroke:{{this.cols.[2]}};
   }
   .ct-chart .ct-series.ct-series-d .ct-slice.ct-donut{
-    stroke:#{{this.cols.[3]}};
+    stroke:{{this.cols.[3]}};
   }
   .ct-chart .ct-series.ct-series-e .ct-slice.ct-donut{
-    stroke:#{{this.cols.[4]}};
+    stroke:{{this.cols.[4]}};
   }
   .ct-chart .ct-series.ct-series-f .ct-slice.ct-donut{
-    stroke:#{{this.cols.[5]}};
+    stroke:{{this.cols.[5]}};
   }
   .ct-chart .ct-series.ct-series-g .ct-slice.ct-donut{
-    stroke:#{{this.cols.[6]}};
+    stroke:{{this.cols.[6]}};
   }
   .ct-chart .ct-series.ct-series-h .ct-slice.ct-donut{
-    stroke:#{{this.cols.[7]}};
+    stroke:{{this.cols.[7]}};
   }
   </style>
 
     <div class='ct-chart ct-square' id="{{this._id}}"></div>
     {{#each keys}}
-    <div style='color:#{{setCol}}'>{{label}} : {{count}}</div>
+    <div style='color:{{setCol}}'>{{label}} : {{count}}</div>
     {{/each}}
     <h4>Responses : {{cnt}}</h4>
     <!-- {{#each res}}

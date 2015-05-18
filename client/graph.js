@@ -8,7 +8,6 @@ Template.graph.helpers({
   //   return Session.get(this._id+'_res');
   // },
   keys:function(){
-
     try{
       var colL = this.cols.length;
       var optsL = this.opts.length;
@@ -35,11 +34,6 @@ Template.graph.helpers({
   }
 });
 
-// Template.graph.helpers({
-//   qnID: function(){
-//     return Session.get('qn');
-//   }
-// });
 
 Template.graph.rendered = function(){
   Meteor.subscribe('Votes',this.data._id);
@@ -47,17 +41,11 @@ Template.graph.rendered = function(){
 
   Session.setDefault(this.data._id,null);
 
-//   Session.set(this.data._id)
-// console.log(this);
-  // console.log(this.data._id);
-
-
   this.autorun(function (template) {
     var qn = this._templateInstance.data._id;
     var labels = this._templateInstance.data.opts;
 
-    // console.log(template);
-    // console.log(this);
+
     var responses = Votes.find({qn:qn},{fields :{res :1 }}).fetch();
 
     var series = [];
@@ -81,9 +69,7 @@ Template.graph.rendered = function(){
       donut: true
       ,donutWidth:90,
       showLabel: false
-    // labelInterpolationFnc: function(value) {
-    //   return value[0]
-    // }
+
   };
 
   var responsiveOptions = [
