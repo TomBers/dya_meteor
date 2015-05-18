@@ -126,6 +126,19 @@ textarea {
 }
 
 @media all and (max-width: 450px){
+
+  .shadow{
+    width:100%;
+    border:none;
+    display:block;
+    margin:5px auto;
+    /*box-shadow: 10px 10px 5px #888888;*/
+    /*margin-bottom:15px;*/
+    padding-left:0px;
+    padding-bottom:0px
+  }
+
+
   input[type="radio"]{
     /*margin-left:10%;*/
   display:block;

@@ -1,0 +1,56 @@
+<template name='ask'>
+<style>
+.input-group-addon,.upVote,.downVote{
+  cursor: pointer;
+}
+</style>
+
+  <fieldset>
+
+  <!-- Form Name -->
+  <legend>Form Name</legend>
+
+  <!-- Appended Input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="qntext"></label>
+    <div class="col-md-6">
+      <div class="input-group">
+        <input id="qntext" name="qntext" class="form-control" placeholder="Ask a Question" type="text">
+        <span class="input-group-addon askQn">Ask</span>
+      </div>
+
+    </div>
+  </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Past Questions</legend>
+
+    {{#each cmmts}}
+    {{> qnVote}}
+    {{/each}}
+
+
+  </fieldset>
+
+
+</template>
+
+<template name="qnVote">
+
+  <div class='row' style="font-size:2.2em">
+    <div class='col-sm-8 col-sm-offset-1'>
+  {{comment}}
+</div>
+<div class='col-sm-1'>
+{{count}}
+</div>
+<div class='col-sm-1 upVote'>
+&#x2227;
+</div>
+<div class='col-sm-1 downVote'>
+&#x2228;
+</div>
+</div>
+
+</template>

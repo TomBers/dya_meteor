@@ -45,14 +45,17 @@ Meteor.methods({
   removeCHK: function(qn,dat,usr){
     return Votes.remove({qn:qn,res:dat,usr:usr});
   },
-  makeComment: function(qn,usr,cmt,side,rank){
+  makeComment: function(qn,usr,cmt,count){
     var dte = new Date();
-    Comments.insert({qn:qn,usr:usr,side:side,comment:cmt,rank:rank,DateTime:dte});
+    Comments.insert({qn:qn,usr:usr,comment:cmt,count:count,DateTime:dte});
   },
-  comment: function(debate,usr,side,comment){
-    var dte = new Date();
-    Comments.insert({debate:debate,usr:usr,side:side,comment:comment,DateTime:dte});
+  upDownVoteComment:function(qn,val){
+    Comments.update({_id:qn}, {$inc:{count:val}});
   },
+  // comment: function(debate,usr,side,comment){
+  //   var dte = new Date();
+  //   Comments.insert({debate:debate,usr:usr,side:side,comment:comment,DateTime:dte});
+  // },
   makeDebate: function(title,ac,nc,dc,url,did){
     var dte = new Date();
     if (did == ''){

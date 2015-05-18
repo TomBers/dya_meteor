@@ -6,7 +6,7 @@ Template.CMMT.events({
     if(cmt != ''){
     var qn = template.data._id;
 
-    Meteor.call('makeComment',qn,Session.get('usr'),cmt);
+    Meteor.call('makeComment',qn,Session.get('usr'),cmt,0);
   }
   sAlert.success('Thanks');
     template.find('textarea').value = '';

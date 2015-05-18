@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('/', {
     path: '/',
     template: 'home',
-    
+
   });
 
   // this.route('/create', {
@@ -47,6 +47,17 @@ Router.map(function() {
     },
     data: function() {
       return Questions.findOne({_id:this.params._id});
+    }
+  });
+
+  this.route('/ask', {
+    path: '/ask/:_id',
+    template: 'ask',
+    waitOn: function(){
+      return Meteor.subscribe('Comments',this.params._id);
+    },
+    data: function() {
+      return {qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
     }
   });
 
