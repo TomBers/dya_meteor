@@ -5,22 +5,34 @@
 }
 </style>
 
-  <fieldset>
-
-  <!-- Form Name -->
-  <legend>Form Name</legend>
-
-  <!-- Appended Input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="qntext"></label>
-    <div class="col-md-6">
-      <div class="input-group">
-        <input id="qntext" name="qntext" class="form-control" placeholder="Ask a Question" type="text">
-        <span class="input-group-addon askQn">Ask</span>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/{{survey}}"><span class="glyphicon glyphicon-chevron-left"></span>Back</a>
+    </div>
+    <div>
 
     </div>
   </div>
+</nav>
+
+<div class="container-fluid">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Ask a Question</legend>
+
+    <!-- Appended Input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="qntext"></label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="qntext" name="qntext" class="form-control" placeholder="Ask a Question" type="text">
+          <span class="input-group-addon askQn">Ask</span>
+        </div>
+
+      </div>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -32,25 +44,43 @@
 
 
   </fieldset>
-
+</div>
 
 </template>
 
 <template name="qnVote">
 
-  <div class='row' style="font-size:2.2em">
+
+  {{#if voted}}
+  <div class='row' style="font-size:2.2em;border-bottom:1px solid #BEBABA">
+    <div class='col-sm-8 col-sm-offset-1' style='color:#BEBABA'>
+      {{comment}}
+    </div>
+    <div class='col-sm-1' style='color:#BEBABA'>
+      {{count}}
+    </div>
+    <div class='col-sm-1'>
+    </div>
+    <div class='col-sm-1'>
+    </div>
+  </div>
+  {{else}}
+  <div class='row' style="font-size:2.2em;border-bottom:1px solid #BEBABA">
     <div class='col-sm-8 col-sm-offset-1'>
-  {{comment}}
-</div>
-<div class='col-sm-1'>
-{{count}}
-</div>
-<div class='col-sm-1 upVote'>
-&#x2227;
-</div>
-<div class='col-sm-1 downVote'>
-&#x2228;
-</div>
-</div>
+      {{comment}}
+    </div>
+    <div class='col-sm-1'>
+      {{count}}
+    </div>
+    <div class='col-sm-1 upVote'>
+      &#x2227;
+    </div>
+    <div class='col-sm-1 downVote'>
+      &#x2228;
+    </div>
+  </div>
+  {{/if}}
+
+
 
 </template>

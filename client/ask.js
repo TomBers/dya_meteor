@@ -1,3 +1,10 @@
+
+Template.ask.rendered = function(){
+  Session.setDefaultPersistent('qnsVotedFor',[]);
+}
+
+
+
 Template.ask.events({
   'click span.askQn, touchstart span.askQn':function(e,template){
       e.preventDefault()
@@ -11,13 +18,23 @@ Template.ask.events({
   }
 })
 
-
+Template.qnVote.helpers({
+  voted: function(){
+    return Session.get('qnsVotedFor').indexOf(this._id) > - 1;
+  }
+})
 
 Template.qnVote.events({
   'click div.upVote, touchstart div.upVote':function(e,template){
+    var tmp = Session.get('qnsVotedFor');
+    tmp.push(this._id);
+    Session.setPersistent('qnsVotedFor',tmp);
     Meteor.call('upDownVoteComment',this._id,1);
   },
   'click div.downVote, touchstart div.downVote':function(e,template){
+    var tmp = Session.get('qnsVotedFor');
+    tmp.push(this._id);
+    Session.setPersistent('qnsVotedFor',tmp);
     Meteor.call('upDownVoteComment',this._id,-1);
   }
 });

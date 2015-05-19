@@ -52,13 +52,13 @@ Router.map(function() {
   });
 
   this.route('/ask', {
-    path: '/ask/:_id',
+    path: '/ask/:_survey/:_id',
     template: 'ask',
     waitOn: function(){
       return Meteor.subscribe('Comments',this.params._id);
     },
     data: function() {
-      return {qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
+      return {survey:this.params._survey,qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
     }
   });
 
@@ -99,13 +99,14 @@ Router.map(function() {
   // });
 
   this.route('track', {
-    path: '/track/:_id',
+    path: '/track/:_survey/:_id',
     template: 'track',
     waitOn: function(){
+      Meteor.subscribe('Survey',this.params._survey);
       return Meteor.subscribe('questionById',this.params._id);
     },
     data: function() {
-      return Questions.findOne({_id:this.params._id});
+      return {survey:Survey.findOne({title:this.params._survey}),qn:Questions.findOne({_id:this.params._id})};
     }
   });
 

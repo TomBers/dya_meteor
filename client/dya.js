@@ -1,9 +1,7 @@
 Session.setDefaultPersistent('usr', Random.fraction());
 
 // Session.setDefault('started',false);
-Session.setDefault('page',0);
-Session.setDefault('surveyLength',0);
-Session.setDefault('params',null);
+
 
 
 Template.dya.helpers({
@@ -43,6 +41,11 @@ Template.dya.helpers({
 })
 
 Template.dya.rendered = function(){
+
+  Session.setDefault('page',0);
+  Session.setDefault('surveyLength',0);
+  Session.setDefault('params',null);
+
 
   Session.set('params',this.data.params);
   Session.set('surveyLength',this.data.questions.length);

@@ -1,7 +1,7 @@
 
 Template.track.helpers({
   comments: function(){
-    return Comments.find({qn:this._id});
+    return Comments.find({qn:this.qn._id});
   },
   col: function(opt){
     try{
@@ -32,14 +32,20 @@ Template.track.helpers({
 
 Template.track.rendered = function(){
 
-  // console.log(this.data._id);
   Session.setDefault('cols',null);
   Session.setDefault('opts',null);
-  Meteor.subscribe('Analysis',this.data._id);
-  Meteor.subscribe('Comments',this.data._id);
 
-  Session.set('cols',this.data.cols);
-  Session.set('opts',this.data.opts);
+
+  Meteor.subscribe('Analysis',this.data.qn._id);
+  Meteor.subscribe('Comments',this.data.qn._id);
+
+  var cls = [];
+  this.data.survey.cols.forEach(function(e){
+    cls.push(e.col);
+  })
+
+  Session.set('cols',cls);
+  Session.set('opts',this.data.qn.opts);
   // var ratings = [];
   // this.data.piOpts.forEach(function(key,val){
   //   ratings.push({rating:key,div:key});
@@ -48,7 +54,7 @@ Template.track.rendered = function(){
   this.autorun(function () {
 
 
-    var qn = this._templateInstance.data._id;
+    var qn = this._templateInstance.data.qn._id;
 
     var options = {
       showPoint: false,
