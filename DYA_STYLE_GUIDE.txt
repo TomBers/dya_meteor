@@ -1,0 +1,52 @@
+  .navbar-default {
+  background-color: #9b59b6;
+  border-color: #8e44ad;
+}
+.navbar-default .navbar-brand,.qnBox {
+  color: red;
+  font-size: 1.2em;
+}
+.starter{
+  font-family: "Times New Roman";
+  border:1px solid blue;
+  font-size:4em;
+}
+.starter:hover{
+  background-color: blue;
+  color:white;
+}
+.shadow{
+  font-family: "Times New Roman";
+  border:none;
+}
+.shadow:nth-child(even){
+  background-color: #9b59b6;
+  color:white;
+}
+.shadow:nth-child(odd){
+  background-color: #0a00b6;
+  color:white;
+}
+.chk, .scale, .qry,.cmmt{
+  /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJUXICfkvOx8TfF_P3QHDel96164xguqCxnsdPF1-VuflfelOstTEAUA");*/
+  border-radius: 25px;
+  border: 1px solid red;
+  /*background-color: green;
+  color: purple;*/
+  font-size: 3em;
+}
+.checked,.chk:hover,.cmmt:hover,.qry:hover{
+  background-color: green;
+}
+
+.shadow h1{
+  color: purple;
+  font-size: 1.3em;
+}
+.shadow h2{
+  color: purple;
+  font-size: .8em;
+}
+textarea{
+  border-radius: 25px;
+}
