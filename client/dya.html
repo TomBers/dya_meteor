@@ -1,13 +1,18 @@
 <template name="dya">
 
-  <nav class="navbar navbar-inverse">
+  <style>
+  {{{params.styling}}}
+  </style>
+
+
+  <nav class="navbar navbar-default ">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><strong>{{params.title}}</strong></a>
     </div>
     <div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/ask/{{params.title}}/{{params._id}}">Question <span class="glyphicon glyphicon-edit"></span></a></li>
+        <li><a href="/ask/{{params.title}}/{{params._id}}" ><span class='qnBox'>Question <span class="glyphicon glyphicon-edit"></span></span></a></li>
 
       </ul>
     </div>

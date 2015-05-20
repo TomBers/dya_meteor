@@ -60,6 +60,12 @@ Survey.attachSchema(new SimpleSchema({
          }
        }
  },
+ styling:{
+   type: String,
+     autoform: {
+        rows: 5
+     }
+ },
  endLink: {
    type: String,
    optional: true,

@@ -46,7 +46,6 @@ Template.dya.rendered = function(){
   Session.setDefault('surveyLength',0);
   Session.setDefault('params',null);
 
-
   Session.set('params',this.data.params);
   Session.set('surveyLength',this.data.questions.length);
   Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
