@@ -55,10 +55,11 @@ Router.map(function() {
     path: '/ask/:_survey/:_id',
     template: 'ask',
     waitOn: function(){
+      Meteor.subscribe('Survey',this.params._survey);
       return Meteor.subscribe('Comments',this.params._id);
     },
     data: function() {
-      return {survey:this.params._survey,qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
+      return {params:Survey.findOne({title:this.params._survey}),qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
     }
   });
 
@@ -79,24 +80,7 @@ Router.map(function() {
     }
   });
 
-  // this.route('/editSurvey', {
-  //   path: '/editSurvey/:_id',
-  //   template: 'editSurvey',
-  //   data: function() {
-  //     return {questions : Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
-  //   }
-  // });
 
-
-
-  // this.route('analysis', {
-  //   path: '/analysis/:_id',
-  //   template: 'analysis',
-  //   data: function() {
-  //     Meteor.subscribe('Questions',this.params._id);
-  //     return Questions.findOne({_id:this.params._id});
-  //   }
-  // });
 
   this.route('track', {
     path: '/track/:_survey/:_id',
@@ -111,13 +95,6 @@ Router.map(function() {
   });
 
 
-  // this.route('admin', {
-  //   path: '/admin/',
-  //   template: 'admin',
-  //   data: function() {
-  //     return {Questions : Questions.find({},{sort: {DateTime:-1}}).fetch()};
-  //   }
-  // });
 
 
   this.route('edit', {
@@ -199,13 +176,5 @@ Router.map(function() {
   });
 
 
-
-  // this.route('Questions', {
-  //   path: '/:_id',
-  //   template: 'dya',
-  //   data: function() {
-  //     return Questions.findOne({_id:this.params._id});
-  //   }
-  // });
 
 });
