@@ -1,5 +1,6 @@
 Template.RDO.helpers({
 showBtn:function(){
+
   try{
   if(Session.get('params').surveyType == 'DB'){return false;}
   else{return true;}

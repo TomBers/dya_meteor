@@ -25,8 +25,8 @@ Survey.attachSchema(new SimpleSchema({
         type: "select",
        options: function () {
          return [
-           {label: "Continuous Scrolling", value: 'CS'},
-           {label: "Single Page", value: 'SP'},
+           {label: "Survey", value: 'SV'},
+          //  {label: "Single Page", value: 'SP'},
            {label: "Debate", value: 'DB'}
          ];
        }
@@ -62,6 +62,7 @@ Survey.attachSchema(new SimpleSchema({
  },
  styling:{
    type: String,
+   optional: true,
      autoform: {
         rows: 5
      }

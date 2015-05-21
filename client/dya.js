@@ -1,7 +1,14 @@
-Session.setDefaultPersistent('usr', Random.fraction());
+Template.dya.rendered = function(){
+  Session.setDefaultPersistent('usr', Random.fraction());
+  Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
+  Session.set('params',this.data.params);
+  sAlert.config({
+       effect: 'stackslide',
+       position: 'top',
+       timeout: 1000
+   });
 
-// Session.setDefault('started',false);
-
+}
 
 
 Template.dya.helpers({
@@ -27,66 +34,32 @@ Template.dya.helpers({
     return this.type === 'VID';
   },
   showLND: function(){
-
     return Session.get(this.survey+'_showLND');
   },
   showFinish:function(){
-
-    try{
-    if(Session.get('params').surveyType == 'CS' && Session.get('started')){return true;}
+    if(this.surveyType == 'SV' && Session.get(this.title+'_showLND') == false){return true;}
     else{return false;}
-  }catch(e){}
-  return false;
   }
 })
 
-Template.dya.rendered = function(){
 
-  Session.setDefault('page',0);
-  Session.setDefault('surveyLength',0);
-  Session.setDefault('params',null);
-
-  Session.set('params',this.data.params);
-  Session.set('surveyLength',this.data.questions.length);
-  Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
-
-  sAlert.config({
-       effect: 'stackslide',
-       position: 'top',
-       timeout: 1000
-   });
-
-}
 
 Template.dya.events({
   'click button.finished, touchstart button.finished':function(e,template){
-    var tmpS = Session.get('params');
-    // Session.keys = {};
-    Session.clear();
-    Session.setPersistent(tmpS.title+'_showLND',true);
-    Session.update('usr', Random.fraction());
-    Session.set('params',tmpS);
+    var lnk = template.data.params.endLink;
+    if (typeof lnk != 'undefined'){
+      window.location.assign(lnk);
+    }else{
+      Router.go('/');
+    }
   },
   'click .hider,.starter, touchstart .hider,.starter':function(e,template){
-    Session.setPersistent(Session.get('params').title+'_showLND',false);
+    Session.setPersistent(template.data.params.title+'_showLND',false);
 
-    if(Session.get('params').surveyType == 'SP'){
-      Session.set('page',Session.get('page')+1);
-
-      if(Session.get('page') >= Session.get('surveyLength') ){
-        window.location.assign(Session.get('params').endLink);
-      }else{
-        Router.go('/'+Session.get('params').title+'/'+Session.get('page'));
-      }
-
-
-
-
-    }else{
-      // console.log(e);
+    // template.$('.starter').hide();
     $('#'+e.currentTarget.parentNode.parentNode.id).hide();
     $('html,body').scrollTop(0);
-  }
+  // }
   }
 
 
