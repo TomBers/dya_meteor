@@ -15,6 +15,7 @@ Survey.attachSchema(new SimpleSchema({
   title: {
     type: String,
     label: "Title",
+    unique: true,
     max: 200
   },
   surveyType: {
@@ -74,7 +75,7 @@ Survey.attachSchema(new SimpleSchema({
    max: 200
  }
   }));
-// surveyType:'SV',survey:this.params._id,noPages:4,endLink:'http://bbc.co.uk'
+
 
 
 Questions.allow({
@@ -86,22 +87,30 @@ Questions.allow({
 Questions.attachSchema(new SimpleSchema({
   title: {
     type: String,
-    label: "Title",
+    // optional: true,
+    label: "Title or Question",
     max: 200
   },
   survey: {
     type: String,
+    // optional: true,
     label: "Survey",
-    max: 200
+    max: 200,
+    // autoValue: function(d) {
+    //   if (this.isInsert) {
+    //
+    //   }
+    // }
   },
-  startMsg: {
-    type: String,
-    optional: true,
-    label: "Start Msg",
-    max: 200
-  },
+  // startMsg: {
+  //   type: String,
+  //   optional: true,
+  //   label: "Start Msg",
+  //   max: 200
+  // },
   order: {
    type: Number,
+   optional: true,
    label: "Order",
    min: 0
  },
@@ -113,6 +122,7 @@ Questions.attachSchema(new SimpleSchema({
  },
  visible: {
    type: Boolean,
+   optional: true,
    label: "Is this visible?",
    autoform: {
      afFieldInput: {
@@ -129,6 +139,7 @@ Questions.attachSchema(new SimpleSchema({
  type: {
    type: String,
    label: "Type",
+   optional: true,
    autoform: {
      afFieldInput: {
        type: "select",
@@ -138,8 +149,8 @@ Questions.attachSchema(new SimpleSchema({
           {label: "Single Choice", value: 'RDO'},
           {label: "Multiple Choice", value: 'CHK'},
           {label: "Comment", value: 'CMMT'},
-          {label: "Register Interest", value: 'RI'},
-          {label: "Video", value: 'VID'}
+          {label: "Register Interest", value: 'RI'}
+          // ,{label: "Video", value: 'VID'}
         ];
       }
      }

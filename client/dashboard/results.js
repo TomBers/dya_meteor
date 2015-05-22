@@ -12,12 +12,17 @@ Template.results.helpers({
       else{return false;}
     },
     cols:function(){
+      try{
       var cls = [];
       this.survey.cols.forEach(function(e){
         cls.push(e.col);
       })
       Session.set('cols',cls);
       return null;
+    }catch(e){
+      return null;
+    }
+
     },
     modQns:function(){
       this.questions.forEach(function(e){

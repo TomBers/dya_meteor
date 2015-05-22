@@ -13,3 +13,22 @@ Template.editSurvey.helpers({
     else{return false;}
   }
 });
+
+Template.editSurvey.rendered = function(){
+  Session.set('surveyName',this.data.survey.title);
+}
+
+var postHooks = {
+  before: {
+    insert: function(doc) {
+      doc.survey = Session.get('surveyName');
+      if(doc.type == 'LND'){
+        doc.order = 0;
+      }
+      return doc;
+    }
+  }
+
+}
+
+AutoForm.addHooks('makeQn', postHooks);
