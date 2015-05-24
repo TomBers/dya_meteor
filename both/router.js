@@ -32,24 +32,6 @@ Router.map(function() {
     }
   });
 
-  this.route('/makeQn', {
-    path: '/makeQn/:_id',
-    template: 'makeQn',
-    data: function(){
-      return {survey:this.params._id};
-    }
-  });
-
-  this.route('/editQn', {
-    path: '/editQn/:_id',
-    template: 'editQn',
-    waitOn: function(){
-      return Meteor.subscribe('Questions',this.params._id);
-    },
-    data: function() {
-      return Questions.findOne({_id:this.params._id});
-    }
-  });
 
   this.route('/ask', {
     path: '/ask/:_survey/:_id',
@@ -97,35 +79,6 @@ Router.map(function() {
 
 
 
-  this.route('edit', {
-    path: '/edit/:_id',
-    template: 'create',
-    waitOn: function(){
-      return Meteor.subscribe('Questions',this.params._id);
-    },
-    data: function() {
-      return Questions.findOne({_id:this.params._id});
-    }
-  });
-
-  this.route('clear', {
-    path: '/clear/:_id',
-    template: 'clear',
-    waitOn: function(){
-      return Meteor.subscribe('Questions',this.params._id);
-    },
-    data: function() {
-      return  Questions.findOne({_id:this.params._id});
-    }
-  });
-
-  this.route('del', {
-    path: '/del/:_id',
-    template: 'del',
-    data: function() {
-      return this.params._id;
-    }
-  });
 
   // Need to refactor
 

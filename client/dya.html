@@ -21,15 +21,12 @@
 
 
 <div class="container-fluid">
-
-  {{#each questions}}
-
   {{#if showLND}}
-  {{#if isLND}}
-  {{> LND}}
-  {{/if}}
+  <div class='starter'>
+  {{{params.startMsg}}}
+  </div>
   {{else}}
-
+  {{#each questions}}
 
   {{#if isCHK}}
   {{> CHK }}
@@ -55,16 +52,13 @@
   {{> VID}}
   {{/if}}
 
-  {{/if}}
-
   {{/each}}
-
+  {{/if}}
 {{#with params}}
   {{#if showFinish}}
   <button class='finished'>Finished</button>
   {{/if}}
   {{/with}}
-  <!-- {{> comment}} -->
 
   {{> sAlert}}
 </div>

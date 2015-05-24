@@ -24,9 +24,9 @@ Template.dya.helpers({
   isCMMT: function(){
     return this.type === 'CMMT';
   },
-  isLND: function(){
-    return this.type === 'LND';
-  },
+  // isLND: function(){
+  //   return this.type === 'LND';
+  // },
   isRI: function(){
     return this.type === 'RI';
   },
@@ -34,7 +34,7 @@ Template.dya.helpers({
     return this.type === 'VID';
   },
   showLND: function(){
-    return Session.get(this.survey+'_showLND');
+    return Session.get(this.params.title+'_showLND');
   },
   showFinish:function(){
     if(this.surveyType == 'SV' && Session.get(this.title+'_showLND') == false){return true;}

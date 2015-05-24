@@ -68,6 +68,12 @@ Survey.attachSchema(new SimpleSchema({
         rows: 5
      }
  },
+ startMsg: {
+   type: String,
+   optional: false,
+   label: "Introduction text",
+   max: 200
+ },
  endLink: {
    type: String,
    optional: true,
@@ -139,13 +145,12 @@ Questions.attachSchema(new SimpleSchema({
  type: {
    type: String,
    label: "Type",
-   optional: true,
    autoform: {
      afFieldInput: {
        type: "select",
       options: function () {
         return [
-          {label: "Landing Page", value: 'LND'},
+          // {label: "Landing Page", value: 'LND'},
           {label: "Single Choice", value: 'RDO'},
           {label: "Multiple Choice", value: 'CHK'},
           {label: "Comment", value: 'CMMT'},

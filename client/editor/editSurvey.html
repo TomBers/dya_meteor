@@ -1,7 +1,7 @@
 <template name='editSurvey'>
 
   <div class='container'>
-
+    {{> autoformModals}}
     {{#with survey}}
     {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update'}}
     {{/with}}
@@ -9,7 +9,7 @@
     <div class='row' style='border:1px solid black'>
     <div class='col-xs-2'>Show Question
     </div>
-    <div class='col-xs-3'>Title
+    <div class='col-xs-2'>Title
     </div>
     <div class='col-xs-2'>Results
     </div>
@@ -17,37 +17,18 @@
     </div>
     <div class='col-xs-2'>Clear Responses
     </div>
+    <div class='col-xs-2'>Delete Question
+    </div>
   </div>
 
       {{#each questions}}
-      <div class='row'>
-
-        <div class='col-xs-2'>
-          {{#if showVisible}}
-            <input type="checkbox" checked="{{visible}}" />
-          {{/if}}
-        </div>
-        <div class='col-xs-3'>
-          {{title}}
-        </div>
-        <div class='col-xs-2'>
-          {{#if isRI type}}<a href='/track/{{survey}}/{{_id}}'><span class='glyphicon glyphicon-record'></span></a>{{else}}<a href='/results/{{survey}}'><span class='glyphicon glyphicon-stats'></span></a>{{/if}}
-        </div>
-        <div class='col-xs-2'>
-          <a href='/editQn/{{_id}}'><span class='glyphicon glyphicon-pencil'></span></a>
-        </div>
-        <div class='col-xs-2'>
-          <a href='/clear/{{_id}}'><span class='glyphicon glyphicon-minus'></span></a>
-        </div>
-
-    </div>
+      {{> editQn}}
       {{/each}}
 
 
     <br><br>
     {{#with survey}}
-    {{> autoformModals}}
-    {{#afModal class="btn btn-primary addQn" collection="Questions" operation="insert" omitFields="survey,dependsOn" formId="makeQn" title=title}}
+    {{#afModal class="btn btn-primary" collection="Questions" operation="insert" omitFields="survey,dependsOn,order,visible" formId="makeQn"}}
     Add a new question
     {{/afModal}}
     {{/with}}
@@ -56,3 +37,37 @@
 
   </div>
 </template>
+
+<template name='editQn'>
+  <div class='row' style="margin-top:20px;margin-bottom:10px;">
+
+    <div class='col-xs-2'>
+      {{#if showVisible}}
+        <input type="checkbox" checked="{{visible}}" />
+      {{/if}}
+    </div>
+    <div class='col-xs-2'>
+      {{title}}
+    </div>
+    <div class='col-xs-2'>
+      {{#if isRI type}}<a href='/track/{{survey}}/{{_id}}'><span style='font-size: 2em;' class='glyphicon glyphicon-record'></span></a>{{else}}<a href='/results/{{survey}}'><span class='glyphicon glyphicon-stats' style='font-size: 2em;'></span></a>{{/if}}
+    </div>
+    <div class='col-xs-2'>
+
+      {{#afModal class="btn btn-primary" collection="Questions" operation="update" omitFields="survey,dependsOn,visible" doc=_id}}
+      Edit question
+      {{/afModal}}
+    </div>
+    <div class='col-xs-2'>
+      <button class='btn btn-warning'>Clear Data</button>
+    </div>
+    <div class='col-xs-2'>
+
+      {{#afModal class="btn btn-danger" collection="Questions" operation="remove" doc=_id formId="delQn"}}
+      Delete
+      {{/afModal}}
+    </div>
+
+</div>
+
+  </template>

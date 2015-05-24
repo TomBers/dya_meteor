@@ -1,15 +1,4 @@
 Meteor.methods({
-  vote: function(debate,usr,val) {
-    Votes.update({debate:debate,usr:usr},{debate:debate,usr:usr,side:val},{upsert:true});
-    var dte = new Date();
-    analysis.insert({debate:debate
-      ,usr:usr
-      ,agree:Votes.find({debate:debate,side:'Agree'}).fetch().length
-      ,neutral:Votes.find({debate:debate,side:'Neutral'}).fetch().length
-      ,disagree:Votes.find({debate:debate,side:'Disagree'}).fetch().length
-      ,DateTime:dte
-      });
-  },
   regInterest: function(qn,usr,dat,rate){
     var dte = new Date();
     var nT = 0;
