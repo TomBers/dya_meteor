@@ -1,9 +1,11 @@
 <template name='editSurvey'>
-
+  {{> autoformModals}}
   <div class='container'>
-    {{> autoformModals}}
+
+
     {{#with survey}}
-    {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update'}}
+    <h1>{{title}}</h1>
+    {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update' omitFields="title"}}
     {{/with}}
 
     <div class='row' style='border:1px solid black'>

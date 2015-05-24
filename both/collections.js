@@ -47,6 +47,7 @@ Survey.attachSchema(new SimpleSchema({
 
   cols:{
     type:Array,
+    label: "Colours",
     optional:true
   },
   'cols.$':{
