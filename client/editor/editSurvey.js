@@ -1,6 +1,6 @@
 Template.editQn.events({
-"change .isVisible input": function (event) {
-  Meteor.call('changeVisible',this._id,event.currentTarget.checked);
+"change .isVisible input": function (e,t) {
+  Meteor.call('changeVisible',this._id,e.target.checked);
 },
 "click .btn-danger":function(e,t){
   // console.log(t);
@@ -41,9 +41,6 @@ Template.autoformModals.events({
 })
 
 Template.editQn.helpers({
-  showVisible: function(){
-    return this.type != 'LND';
-  },
   isRI: function(type){
     if(type =='RI'){return true;}
     else{return false;}
