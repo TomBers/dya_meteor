@@ -1,10 +1,8 @@
 <template name='editSurvey'>
   {{> autoformModals}}
   <div class='container'>
-
-
     {{#with survey}}
-    <h1>{{title}}</h1>
+    <h1>URL : <a href='/{{title}}' target='_blank'>http://dya.mod.bz/{{title}}</a></h1>
     {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update' omitFields="title"}}
     {{/with}}
 

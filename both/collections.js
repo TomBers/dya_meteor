@@ -78,7 +78,7 @@ Survey.attachSchema(new SimpleSchema({
  endLink: {
    type: String,
    optional: true,
-   label: "End Link",
+   label: "End Link (A web page to show at the end of the survey)",
    max: 200
  }
   }));
@@ -152,10 +152,10 @@ Questions.attachSchema(new SimpleSchema({
       options: function () {
         return [
           // {label: "Landing Page", value: 'LND'},
-          {label: "Single Choice", value: 'RDO'},
-          {label: "Multiple Choice", value: 'CHK'},
+          {label: "User selects 1 choice from your options (Used for a vote)", value: 'RDO'},
+          {label: "User selects 1 or more choices from your options (Used to show preferences)", value: 'CHK'},
           {label: "Comment", value: 'CMMT'},
-          {label: "Register Interest", value: 'RI'}
+          {label: "Live (Do you agree or disagree with a point as it is discussed)", value: 'RI'}
           // ,{label: "Video", value: 'VID'}
         ];
       }
