@@ -28,7 +28,7 @@ Template.CHK.helpers({
 Template.CHK.events({
   'click .chk, touchstart .chk':function(e,template){
     sAlert.success('Your decision has been noted');
-    
+
     var checked = e.currentTarget.className.split(' ')[1];
 
 

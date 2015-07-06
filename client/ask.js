@@ -1,7 +1,17 @@
 
 Template.ask.rendered = function(){
   Session.setDefaultPersistent('qnsVotedFor',[]);
+  Session.set('qn', this.data.params.title);
+  Meteor.subscribe('Comments',this.data.params.title);
 }
+
+
+Template.ask.helpers({
+  cmmts: function(){
+      return Comments.find({},{sort: {count:-1}});
+  }
+});
+
 
 
 
@@ -10,8 +20,7 @@ Template.ask.events({
       e.preventDefault()
       var cmt = template.find('#qntext').value;
       if(cmt != ''){
-      var qn = template.data.qn;
-      Meteor.call('makeComment',qn,Session.get('usr'),cmt,0);
+      Meteor.call('makeComment',Session.get('qn'),Session.get('usr'),cmt,0);
     }
     // alert.success('Thanks');
       template.find('#qntext').value = '';

@@ -90,7 +90,9 @@ Template.graph.rendered = function(){
 
     var sum = function(a, b) { return a + b };
     if(cnt > 0){
-    new Chartist.Pie('#'+qn, data,options,responsiveOptions);
+      new Chartist.Bar('#'+qn, data, {distributeSeries: true});
+
+    // new Chartist.Pie('#'+qn, data,options,responsiveOptions);
   }
 
 

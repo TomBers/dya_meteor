@@ -1,6 +1,7 @@
 Template.dya.rendered = function(){
   Session.setDefaultPersistent('usr', Random.fraction());
   Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
+  Session.set('hicn','?');
   Session.set('params',this.data.params);
   sAlert.config({
        effect: 'stackslide',
@@ -8,10 +9,14 @@ Template.dya.rendered = function(){
        timeout: 1000
    });
 
+  qnV = false;
 }
 
 
 Template.dya.helpers({
+  headerIcon:function(){
+    return Session.get('hicn');
+  },
   isSLD: function(){
     return this.type === 'SLD';
   },
@@ -45,6 +50,21 @@ Template.dya.helpers({
 
 
 Template.dya.events({
+  'click #goToQn':function(e,t){
+    if(qnV == false){
+    $(".qnView").fadeOut(function(){
+               $(".ansView").fadeIn();
+           });
+           Session.set('hicn', '<');
+           qnV=true;
+         }else{
+           $(".ansView").fadeOut(function(){
+                      $(".qnView").fadeIn();
+                  });
+                  Session.set('hicn', '?');
+                  qnV=false;
+         }
+  },
   'click button.finished, touchstart button.finished':function(e,template){
     var lnk = template.data.params.endLink;
     if (typeof lnk != 'undefined'){

@@ -15,10 +15,6 @@ Router.map(function() {
 
   });
 
-  // this.route('/create', {
-  //   path: '/create',
-  //   template: 'create'
-  // });
 
   this.route('results', {
     path: '/results/:_id',
@@ -33,17 +29,6 @@ Router.map(function() {
   });
 
 
-  this.route('/ask', {
-    path: '/ask/:_survey/:_id',
-    template: 'ask',
-    waitOn: function(){
-      Meteor.subscribe('Survey',this.params._survey);
-      return Meteor.subscribe('Comments',this.params._id);
-    },
-    data: function() {
-      return {params:Survey.findOne({title:this.params._survey}),qn:this.params._id,cmmts:Comments.find({qn:this.params._id},{sort: {count:-1}})};
-    }
-  });
 
   this.route('/createSurvey', {
     path: '/createSurvey',
@@ -76,44 +61,6 @@ Router.map(function() {
     }
   });
 
-
-
-
-
-  // Need to refactor
-
-  // this.route('debate', {
-  //   path: '/debate/:_id',
-  //   template: 'dya',
-  //   data: function() {
-  //     var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch();
-  //     var tmpParam = Survey.findOne({title:this.params._id});
-  //     tmpParam.surveyType = "DB";
-  //     return {questions : tmpQ,params:tmpParam};
-  //   }
-  // });
-  //
-  // this.route('tablet', {
-  //   path: '/tablet/:_id',
-  //   template: 'dya',
-  //   data: function() {
-  //     var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch();
-  //     var tmpParam = Survey.findOne({title:this.params._id});
-  //     tmpParam.surveyType ='CS';
-  //     return {questions : tmpQ,params:tmpParam};
-  //   }
-  // });
-  //
-  // this.route('singleView', {
-  //   path: '/:_id/:page',
-  //   template: 'dya',
-  //   data: function() {
-  //     var tmpQ = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}, limit:1,skip:parseInt(this.params.page)}).fetch();
-  //     var tmpParam = Survey.findOne({title:this.params._id});
-  //     return {questions : tmpQ,params:tmpParam};
-  //
-  //   }
-  // });
 
   this.route('dya', {
     path: '/:_id',
