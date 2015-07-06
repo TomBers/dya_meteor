@@ -33,3 +33,11 @@ Template.results.helpers({
 
     }
 })
+
+Template.results.events({
+  "click #showAsBar": function(event, template){
+    // console.log(event);
+    Session.set('showAsBar',event.currentTarget.checked);
+
+  }
+});

@@ -1,5 +1,3 @@
-
-
 Template.graph.helpers({
   cnt: function(){
     return Counts.get(''+this._id);
@@ -36,6 +34,8 @@ Template.graph.helpers({
 
 
 Template.graph.rendered = function(){
+  Session.setDefault('showAsBar', false);
+
   Meteor.subscribe('Votes',this.data._id);
   Meteor.subscribe('Count',this.data._id);
 
@@ -90,9 +90,12 @@ Template.graph.rendered = function(){
 
     var sum = function(a, b) { return a + b };
     if(cnt > 0){
-      new Chartist.Bar('#'+qn, data, {distributeSeries: true});
-
-    // new Chartist.Pie('#'+qn, data,options,responsiveOptions);
+      if (Session.get('showAsBar')) {
+        new Chartist.Bar('#'+qn, data, {distributeSeries: true});
+      }
+        else{
+          new Chartist.Pie('#'+qn, data,options,responsiveOptions);
+        }
   }
 
 
