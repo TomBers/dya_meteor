@@ -1,33 +1,26 @@
 Template.graph.helpers({
+  getCol:function(j){
+    try{
+      var cl = Session.get('cols');
+    if(cl.length >= j){
+    return cl[j];
+  }else{
+    return null;
+  }
+}catch(e){
+  return null;
+}
+  },
   cnt: function(){
     return Counts.get(''+this._id);
   },
   // res: function(){
   //   return Session.get(this._id+'_res');
   // },
-  keys:function(){
-    try{
-      var colL = this.cols.length;
-      var optsL = this.opts.length;
-
-      if( colL > 0 && optsL > 0){
-      var tmp =[];
-      var i =0;
-      var cols = this.cols;
-      var count = Session.get(this._id);
-      this.opts.forEach(function(e){
-        // var tc =
-        tmp.push({label:e,setCol:cols[i],count:count[i]});
-        i++;
-      });
-      return tmp;
-    }else{
-      return null;
-    }
-
-    }catch(e){
-      return null;
-    }
+  keys:function(c){
+    var prms = Session.get(c);
+    if(Array.isArray(prms) && prms.length > 0){return prms;}
+    else{return null;}
 
   }
 });
@@ -35,7 +28,8 @@ Template.graph.helpers({
 
 Template.graph.rendered = function(){
   Session.setDefault('showAsBar', false);
-
+  console.log(this.data);
+  Session.set('cols',this.data.cols);
   Meteor.subscribe('Votes',this.data._id);
   Meteor.subscribe('Count',this.data._id);
 
@@ -44,6 +38,7 @@ Template.graph.rendered = function(){
   this.autorun(function (template) {
     var qn = this._templateInstance.data._id;
     var labels = this._templateInstance.data.opts;
+
 
 
     var responses = Votes.find({qn:qn},{fields :{res :1 }}).fetch();
@@ -58,12 +53,21 @@ Template.graph.rendered = function(){
       cnt++;
     });
 
-    Session.set(this._templateInstance.data._id,series);
+
 
     var data = {
       labels: labels,
       series: series
     };
+
+    var tmpDat=[];
+
+    var t = Session.get('cols');
+    for(i = 0 ; i < labels.length; i++){
+      tmpDat.push({label:labels[i],value:series[i],col:t[i]});
+    }
+    Session.set(this._templateInstance.data._id,tmpDat);
+
 
     var options = {
       donut: true

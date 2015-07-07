@@ -23,7 +23,7 @@ Template.RDO.events({
     template.$( ".chk.checked" ).removeClass( "checked" );
 
     Session.setPersistent(''+template.data._id,e.currentTarget.id);
-
+    console.log(e.currentTarget);
     e.currentTarget.className = 'chk checked';
     Meteor.call('saveRes',template.data._id,e.currentTarget.id,Session.get('usr'));//, function(e,d){
   }

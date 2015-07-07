@@ -1,9 +1,10 @@
 Template.dya.rendered = function(){
+  Session.set('params',this.data.params);
   Session.setDefaultPersistent('usr', Random.fraction());
-  
+
   Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
   Session.set('hicn','?');
-  Session.set('params',this.data.params);
+
   sAlert.config({
        effect: 'stackslide',
        position: 'top',

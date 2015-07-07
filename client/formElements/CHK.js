@@ -4,10 +4,6 @@ Session.setDefault(this.data._id,[]);
 
 Template.CHK.helpers({
   checked:function(qn){
-    console.log(Session.get(qn._id));
-    console.log(this);
-
-    console.log(_.indexOf(Session.get(qn._id),this));
     var tmp = Session.get(qn._id);
     if(_.indexOf(tmp,this.valueOf()) > -1){return 'checked'}
     else{
