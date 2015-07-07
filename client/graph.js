@@ -28,18 +28,15 @@ Template.graph.helpers({
 
 Template.graph.rendered = function(){
   Session.setDefault('showAsBar', false);
-  console.log(this.data);
-  Session.set('cols',this.data.cols);
+
   Meteor.subscribe('Votes',this.data._id);
   Meteor.subscribe('Count',this.data._id);
 
-  Session.setDefault(this.data._id,null);
+  // Session.setDefault(this.data._id,null);
 
   this.autorun(function (template) {
     var qn = this._templateInstance.data._id;
     var labels = this._templateInstance.data.opts;
-
-
 
     var responses = Votes.find({qn:qn},{fields :{res :1 }}).fetch();
 
@@ -63,11 +60,12 @@ Template.graph.rendered = function(){
     var tmpDat=[];
 
     var t = Session.get('cols');
-    for(i = 0 ; i < labels.length; i++){
+    if(t){
+    for(i = 0 ; i < t.length; i++){
       tmpDat.push({label:labels[i],value:series[i],col:t[i]});
     }
     Session.set(this._templateInstance.data._id,tmpDat);
-
+  }
 
     var options = {
       donut: true

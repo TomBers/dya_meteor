@@ -70,7 +70,6 @@ Router.map(function() {
       return Meteor.subscribe('Survey',this.params._id);
     },
     data: function() {
-
       return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
     }
   });

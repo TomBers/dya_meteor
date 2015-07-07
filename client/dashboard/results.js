@@ -11,28 +11,22 @@ Template.results.helpers({
       if(type == "CMMT"){return true;}
       else{return false;}
     },
-    cols:function(){
-      try{
-      var cls = [];
-      this.survey.cols.forEach(function(e){
-        cls.push(e.col);
-      })
-      Session.set('cols',cls);
-      return null;
-    }catch(e){
-      return null;
-    }
-
-    },
     modQns:function(){
-      this.questions.forEach(function(e){
-        e.cols = Session.get('cols');
-      })
+      // this.questions.forEach(function(e){
+      //   e.col = Session.get('cols');
+      // })
       return this.questions;
-
-
     }
 })
+
+Template.results.rendered = function(){
+  var tmpCol = [];
+  this.data.survey.cols.forEach(function(c){
+    tmpCol.push(c.col);
+  })
+  Session.set('cols',tmpCol);
+  // console.log(this.data.survey.cols);
+}
 
 Template.results.events({
   "click #showAsBar": function(event, template){
