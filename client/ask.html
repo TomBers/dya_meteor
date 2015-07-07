@@ -45,29 +45,29 @@
 
   {{#if voted}}
   <div class='row' style="font-size:2.2em;border-bottom:1px solid #BEBABA">
-    <div class='col-sm-8 col-sm-offset-1' style='color:#BEBABA'>
+    <div class='col-sm-8 col-sm-offset-1 col-xs-10' style='color:#BEBABA'>
       {{comment}}
     </div>
-    <div class='col-sm-1' style='color:#BEBABA'>
+    <div class='col-sm-1 col-xs-2' style='color:#BEBABA'>
       {{count}}
     </div>
-    <div class='col-sm-1'>
+    <!-- <div class='col-sm-1 col-xs-2'>
     </div>
-    <div class='col-sm-1'>
-    </div>
+    <div class='col-sm-1 col-xs-2'>
+    </div> -->
   </div>
   {{else}}
   <div class='row' style="font-size:2.2em;border-bottom:1px solid #BEBABA">
-    <div class='col-sm-8 col-sm-offset-1'>
+    <div class='col-sm-8 col-sm-offset-1 col-xs-8'>
       {{comment}}
     </div>
-    <div class='col-sm-1'>
+    <div class='col-sm-1 col-xs-1'>
       {{count}}
     </div>
-    <div class='col-sm-1 upVote'>
+    <div class='col-sm-1 col-xs-1 upVote'>
       <span class='glyphicon glyphicon-circle-arrow-up'></span>
     </div>
-    <div class='col-sm-1 downVote'>
+    <div class='col-sm-1 col-xs-1 downVote'>
       <span class='glyphicon glyphicon-circle-arrow-down'></span>
     </div>
   </div>
