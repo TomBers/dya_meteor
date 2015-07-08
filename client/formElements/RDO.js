@@ -21,7 +21,8 @@ Template.RDO.rendered = function(){
 }
 
 Template.RDO.events({
-  'click .chk, touchstart .chk':function(e,template){
+  // , touchstart .chk
+  'click .chk':function(e,template){
     // e.preventDefault();
     sAlert.success('Your decision has been noted');
     // template.$( ".chk.checked" ).removeClass( "checked" );

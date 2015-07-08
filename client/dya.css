@@ -91,7 +91,11 @@ img {
   margin:5px;
   border:1px solid black;
 }
-.chk:hover,.rdo:hover,.hider:hover,.checked,.scale:hover{
+
+.chk:hover,.rdo:hover,.hider:hover,.scale:hover{
+  border:2px solid black;
+}
+.checked{
   color:white;
   background-color:black;
 }
@@ -143,6 +147,9 @@ textarea {
 
 @media all and (max-width: 450px){
 
+  .chk:hover,.rdo:hover,.hider:hover,.scale:hover{
+    border:1px solid black;
+  }
   .chk,.scale,.qry{
     font-size: 1.8em;
     padding:5px;

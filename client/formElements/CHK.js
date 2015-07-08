@@ -33,14 +33,10 @@ Template.CHK.helpers({
 })
 
 Template.CHK.events({
-  'click .chk, touchstart .chk':function(e,template){
+  'click .chk':function(e,template){
     sAlert.success('Your decision has been noted');
-
     var checked = e.currentTarget.className.split(' ')[1];
-
-
     if(checked == 'checked'){
-
       var tmp = Session.get(template.data._id);
       Session.update(template.data._id, _.without(tmp,e.currentTarget.id));
       // tmp.splice(tmp.indexOf(e.currentTarget.name),1);
