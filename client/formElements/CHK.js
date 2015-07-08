@@ -1,5 +1,5 @@
 Template.CHK.rendered = function(){
-Session.setDefault(this.data._id,[]);
+  Session.setDefaultPersistent(this.data._id,[]);
 }
 
 Template.CHK.helpers({
@@ -40,18 +40,19 @@ Template.CHK.events({
 
 
     if(checked == 'checked'){
-      Meteor.call('removeCHK',template.data._id,e.currentTarget.id,Session.get('usr'));
+
       var tmp = Session.get(template.data._id);
-      Session.setPersistent(''+template.data._id, _.without(tmp,e.currentTarget.id));
+      Session.update(template.data._id, _.without(tmp,e.currentTarget.id));
       // tmp.splice(tmp.indexOf(e.currentTarget.name),1);
       // Session.set(template.data._id,tmp);
-      e.currentTarget.className = 'chk';
+      // e.currentTarget.className = 'chk';
+      Meteor.call('removeCHK',template.data._id,e.currentTarget.id,Session.get('usr'));
 
     }else{
       var tmp = Session.get(template.data._id);
       tmp.push(e.currentTarget.id);
-      Session.setPersistent(''+template.data._id,tmp);
-      e.currentTarget.className = 'chk checked';
+      Session.update(template.data._id,tmp);
+      // e.currentTarget.className = 'chk checked';
 
       Meteor.call('saveCHK',template.data._id,e.currentTarget.id,Session.get('usr'));
     }

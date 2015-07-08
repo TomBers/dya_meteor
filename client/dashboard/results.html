@@ -1,5 +1,5 @@
 <template name='results'>
-<div class='container'>
+<div class='container-fluid'>
   <div class='row'>
 Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAsBar'>
 </div>
@@ -7,12 +7,12 @@ Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAs
   {{#each modQns}}
   {{#if drawGraph type}}
   <div class='col-sm-6'>
-  <div class='graphBox'>
+  <!-- <div class='graphBox'> -->
     <h1>{{title}}</h1>
 
   {{> graph}}
 
-</div>
+<!-- </div> -->
 </div>
 {{/if}}
   {{#if isRI type}}

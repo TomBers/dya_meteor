@@ -62,7 +62,9 @@ Template.graph.rendered = function(){
     var t = Session.get('cols');
     if(t){
     for(i = 0 ; i < t.length; i++){
+      if(labels[i]){
       tmpDat.push({label:labels[i],value:series[i],col:t[i]});
+    }
     }
     Session.set(this._templateInstance.data._id,tmpDat);
   }
