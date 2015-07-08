@@ -2,7 +2,7 @@ Template.dya.rendered = function(){
   Session.set('params',this.data.params);
   Session.setDefaultPersistent('usr', Random.fraction());
   Session.setDefaultPersistent(this.data.params.title+'_showLND',true);
-  Session.set('hicn','?');
+  Session.set('hicn','glyphicon-chevron-right');
 
   sAlert.config({
        effect: 'stackslide',
@@ -56,13 +56,13 @@ Template.dya.events({
     $(".qnView").fadeOut(function(){
                $(".ansView").fadeIn();
            });
-           Session.set('hicn', '<');
+           Session.set('hicn', 'glyphicon-chevron-left');
            qnV=true;
          }else{
            $(".ansView").fadeOut(function(){
                       $(".qnView").fadeIn();
                   });
-                  Session.set('hicn', '?');
+                  Session.set('hicn', 'glyphicon-chevron-right');
                   qnV=false;
          }
   },

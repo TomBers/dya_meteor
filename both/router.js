@@ -1,6 +1,6 @@
 Router.configure({
 layoutTemplate: 'layout',
-fastRender: true
+// fastRender: true
 // data: function() {
 //   return {Questions : Questions.find().fetch()}
 // }
@@ -69,6 +69,7 @@ Router.map(function() {
       Meteor.subscribe('Questions',this.params._id);
       return Meteor.subscribe('Survey',this.params._id);
     },
+    fastRender: true,
     data: function() {
       return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
     }

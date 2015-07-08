@@ -8,18 +8,14 @@
     <div class="navbar-header pull-left">
       <div class="navbar-brand logo">{{params.title}}</div>
     </div>
-
-    <!-- I don't want it apart of the collapsible portion -->
-    <div class="navbar-header pull-right">
-      <ul class="nav navbar-nav pull-left" style='margin:4.5px 5px;'>
+    <a href="#" type="button" id='goToQn' class="btn btn-default navbar-btn pull-right">
+      <span class="glyphicon {{headerIcon}}"></span>
+    </a>
+      <!-- <ul class="nav navbar-nav navbar-right">
         <li>
-          <!-- <a href="/ask/{{params.title}}/{{params._id}}" style='padding:0px;padding-top:10px'> -->
             <span id='goToQn' style='font-size:2em'>{{headerIcon}}</span>
-            <!-- </a> -->
           </li>
-      </ul>
-
-    </div>
+      </ul> -->
   </div>
 </nav>
 
