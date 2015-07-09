@@ -61,6 +61,20 @@ Router.map(function() {
     }
   });
 
+  this.route('tablet', {
+    path: '/tablet/:_id',
+    template: 'dya',
+    waitOn: function(){
+      Meteor.subscribe('Questions',this.params._id);
+      return Meteor.subscribe('Survey',this.params._id);
+    },
+    fastRender: true,
+    data: function() {
+      var p = Survey.findOne({title:this.params._id});
+      p.tablet = true;
+      return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:p};
+    }
+  });
 
   this.route('dya', {
     path: '/:_id',

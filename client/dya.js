@@ -5,10 +5,10 @@ Template.dya.rendered = function(){
   Session.set('hicn','glyphicon-chevron-right');
 
   sAlert.config({
-       effect: 'stackslide',
-       position: 'top',
-       timeout: 1000
-   });
+    effect: 'stackslide',
+    position: 'top',
+    timeout: 1000
+  });
 
   qnV = false;
 }
@@ -53,26 +53,38 @@ Template.dya.helpers({
 Template.dya.events({
   'click #goToQn':function(e,t){
     if(qnV == false){
-    $(".qnView").fadeOut(function(){
-               $(".ansView").fadeIn();
-           });
-           Session.set('hicn', 'glyphicon-chevron-left');
-           qnV=true;
-         }else{
-           $(".ansView").fadeOut(function(){
-                      $(".qnView").fadeIn();
-                  });
-                  Session.set('hicn', 'glyphicon-chevron-right');
-                  qnV=false;
-         }
+      $(".qnView").fadeOut(function(){
+        $(".ansView").fadeIn();
+      });
+      Session.set('hicn', 'glyphicon-chevron-left');
+      qnV=true;
+    }else{
+      $(".ansView").fadeOut(function(){
+        $(".qnView").fadeIn();
+      });
+      Session.set('hicn', 'glyphicon-chevron-right');
+      qnV=false;
+    }
   },
   'click button.finished, touchstart button.finished':function(e,template){
+    if(template.data.params.hasOwnProperty('tablet')){
+        alert('Thank you');
+        Session.update(template.data.params.title+'_showLND',true);
+        Session.update('usr', Random.fraction());
+
+        template.data.questions.forEach(function(qn){
+          Session.clear(qn._id);
+        });
+        // Router.go('/tablet/tst');//+template.data.params.title);
+        $('html,body').scrollTop(0);
+    }else{
     var lnk = template.data.params.endLink;
     if (typeof lnk != 'undefined'){
       window.location.assign(lnk);
     }else{
       Router.go('/');
     }
+  }
   },
   'click .hider,.starter, touchstart .hider,.starter':function(e,template){
     Session.setPersistent(template.data.params.title+'_showLND',false);
@@ -80,7 +92,7 @@ Template.dya.events({
     // template.$('.starter').hide();
     $('#'+e.currentTarget.parentNode.parentNode.id).hide();
     $('html,body').scrollTop(0);
-  // }
+    // }
   }
 
 

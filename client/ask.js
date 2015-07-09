@@ -29,7 +29,11 @@ Template.ask.events({
 
 Template.qnVote.helpers({
   voted: function(){
+    if(Session.get('qnsVotedFor')){
     return Session.get('qnsVotedFor').indexOf(this._id) > - 1;
+  }else{
+    return null;
+  }
   }
 })
 
