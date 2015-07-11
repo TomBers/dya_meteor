@@ -10,7 +10,8 @@ Session.setDefault(this.data._id+'_dya','');
 }
 
 Template.RI.events({
-  'click .chk, touchend .chk':function(e,template){
+  // , touchend .chk
+  'click .chk':function(e,template){
     e.preventDefault()
     var pos = e.currentTarget.parentElement.previousElementSibling.innerText;
 
@@ -20,11 +21,13 @@ Template.RI.events({
     sAlert.success('You '+rank+' with '+pos);
     // alert('You '+rank+' with '+pos);
   },
-  'click .qry, touchend .qry':function(e,template){
+  // , touchend .qry
+  'click .qry':function(e,template){
     $('#'+template.data._id+'_PI').hide();
     $('#'+template.data._id+'_CMMT').show();
   },
-  'click .cmmt, touchend .cmmt':function(e,template){
+  // , touchend .cmmt
+  'click .cmmt':function(e,template){
     e.preventDefault()
     var cmt = template.find('textarea').value;
 

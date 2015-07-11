@@ -1,5 +1,6 @@
 Template.CMMT.events({
-  'click .cmmt, touchend .cmmt':function(e,template){
+  // , touchend .cmmt
+  'click .cmmt':function(e,template){
     e.preventDefault()
     var cmt = template.find('textarea').value;
 

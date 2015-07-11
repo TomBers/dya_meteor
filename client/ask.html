@@ -3,17 +3,10 @@
 .input-group-addon,.upVote,.downVote{
   cursor: pointer;
 }
-
-{{{params.styling}}}
 </style>
 
 
-<div class="container-fluid">
   <fieldset>
-
-    <!-- Form Name -->
-    <legend>Ask a Question</legend>
-
     <!-- Appended Input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="qntext"></label>
@@ -27,7 +20,7 @@
     </div>
   </fieldset>
 
-  <fieldset>
+  <!-- <fieldset> -->
     <legend>Past Questions</legend>
 
     {{#each cmmts}}
@@ -35,8 +28,8 @@
     {{/each}}
 
 
-  </fieldset>
-</div>
+  <!-- </fieldset> -->
+
 
 </template>
 
@@ -67,7 +60,7 @@
     <div class='col-sm-1 col-xs-1 upVote'>
       <span class='glyphicon glyphicon-circle-arrow-up'></span>
     </div>
-    <div class='col-sm-1 col-xs-1 downVote'>
+    <div class='col-sm-1 col-xs-1 col-xs-offset-1 downVote'>
       <span class='glyphicon glyphicon-circle-arrow-down'></span>
     </div>
   </div>

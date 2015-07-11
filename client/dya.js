@@ -66,7 +66,8 @@ Template.dya.events({
       qnV=false;
     }
   },
-  'click button.finished, touchstart button.finished':function(e,template){
+  // , touchstart button.finished
+  'click button.finished':function(e,template){
     if(template.data.params.hasOwnProperty('tablet')){
         alert('Thank you');
         Session.update(template.data.params.title+'_showLND',true);
@@ -86,7 +87,8 @@ Template.dya.events({
     }
   }
   },
-  'click .hider,.starter, touchstart .hider,.starter':function(e,template){
+  // , touchstart .hider,.starter
+  'click .hider,.starter':function(e,template){
     Session.setPersistent(template.data.params.title+'_showLND',false);
 
     // template.$('.starter').hide();

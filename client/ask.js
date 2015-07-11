@@ -16,7 +16,8 @@ Template.ask.helpers({
 
 
 Template.ask.events({
-  'click span.askQn, touchstart span.askQn':function(e,template){
+  // , touchstart span.askQn
+  'click span.askQn':function(e,template){
       e.preventDefault()
       var cmt = template.find('#qntext').value;
       if(cmt != ''){
@@ -38,13 +39,15 @@ Template.qnVote.helpers({
 })
 
 Template.qnVote.events({
-  'click div.upVote, touchstart div.upVote':function(e,template){
+  // , touchstart div.upVote
+  'click div.upVote':function(e,template){
     var tmp = Session.get('qnsVotedFor');
     tmp.push(this._id);
     Session.setPersistent('qnsVotedFor',tmp);
     Meteor.call('upDownVoteComment',this._id,1);
   },
-  'click div.downVote, touchstart div.downVote':function(e,template){
+  // , touchstart div.downVote
+  'click div.downVote':function(e,template){
     var tmp = Session.get('qnsVotedFor');
     tmp.push(this._id);
     Session.setPersistent('qnsVotedFor',tmp);

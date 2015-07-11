@@ -147,6 +147,7 @@ textarea {
 
 @media all and (max-width: 450px){
 
+
   .chk:hover,.rdo:hover,.hider:hover,.scale:hover{
     border:1px solid black;
   }
