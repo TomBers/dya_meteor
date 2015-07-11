@@ -122,14 +122,11 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              {{> loginButtons}}
+              <li><a href="mailto:tom@doyouagree.co.uk">Contact</a></li>
                {{#if loggedIn}}
               <li><a href="/account">My Account</a></li>
               {{/if}}
-              <li><a href="/demo">Demo</a></li>
-              <!-- <li><a href="/prices">Pricing</a></li> -->
-              <li><a href="mailto:tom@doyouagree.co.uk">Contact</a></li>
-
+              {{> loginButtons}}
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -145,6 +142,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
     {{#afModal class="btn btn-primary" collection="Survey" operation="insert" omitFields="owner" formId="makeSurvey"}}
     Add a new survey
     {{/afModal}}
+
 
 
 </div>
