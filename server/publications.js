@@ -24,6 +24,14 @@ Meteor.publish("Analysis", function (id) {
 });
 
 
+Meteor.publish("SaQ", function (id,title) {
+  return [Survey.find({_id:id}),Questions.find({survey:title})];
+});
+
 Meteor.publish("Survey", function (survey) {
   return Survey.find({title:survey});
+});
+
+Meteor.publish("mySurveys", function (usr) {
+  return Survey.find({owner:usr});
 });

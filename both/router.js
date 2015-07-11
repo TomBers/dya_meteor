@@ -28,11 +28,31 @@ Router.map(function() {
     }
   });
 
-
+  this.route('/account', {
+    path: '/account',
+    template: 'account',
+    waitOn: function(){
+      return Meteor.subscribe('mySurveys',Meteor.userId());
+    },
+    data: function() {
+      return {surveys:Survey.find()};
+    }
+  });
 
   this.route('/createSurvey', {
     path: '/createSurvey',
     template: 'makeSurvey'
+  });
+
+  this.route('/es', {
+    path: '/es/:_id/:_title',
+    template: 'editSurvey',
+    waitOn: function(){
+      return Meteor.subscribe('SaQ',this.params._id,this.params._title);
+    },
+    data: function() {
+      return {survey:Survey.findOne(), questions: Questions.find({},{sort: {order:1}}).fetch()};
+    }
   });
 
   this.route('/editSurvey', {

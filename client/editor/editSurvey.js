@@ -48,6 +48,7 @@ Template.editQn.helpers({
 });
 
 Template.editSurvey.rendered = function(){
+  console.log(this.data);
   Session.set('surveyName',this.data.survey.title);
   Session.set('surveyLength', this.data.questions.length);
 }

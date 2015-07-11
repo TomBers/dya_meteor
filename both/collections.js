@@ -12,6 +12,12 @@ Survey.allow({
 });
 
 Survey.attachSchema(new SimpleSchema({
+  owner: {
+    type: String,
+    label: "Owner",
+    optional:true,
+    max: 200
+  },
   title: {
     type: String,
     label: "Title",
