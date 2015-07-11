@@ -1,19 +1,151 @@
 <template name="account">
-  <div class='container'>
-    {{#if loggedIn}}
-    <h1>Welcome</h1>
-    <ol>
+<style>
+body{
+font-family: 'Source Sans Pro', sans-serif;
+color:#354353;
+}
+
+h1{
+font-size:32px;
+font-weight:700;
+}
+
+h2{
+font-size:24px;
+color:#f15c51;
+font-weight:300;
+}
+h3{
+fontsize:18px;
+font-weight:700;
+}
+p{
+font-weight:400;
+}
+
+.btn {border-radius: 0;}
+ul{
+-webkit-padding-start:0px;
+}
+a.navbar-brand {
+  margin-bottom: 12px;
+}
+.container{
+/*	border:1px solid red;*/
+}
+#topNav{
+background:white;
+border:none;
+}
+
+#logo{
+padding-top:80px;
+}
+#login{
+position:absolute;
+top:-75px;
+/*	left:-110px;*/
+left:-75px;
+text-transform:lowercase;
+}
+
+.mkpts{
+padding-top:20px;
+background:#354353;
+}
+.mkpts h2,p {
+text-align: center;
+font-weight: normal;
+color:white;
+}
+.img-circle{
+display:block;
+margin:0 auto;
+}
+
+
+.navbar-nav{
+padding-top:95px;
+padding-left:200px;
+}
+
+
+.navbar-nav ul{
+padding-left:20px;
+}
+
+ul.nav.navbar-nav li a {
+
+text-transform:uppercase;
+/*    color: red;*/
+}
+
+ul.nav.navbar-nav li a:hover {color:#f15c51;}
+
+@media screen and (max-width: 1200px){
+.navbar-nav{
+
+  padding-left:0px;
+}
+}
+
+@media screen and (max-width: 768px){
+.navbar-nav{
+  padding-top:0px;
+  padding-left:0px;
+}
+#logo{
+  padding-top:10px;
+}
+#login{
+  position:relative;
+  top:0px;
+  left:0px;
+   text-transform:lowercase;
+}
+
+}
+</style>
+    <div class="container">
+      <div class="col-sm-10-offset-1">
+        <div id="topNav" class="navbar navbar-default navbar-static-top" >
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img id="logo" src="dya_logo.png"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              {{> loginButtons}}
+               {{#if loggedIn}}
+              <li><a href="/account">My Account</a></li>
+              {{/if}}
+              <li><a href="/demo">Demo</a></li>
+              <!-- <li><a href="/prices">Pricing</a></li> -->
+              <li><a href="mailto:tom@doyouagree.co.uk">Contact</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+    <h1>Welcome, these are your surveys</h1>
+    <ol class='surveyList'>
     {{#each surveys}}
     <li><a href='/es/{{this._id}}/{{this.title}}' target="_blank">{{this.title}}</a></li>
     {{/each}}
+    </ol>
     {{> autoformModals}}
     {{#afModal class="btn btn-primary" collection="Survey" operation="insert" omitFields="owner" formId="makeSurvey"}}
     Add a new survey
     {{/afModal}}
 
-  </ol>
-    {{else}}
-  {{> loginButtons}}
-  {{/if}}
+
 </div>
 </template>

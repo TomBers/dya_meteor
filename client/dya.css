@@ -48,6 +48,9 @@ body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neu
   display:inline;
 }
 
+.surveyList{
+  font-size: 1.5em;
+}
 
 .graphRight{
   /*border:1px solid red;*/

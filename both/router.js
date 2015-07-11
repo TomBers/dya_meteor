@@ -32,7 +32,11 @@ Router.map(function() {
     path: '/account',
     template: 'account',
     waitOn: function(){
+      if(Meteor.userId()){
       return Meteor.subscribe('mySurveys',Meteor.userId());
+    }else{
+      return Router.go('/');
+    }
     },
     data: function() {
       return {surveys:Survey.find()};
@@ -55,17 +59,17 @@ Router.map(function() {
     }
   });
 
-  this.route('/editSurvey', {
-    path: '/editSurvey/:_id',
-    template: 'editSurvey',
-    waitOn: function(){
-      Meteor.subscribe('Questions',this.params._id);
-      return Meteor.subscribe('Survey',this.params._id);
-    },
-    data: function() {
-      return {survey:Survey.findOne({title:this.params._id}), questions: Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
-    }
-  });
+  // this.route('/editSurvey', {
+  //   path: '/editSurvey/:_id',
+  //   template: 'editSurvey',
+  //   waitOn: function(){
+  //     Meteor.subscribe('Questions',this.params._id);
+  //     return Meteor.subscribe('Survey',this.params._id);
+  //   },
+  //   data: function() {
+  //     return {survey:Survey.findOne({title:this.params._id}), questions: Questions.find({survey:this.params._id},{sort: {order:1}}).fetch()};
+  //   }
+  // });
 
 
 
@@ -105,7 +109,12 @@ Router.map(function() {
     },
     fastRender: true,
     data: function() {
-      return {questions : Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch(),params:Survey.findOne({title:this.params._id})};
+      var qns = Questions.find({survey:this.params._id,visible:true},{sort: {order:1}}).fetch();
+      if(qns.length >= 1){
+      return {questions : qns,params:Survey.findOne({title:this.params._id})};
+    }else{
+      return Router.go('/');
+    }
     }
   });
 

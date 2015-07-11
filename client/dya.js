@@ -40,7 +40,11 @@ Template.dya.helpers({
     return this.type === 'VID';
   },
   showLND: function(){
+    try{
     return Session.get(this.params.title+'_showLND');
+  }catch(e){
+    
+  }
   },
   showFinish:function(){
     if(this.surveyType == 'SV' && Session.get(this.title+'_showLND') == false){return true;}
