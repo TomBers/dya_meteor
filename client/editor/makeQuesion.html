@@ -1,0 +1,15 @@
+<template name='makeQuestion'>
+  <div class='container'>
+  <h1>Create a new Question</h1>
+  <br><br>
+  {{> quickForm collection='Questions' id='insertQuestionForm' type='insert' omitFields='survey,order,dependsOn,visible'}}
+</div>
+</template>
+
+<template name='updateQuestion'>
+  <div class='container'>
+  <h1>Edit Question</h1>
+  <br><br>
+  {{> quickForm collection='Questions' doc=this id='updateQuestionForm' type='update' omitFields='survey,order,dependsOn,visible'}}
+</div>
+</template>

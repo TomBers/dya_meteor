@@ -123,8 +123,8 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="mailto:tom@doyouagree.co.uk">Contact</a></li>
-               {{#if loggedIn}}
-              <li><a href="/account">My Account</a></li>
+               {{#if loggedIn}} -->
+               <li><a href="/account">My Account</a></li>
               {{/if}}
               {{> loginButtons}}
             </ul>
@@ -138,10 +138,12 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
     <li><a href='/es/{{this._id}}/{{this.title}}' target="_blank">{{this.title}}</a></li>
     {{/each}}
     </ol>
-    {{> autoformModals}}
+    <a href='/createSurvey'>Add New Survey</a>
+    <!-- {{> autoformModals}} -->
+<!-- {{> autoformModals}}
     {{#afModal class="btn btn-primary" collection="Survey" operation="insert" omitFields="owner" formId="makeSurvey"}}
     Add a new survey
-    {{/afModal}}
+    {{/afModal}} -->
 
 
 

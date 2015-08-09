@@ -30,20 +30,20 @@ Template.dya.helpers({
   isCMMT: function(){
     return this.type === 'CMMT';
   },
-  // isLND: function(){
-  //   return this.type === 'LND';
-  // },
   isRI: function(){
     return this.type === 'RI';
   },
   isVID: function(){
     return this.type === 'VID';
   },
+  isSML: function(){
+    return this.type === 'SML';
+  },
   showLND: function(){
     try{
     return Session.get(this.params.title+'_showLND');
   }catch(e){
-    
+
   }
   },
   showFinish:function(){

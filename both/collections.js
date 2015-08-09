@@ -160,6 +160,7 @@ Questions.attachSchema(new SimpleSchema({
           // {label: "Landing Page", value: 'LND'},
           {label: "User selects 1 choice from your options (Used for a vote)", value: 'RDO'},
           {label: "User selects 1 or more choices from your options (Used to show preferences)", value: 'CHK'},
+          {label: "Pick Positive/Neutral/Negative from image", value: 'SML'},
           {label: "Comment", value: 'CMMT'},
           {label: "Live (Do you agree or disagree with a point as it is discussed)", value: 'RI'}
           // ,{label: "Video", value: 'VID'}

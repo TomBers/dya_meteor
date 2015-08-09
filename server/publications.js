@@ -32,6 +32,10 @@ Meteor.publish("Survey", function (survey) {
   return Survey.find({title:survey});
 });
 
+Meteor.publish("SurveyById", function (thesrvy) {
+  return Survey.find({_id:thesrvy});
+});
+
 Meteor.publish("mySurveys", function (usr) {
   return Survey.find({owner:usr});
 });

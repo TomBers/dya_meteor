@@ -59,6 +59,43 @@ Router.map(function() {
     }
   });
 
+  this.route('/updateSurvey', {
+    path: '/updateSurvey/:_id',
+    template: 'updateSurvey',
+    waitOn: function(){
+      return Meteor.subscribe('SurveyById',this.params._id);
+    },
+    data: function() {
+      return Survey.findOne();
+    }
+  });
+
+  this.route('/mq', {
+    path: '/mq/:_id/:_title',
+    template: 'makeQuestion',
+    data: function() {
+      return {id:this.params._id,title:this.params._title};
+    }
+    // ,
+    // waitOn: function(){
+    //   return Meteor.subscribe('questionById',this.params._id);
+    // },
+    // data: function() {
+    //   return Questions.findOne({_id:this.params._id});
+    // }
+  });
+
+  this.route('/updateQuestion', {
+    path: '/updateQuestion/:_id/:title',
+    template: 'updateQuestion',
+    waitOn: function(){
+      return Meteor.subscribe('questionById',this.params._id);
+    },
+    data: function() {
+      return Questions.findOne();
+    }
+  });
+
   // this.route('/editSurvey', {
   //   path: '/editSurvey/:_id',
   //   template: 'editSurvey',

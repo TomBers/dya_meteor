@@ -1,9 +1,10 @@
 <template name='editSurvey'>
-  {{> autoformModals}}
+  <!-- {{> autoformModals}} -->
   <div class='container'>
     {{#with survey}}
     <h1>URL : <a href='/{{title}}' target='_blank'>http://dya.mod.bz/{{title}}</a></h1>
-    {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update' omitFields="title,owner"}}
+    <a href='/updateSurvey/{{_id}}'>Update Survey settings</a>
+    <!-- {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update' omitFields="title,owner"}} -->
     {{/with}}
 
     <div class='row' style='border:1px solid black;font-size:1.5em'>
@@ -28,9 +29,11 @@
 
     <br><br>
     {{#with survey}}
-    {{#afModal class="btn btn-primary" collection="Questions" operation="insert" omitFields="survey,dependsOn,order,visible" formId="makeQn"}}
+    <a href="/mq/{{_id}}/{{title}}">Add Question</a>
+    <!-- {{> quickForm collection="Questions" id="insertQuestionForm" type="insert"}} -->
+    <!-- {{#afModal class="btn btn-primary" collection="Questions" operation="insert" omitFields="survey,dependsOn,order,visible" formId="makeQn"}}
     Add a new question
-    {{/afModal}}
+    {{/afModal}} -->
     {{/with}}
 
     <!-- <a href='/makeQn/{{survey.title}}'><h3>Add Question</h3></a> -->
@@ -51,10 +54,7 @@
       {{#if isRI type}}<a href='/track/{{survey}}/{{_id}}'><span style='font-size: 2em;' class='glyphicon glyphicon-record'></span></a>{{else}}<a href='/results/{{survey}}'><span class='glyphicon glyphicon-stats' style='font-size: 2em;'></span></a>{{/if}}
     </div>
     <div class='col-xs-2'>
-
-      {{#afModal class="btn btn-primary" collection="Questions" operation="update" omitFields="survey,dependsOn,visible" doc=_id}}
-      Edit question
-      {{/afModal}}
+      <a href='/updateQuestion/{{_id}}/{{survey}}'>Edit</a>
     </div>
     <div class='col-xs-2'>
       <button class='btn btn-warning'>Clear Data</button>

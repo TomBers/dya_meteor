@@ -48,8 +48,9 @@ Template.editQn.helpers({
 });
 
 Template.editSurvey.rendered = function(){
-  console.log(this.data);
+  // console.log(this.data);
   Session.set('surveyName',this.data.survey.title);
+  Session.set('surveyId', this.data.survey._id);
   Session.set('surveyLength', this.data.questions.length);
 }
 
@@ -82,21 +83,26 @@ Template.editSurvey.rendered = function(){
 //       }
 //     });
 
-var postHooks = {
-  before: {
-    insert: function(doc) {
-      doc.survey = Session.get('surveyName');
-      var tmp = Session.get('surveyLength')
-      doc.order = ++tmp;
-      Session.set('surveyLength',tmp);
-      doc.visible=true;
-      return doc;
-    }
-  },
-  onSuccess: function(operation, result, template) {
-    // alert('Thank you for your inquiry! We will get back to you shortly.');
-  }
-}
-
-
-AutoForm.addHooks('makeQn', postHooks);
+// var postHooks = {
+//   before: {
+//     insert: function(doc) {
+//       doc.survey = Session.get('surveyName');
+//       var tmp = Session.get('surveyLength')
+//       doc.order = ++tmp;
+//       Session.set('surveyLength',tmp);
+//       doc.visible=true;
+//
+//       if(doc.type === 'SML'){
+//         doc.opts = ['Positive','Neutral','Negative'];
+//       }
+//
+//       return doc;
+//     }
+//   },
+//   onSuccess: function(operation, result, template) {
+//     // alert('Thank you for your inquiry! We will get back to you shortly.');
+//   }
+// }
+//
+//
+// AutoForm.addHooks('makeQn', postHooks);
