@@ -4,7 +4,6 @@ Meteor.methods({
     var nT = 0;
     try{
     var tTot = Analysis.find({question:qn,res:dat,rating:rate},{sort: {DateTime:-1},limit:1}).fetch();
-    // console.log(tTot);
     nT = ++tTot[0].total;
   }catch(e){
     nT = 1;
@@ -41,10 +40,7 @@ Meteor.methods({
   upDownVoteComment:function(qn,val){
     Comments.update({_id:qn}, {$inc:{count:val}});
   },
-  // comment: function(debate,usr,side,comment){
-  //   var dte = new Date();
-  //   Comments.insert({debate:debate,usr:usr,side:side,comment:comment,DateTime:dte});
-  // },
+
   makeDebate: function(title,ac,nc,dc,url,did){
     var dte = new Date();
     if (did == ''){
@@ -60,7 +56,7 @@ clearDebate: function(qn,del){
   Analysis.remove({question:qn});
   Count.remove({qn:qn});
   if(del){
-  Questions.remove({_id:debate});
+  Questions.remove({_id:qn});
 }
 }
 });

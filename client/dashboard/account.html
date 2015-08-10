@@ -135,17 +135,9 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
     <h1>Welcome, these are your surveys</h1>
     <ol class='surveyList'>
     {{#each surveys}}
-    <li><a href='/es/{{this._id}}/{{this.title}}' target="_blank">{{this.title}}</a></li>
+    <li><a href='/es/{{this._id}}/{{this.title}}'>{{this.title}}</a></li>
     {{/each}}
     </ol>
     <a href='/createSurvey'>Add New Survey</a>
-    <!-- {{> autoformModals}} -->
-<!-- {{> autoformModals}}
-    {{#afModal class="btn btn-primary" collection="Survey" operation="insert" omitFields="owner" formId="makeSurvey"}}
-    Add a new survey
-    {{/afModal}} -->
-
-
-
 </div>
 </template>

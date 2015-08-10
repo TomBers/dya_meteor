@@ -2,7 +2,7 @@ Template.makeQuestion.rendered = function(){
 
 Session.set('surveyName', this.data.title);
 Session.set('surveyId', this.data.id);
-
+}
 
 
 var questionHooks = {
@@ -32,9 +32,7 @@ AutoForm.addHooks('insertQuestionForm', questionHooks);
 var updateQuestionFormHooks = {
   onSuccess: function(operation, result, template) {
     Router.go('/es/'+Session.get('surveyId')+'/'+Session.get('surveyName'));
-    // Router.go('/es/'+this.template.data.doc._id+'/'+this.template.data.doc.title);
   }
 }
 
 AutoForm.addHooks('updateQuestionForm', updateQuestionFormHooks);
-}

@@ -1,10 +1,9 @@
 <template name='editSurvey'>
-  <!-- {{> autoformModals}} -->
   <div class='container'>
     {{#with survey}}
     <h1>URL : <a href='/{{title}}' target='_blank'>http://dya.mod.bz/{{title}}</a></h1>
     <a href='/updateSurvey/{{_id}}'>Update Survey settings</a>
-    <!-- {{> quickForm collection='Survey' doc=this id='updateSurveyForm' type='update' omitFields="title,owner"}} -->
+
     {{/with}}
 
     <div class='row' style='border:1px solid black;font-size:1.5em'>
@@ -26,18 +25,9 @@
       {{> editQn}}
       {{/each}}
 
-
-    <br><br>
     {{#with survey}}
     <a href="/mq/{{_id}}/{{title}}">Add Question</a>
-    <!-- {{> quickForm collection="Questions" id="insertQuestionForm" type="insert"}} -->
-    <!-- {{#afModal class="btn btn-primary" collection="Questions" operation="insert" omitFields="survey,dependsOn,order,visible" formId="makeQn"}}
-    Add a new question
-    {{/afModal}} -->
     {{/with}}
-
-    <!-- <a href='/makeQn/{{survey.title}}'><h3>Add Question</h3></a> -->
-
   </div>
 </template>
 
@@ -60,7 +50,7 @@
       <button class='btn btn-warning'>Clear Data</button>
     </div>
     <div class='col-xs-2'>
-      Delete
+      <button class='btn btn-danger'>Delete</button>
     </div>
 
 </div>
