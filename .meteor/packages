@@ -19,8 +19,7 @@ ejson
 less
 nemo64:bootstrap
 hausor:autoform-bs-minicolors
-yogiben:autoform-modals
 fastclick
 underscore
 accounts-password
-accounts-ui
+ian:accounts-ui-bootstrap-3

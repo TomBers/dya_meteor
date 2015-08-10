@@ -25,20 +25,20 @@ if (r == true) {
 }
 });
 
-Template.autoformModals.events({
-"click .btn-danger":function(e,t){
-  var tmp = Session.get('surveyLength');
-  Session.set('surveyLength',--tmp);
-  Meteor.call("clearDebate", Session.get('toDel'),false, function(error, result){
-    if(error){
-      console.log("error", error);
-    }
-    if(result){
-
-    }
-  });
-}
-})
+// Template.autoformModals.events({
+// "click .btn-danger":function(e,t){
+//   var tmp = Session.get('surveyLength');
+//   Session.set('surveyLength',--tmp);
+//   Meteor.call("clearDebate", Session.get('toDel'),false, function(error, result){
+//     if(error){
+//       console.log("error", error);
+//     }
+//     if(result){
+//
+//     }
+//   });
+// }
+// })
 
 Template.editQn.helpers({
   isRI: function(type){

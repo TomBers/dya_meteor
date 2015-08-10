@@ -1,9 +1,9 @@
 Template.makeQuestion.rendered = function(){
-console.log(this);
+
 Session.set('surveyName', this.data.title);
 Session.set('surveyId', this.data.id);
- // Meteor.subscribe('Questions',this.params._id);
-}
+
+
 
 var questionHooks = {
   before: {
@@ -37,3 +37,4 @@ var updateQuestionFormHooks = {
 }
 
 AutoForm.addHooks('updateQuestionForm', updateQuestionFormHooks);
+}

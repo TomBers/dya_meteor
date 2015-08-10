@@ -1,12 +1,11 @@
 accounts-base@1.2.0
 accounts-password@1.1.1
-accounts-ui@1.1.5
-accounts-ui-unstyled@1.1.7
 aldeed:autoform@5.4.0
 aldeed:collection2@2.3.3
 aldeed:simple-schema@1.3.3
 aldeed:template-extension@3.4.3
 amplify@1.0.0
+anti:i18n@0.4.3
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
@@ -17,7 +16,6 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
 chuangbo:cookie@1.1.0
-coffeescript@1.0.6
 dburles:mongo-collection-instances@0.3.4
 ddp@1.1.0
 deps@1.0.7
@@ -30,6 +28,7 @@ hausor:autoform-bs-minicolors@1.0.0
 html-tools@1.0.4
 htmljs@1.0.4
 http@1.1.0
+ian:accounts-ui-bootstrap-3@1.2.76
 id-map@1.0.3
 iron:controller@1.0.8
 iron:core@1.0.8
@@ -73,7 +72,6 @@ minimongo@1.0.8
 mobile-status-bar@1.0.3
 momentjs:moment@2.10.6
 mongo@1.1.0
-mpowaga:string-template@0.1.0
 msavin:jetsetter@1.0.20
 msavin:mongol@1.1.5
 nemo64:bootstrap@3.3.5_2
@@ -81,7 +79,6 @@ nemo64:bootstrap-data@3.3.5
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-raix:handlebar-helpers@0.2.4
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
@@ -94,6 +91,7 @@ sha@1.0.3
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
+stylus@1.0.7
 templating@1.1.1
 tmeasday:publish-counts@0.6.0
 tracker@1.0.7
@@ -103,4 +101,3 @@ underscore@1.0.3
 url@1.0.4
 webapp@1.2.0
 webapp-hashing@1.0.3
-yogiben:autoform-modals@0.3.6
