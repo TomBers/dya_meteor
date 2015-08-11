@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('/', {
     path: '/',
     template: 'home',
-
+    fastRender: true
   });
 
 

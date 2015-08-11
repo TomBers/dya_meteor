@@ -13,9 +13,9 @@ Template.RI.events({
   // , touchend .chk
   'click .chk':function(e,template){
     e.preventDefault()
-    var pos = e.currentTarget.parentElement.previousElementSibling.innerText;
+    var pos = e.currentTarget.parentElement.previousElementSibling.textContent;
 
-    var rank = e.currentTarget.innerText;
+    var rank = e.currentTarget.textContent;
     Meteor.call('regInterest',template.data._id,Session.get('usr'),pos,rank, function(e,d){
     });
     sAlert.success('You '+rank+' with '+pos);

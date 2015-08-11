@@ -22,7 +22,9 @@ h3{
 p{
 	font-weight:400;
 }
-
+.black{
+  color: black;
+}
 .btn {border-radius: 0;}
 ul{
 	-webkit-padding-start:0px;
@@ -124,7 +126,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="mailto:tom@doyouagree.co.uk">Contact</a></li>
+          <li><a href="mailto:tom@doyouagree.co.uk" target='_blank'>Contact</a></li>
            {{#if loggedIn}}
           <li><a href="/account">My Account</a></li>
           {{else}}
@@ -138,6 +140,41 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 
   <div class='col-sm-12' >
     <img src='marketingImage.jpg' style='max-width:1010;width:100%;height:auto'>
+
+    <div class='row'>
+    <h2 style='font-size:2.5em;padding-top:30px'><strong>Past Clients:</strong></h2>
+    <div class="col-sm-4 clients">
+      <img   src="ms.png" alt="Generic placeholder image" style="width: 50%; height: auto;display:block;margin:0 auto">
+    </div>
+
+    <div class="col-sm-4 clients">
+      <img  src="aimia.png" alt="Generic placeholder image" style="width: 50%; height: auto; display:block;margin:15px auto">
+    </div>
+
+    <div class="col-sm-4 clients">
+      <img  src="DebatingLondon.jpg" alt="Generic placeholder image" style="width: 50%; height: auto;display:block;margin:0 auto">
+    </div>
+</div>
+<div class='row'>
+    <div class="col-sm-4 clients">
+      <h3>Marks and Spencer</h3>
+      <p class='black'>Used DYA to assess a health initiative; installed on an iPad around their offices.</p>
+
+    </div>
+
+    <div class="col-sm-4 clients">
+      <h3>Aimia</h3>
+      <p class='black'>Used DYA in meetings to engage the audience.</p>
+
+    </div>
+
+    <div class="col-sm-4 clients">
+      <h3>Debating London</h3>
+      <p class='black'>Used DYA for voting and questions at their debates.</p>
+    </div>
+</div>
+
+
 
 
 
@@ -156,7 +193,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 		<div class="col-sm-4 mkpts">
 			<img class="img-circle" src="questions.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
 			<h2>Customise</h2>
-			<p>Create customised surveys with slider, single/multiple choice, comments and quizzes easily</p>
+			<p>Create customised surveys with single/multiple choice, comments easily</p>
 
 		</div>
 
@@ -164,7 +201,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 		<div class="col-sm-4 mkpts">
 			<img class="img-circle" src="graph.png" alt="Generic placeholder image" style="width: 60px; height: 60px;">
 			<h2>Your Data</h2>
-			<p>Analyse all responses in your easy to use dashboard which can be exported to work with all spreadsheets</p>
+			<p>Analyse all responses in your easy to use dashboard; display in real-time</p>
 
 		</div>
 		<div class="col-sm-4 mkpts">
@@ -179,24 +216,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
 			<p>Free Demo and expert managed services are available</p>
 		</div>
 
-
-    <h2 style='font-size:2.5em;padding-top:30px'><strong>Past Clients:</strong></h2>
-    <div class="col-sm-4 clients">
-			<img   src="ms.png" alt="Generic placeholder image" style="width: 50%; height: auto;display:block;margin:0 auto">
-
-		</div>
-
-    <div class="col-sm-4 clients">
-			<img  src="aimia.png" alt="Generic placeholder image" style="width: 50%; height: auto; display:block;margin:15px auto">
-
-		</div>
-
-    <div class="col-sm-4 clients">
-			<img  src="DebatingLondon.jpg" alt="Generic placeholder image" style="width: 50%; height: auto;display:block;margin:0 auto">
-
-		</div>
-
-    <div class='col-sm-12' style='margin-top: 30px;background:#354353;font-size:2em'>
+    <div class='col-sm-12' style='padding-top:20px;background:#354353;font-size:2em'>
       <a style="color:white" href="mailto:tom@doyouagree.co.uk">Contact</a>
     </div>
 
