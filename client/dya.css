@@ -190,6 +190,18 @@ textarea {
   margin-top:20px;
 }
 
+@media all and (max-width: 980px){
+  .shadow{
+    width:95%;
+  }
+}
+
+/*@media all and (max-width: 980px){
+  .shadow{
+    width:80%;
+  }
+}*/
+
 @media all and (max-width: 450px){
 
 .askQnControls{
