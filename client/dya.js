@@ -6,7 +6,7 @@ Template.dya.rendered = function(){
 
   sAlert.config({
     effect: 'stackslide',
-    position: 'top',
+    position: 'bottom',
     timeout: 1000
   });
 

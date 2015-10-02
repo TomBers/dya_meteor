@@ -54,6 +54,8 @@ text-transform:lowercase;
 .mkpts{
   padding-top:20px;
   background:#354353;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .mkpts h2,p {
   text-align: center;
@@ -80,6 +82,14 @@ ul.nav.navbar-nav li a {
 
 	text-transform:uppercase;
 /*    color: red;*/
+}
+
+.clients{
+  text-align: center;
+  margin-top: 20px;
+}
+.clients p{
+  font-size: 1.5em;
 }
 
 ul.nav.navbar-nav li a:hover {color:#f15c51;}
@@ -125,7 +135,7 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
       </div>
 
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right frontPageMenuFont">
           <li><a href="mailto:tom@doyouagree.co.uk" target='_blank'>Contact</a></li>
            {{#if loggedIn}}
           <li><a href="/account">My Account</a></li>
@@ -139,10 +149,9 @@ ul.nav.navbar-nav li a:hover {color:#f15c51;}
   </div>
 
   <div class='col-sm-12' >
-    <img src='marketingImage.jpg' style='max-width:1010;width:100%;height:auto'>
+    <img src='marketingImage.jpg' style='max-width:1010;width:100%;height:auto;margin-bottom:40px;'>
 
     <div class='row'>
-    <h2 style='font-size:2.5em;padding-top:30px'><strong>Past Clients:</strong></h2>
     <div class="col-sm-4 clients">
       <img   src="ms.png" alt="Generic placeholder image" style="width: 50%; height: auto;display:block;margin:0 auto">
     </div>

@@ -3,9 +3,9 @@
   {{{params.styling}}}
   </style>
 
-  <nav class="navbar navbar-default header" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top surveyNavBar" role="navigation">
   <div class="container-fluid">
-    <div class="navbar-header pull-left">
+    <div class="navbar-header">
       <div class="navbar-brand logo">{{params.title}}</div>
     </div>
     <a href="#" type="button" id='goToQn' class="btn btn-default navbar-btn pull-right">
@@ -14,7 +14,11 @@
   </div>
 </nav>
 
+
+
 <div class="container-fluid qnView">
+
+
   {{#if showLND}}
   <div class='starter'>
   {{{params.startMsg}}}

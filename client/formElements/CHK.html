@@ -7,9 +7,7 @@
 
 {{#each opts}}
 {{#if visible}}
-<div class='chk {{checked ..}}' id='{{this}}'>
-{{this}}
-</div>
+<div class='chk {{checked ..}}' id='{{../_id}}_{{this}}'>{{this}}</div>
 {{/if}}
 
 {{/each}}

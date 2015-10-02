@@ -5,23 +5,25 @@
   border:5px solid black;
 }
 
+.SML{
+  width: 12vw;
+  height: 12vw;
+}
+
 .HSM{
-  width: 20vw;
-  height: 20vw;
+
   background-image: url("happy.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .NSM{
-  width: 20vw;
-  height: 20vw;
+
   background-image: url("neutral.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .SSM{
-  width: 20vw;
-  height: 20vw;
+
   background-image: url("sad.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -36,9 +38,11 @@
 
     <h1>{{title}}</h1>
 <!--  -->
-      <div class='chk HSM {{checked "HSM"}}' id='{{_id}}_HSM'></div>
-      <div class='chk NSM {{checked "NSM"}}' id='{{_id}}_NSM'></div>
-      <div class='chk SSM {{checked "SSM"}}' id='{{_id}}_SSM'></div>
+
+      <div class='chk SML HSM {{checked "HSM"}}' id='{{_id}}_HSM'></div>
+      <div class='chk SML NSM {{checked "NSM"}}' id='{{_id}}_NSM'></div>
+      <div class='chk SML SSM {{checked "SSM"}}' id='{{_id}}_SSM'></div>
+
       {{#if showBtn}}
    <div class='hider'>
    Ok

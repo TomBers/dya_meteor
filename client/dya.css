@@ -1,12 +1,54 @@
-body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', sans-serif; font-weight: 300;}
+/*body {font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', sans-serif; font-weight: 300;}*/
+body {
+  font-family:"HelveticaNeue-Thin", Helvetica, Arial, sans-serif;
+  font-size: 9px;
+}
+
+.frontPageMenuFont{
+  font-size: 1.5em;
+}
+
 .shadow{
   /*width:95%;*/
-  border:1px solid black;
+  border-bottom:1px solid black;
   display:block;
   margin:0 auto;
-  box-shadow: 10px 10px 5px #888888;
+  /*box-shadow: 10px 10px 5px #888888;*/
   margin-bottom:20px;
   padding:20px;
+  width: 50%;
+}
+
+.logo{
+  position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    font-size: 5em;
+    margin-top: 60px;
+}
+
+.askQnControls{
+  /*width:50%;*/
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+/*.surveyLogo{
+  font-size: 5em;
+  text-align: center;
+}*/
+
+.qnView{
+      margin-top: 135px;
+      padding-left: 30px;
+      padding-right: 30px;
+}
+
+.surveyNavBar{
+  background-color: white;
+  border-color: white;
+  min-height: 130px;
 }
 
 .shadow:after {
@@ -96,7 +138,7 @@ img {
 }
 
 .chk:hover,.rdo:hover,.hider:hover,.scale:hover{
-  border:2px solid black;
+  background-color: #777777;
 }
 .checked{
   color:white;
@@ -150,13 +192,16 @@ textarea {
 
 @media all and (max-width: 450px){
 
-
+.askQnControls{
+  /*width: 100%;*/
+}
   .chk:hover,.rdo:hover,.hider:hover,.scale:hover{
     border:1px solid black;
   }
   .chk,.scale,.qry{
-    font-size: 1.8em;
-    padding:5px;
+    /*margin-left: 25px;*/
+    font-size: 2em;
+    padding:12px;
   }
   .shadow{
     width:100%;

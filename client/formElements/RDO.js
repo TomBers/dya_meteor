@@ -2,7 +2,7 @@
 
 Template.RDO.helpers({
   checked:function(qn){
-    if(Session.get(qn._id) == this){return 'checked'}
+    if(Session.get(qn._id) === qn._id+'_'+this.valueOf()){return 'checked'}
     else{
     return null;
   }
@@ -23,11 +23,8 @@ Template.RDO.rendered = function(){
 Template.RDO.events({
   // , touchstart .chk
   'click .chk':function(e,template){
-    // e.preventDefault();
     sAlert.success('Your decision has been noted');
-    // template.$( ".chk.checked" ).removeClass( "checked" );
     Session.update(template.data._id,e.currentTarget.id);
-    // e.currentTarget.className = 'chk checked';
-    Meteor.call('saveRes',template.data._id,e.currentTarget.id,Session.get('usr'));//, function(e,d){
+    Meteor.call('saveRes',template.data._id,e.target.textContent,Session.get('usr'));
   }
 });

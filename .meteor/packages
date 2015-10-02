@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 mfpierre:chartist-js
 iron:router
 meteorhacks:fast-render
@@ -23,3 +22,15 @@ fastclick
 underscore
 accounts-password
 ian:accounts-ui-bootstrap-3
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+spacebars
+check
