@@ -6,7 +6,9 @@
   <nav class="navbar navbar-default navbar-fixed-top surveyNavBar" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <div class="navbar-brand logo">{{params.title}}</div>
+      <div class="navbar-brand logo">
+      <div class="textOrImage">{{params.title}}</div>
+      </div>
     </div>
     <a href="#" type="button" id='goToQn' class="btn btn-default navbar-btn pull-right">
       <span class="glyphicon {{headerIcon}}"></span>
@@ -25,6 +27,8 @@
   </div>
   {{else}}
   {{#each questions}}
+
+  <!-- {{> UI.dynamic template=type}} -->
 
   {{#if isCHK}}
   {{> CHK }}
