@@ -7,7 +7,9 @@ body {
 .frontPageMenuFont{
   font-size: 1.5em;
 }
-
+.ansView{
+  max-width: 900px;
+}
 .shadow{
   /*width:95%;*/
   border-bottom:1px solid black;
@@ -27,6 +29,30 @@ body {
     margin: auto;
     font-size: 5em;
     margin-top: 60px;
+}
+
+.introTxt{
+  margin-top: 20px;
+  margin-bottom:20px;
+  text-align: center;
+  min-height: 50px;
+  padding:20px;
+  font-size: 2em;
+}
+.introTxtHeader{
+  /*color: #777777;*/
+  font-size: 1.5em;
+}
+.endQuote{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2.5em;
+  min-height: 200px;
+  background-color: #354353;
+  color: white;
+
 }
 /*.textOrImage{
 text-indent: -99999px;
@@ -147,11 +173,12 @@ img {
 }
 
 .chk:hover,.rdo:hover,.hider:hover,.scale:hover{
-  background-color: #777777;
+  background-color: #354353;
+
 }
 .checked{
   color:white;
-  background-color:black;
+  background-color:#354353;
 }
 input[type="radio"]{
   width:50px;

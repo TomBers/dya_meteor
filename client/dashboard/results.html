@@ -1,14 +1,14 @@
 <template name='results'>
-<div class='container-fluid'>
+<div class='container-fluid' style="max-width:900px">
   <div class='row'>
 Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAsBar'>
 </div>
   <!-- {{cols}} -->
   {{#each modQns}}
   {{#if drawGraph type}}
-  <div class='col-sm-6'>
+  <div class='col-sm-8 col-sm-offset-2' style="border-bottom:1px solid black">
   <!-- <div class='graphBox'> -->
-    <h1>{{title}}</h1>
+    <h1 style="margin-bottom:35px">{{title}}</h1>
 
   {{> graph}}
 
