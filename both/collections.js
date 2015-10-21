@@ -4,6 +4,7 @@ Questions = new Mongo.Collection("questions");
 Analysis = new Mongo.Collection("analysis");
 Count = new Mongo.Collection("count");
 Survey = new Mongo.Collection("survey");
+Contacts = new Mongo.Collection("Contacts");
 
 Survey.allow({
   insert: function () { return true; },
@@ -162,6 +163,7 @@ Questions.attachSchema(new SimpleSchema({
           {label: "User selects 1 or more choices from your options (Used to show preferences)", value: 'CHK'},
           {label: "Pick Positive/Neutral/Negative from image", value: 'SML'},
           {label: "Comment", value: 'CMMT'},
+          {label: "Scale", value: 'SCL'},
           {label: "Live (Do you agree or disagree with a point as it is discussed)", value: 'RI'}
           // ,{label: "Video", value: 'VID'}
         ];

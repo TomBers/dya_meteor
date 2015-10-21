@@ -58,6 +58,10 @@
   {{> SML}}
   {{/if}}
 
+  {{#if isSCL}}
+  {{> SCL}}
+  {{/if}}
+
   {{/each}}
   {{/if}}
 {{#with params}}
@@ -75,5 +79,10 @@
 <div class="container-fluid ansView" style="display:none">
   {{> ask}}
 </div>
+
+<div class="container-fluid getEmail" style="display:none">
+  {{> getEmail}}
+</div>
+
 
 </template>

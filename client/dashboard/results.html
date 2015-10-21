@@ -1,14 +1,24 @@
 <template name='results'>
+
+<style>
+{{{survey.styling}}}
+</style>
+
 <div class='container-fluid' style="max-width:900px">
   <div class='row'>
-Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAsBar'>
+<!-- Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAsBar'> -->
+<h1>{{survey.title}}</h1>
+
+<button id='pie' class="resBtn">Pie Chart</button>
+<button id='bar' class="resBtn">Bar Chart</button>
+
 </div>
   <!-- {{cols}} -->
   {{#each modQns}}
   {{#if drawGraph type}}
   <div class='col-sm-8 col-sm-offset-2' style="border-bottom:1px solid black">
   <!-- <div class='graphBox'> -->
-    <h1 style="margin-bottom:35px">{{title}}</h1>
+    <h1>{{title}}</h1>
 
   {{> graph}}
 
@@ -16,11 +26,13 @@ Show as Bar Chart <input type="checkbox" name="showAsBar" value="bar" id='showAs
 </div>
 {{/if}}
   {{#if isRI type}}
+
   <!-- <a href="/track/{{_id}}">More Analysis</a> -->
   {{/if}}
   {{#if isCMMT type}}
+  <div class='col-sm-8 col-sm-offset-2' style="border-bottom:1px solid black">
   {{> showCmmts}}
-
+  </div>
 
   {{/if}}
   {{/each}}

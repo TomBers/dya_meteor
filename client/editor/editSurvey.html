@@ -2,12 +2,12 @@
   <div class='container'>
     {{#with survey}}
 
-    <h1><a href="/account" type="button"><span class="glyphicon glyphicon-chevron-left"></span></a>URL : <a href='/{{title}}' target='_blank'>http://dya.mod.bz/{{title}}</a></h1>
+    <h1><a href="/account" type="button"><span class="glyphicon glyphicon-chevron-left"></span></a>URL : <a href='/{{title}}' target='_blank' style="font-size:22px">http://dya.mod.bz/{{title}}</a></h1>
     <a href='/updateSurvey/{{_id}}'>Update Survey settings</a>
 
     {{/with}}
 
-    <div class='row' style='border:1px solid black;font-size:1.5em'>
+    <div class='row' style='border-bottom:1px solid black;font-size:1.5em;margin-top:30px'>
     <div class='col-xs-2'>Show Question
     </div>
     <div class='col-xs-2'>Title
@@ -38,7 +38,7 @@
     <div class='col-xs-2 isVisible'>
         <input type="checkbox" checked="{{visible}}" />
     </div>
-    <div class='col-xs-2'>
+    <div class='col-xs-2' style="font-size:16px">
       {{title}}
     </div>
     <div class='col-xs-2'>

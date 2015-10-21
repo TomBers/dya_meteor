@@ -32,6 +32,13 @@ Template.results.events({
   "click #showAsBar": function(event, template){
     // console.log(event);
     Session.set('showAsBar',event.currentTarget.checked);
-
-  }
+  },
+    "click #bar": function(event, template){
+       Session.set('showAsBar', true);
+      //  console.log(template.data.showAsBar);
+    },
+    "click #pie": function(event, template){
+       Session.set('showAsBar', false);
+      //  console.log(template.data.showAsBar);
+    }
 });

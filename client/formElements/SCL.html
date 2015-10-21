@@ -1,0 +1,22 @@
+<template name='SCL'>
+
+  <div class="shadow" id="{{_id}}_card">
+
+<div class='qnAns'>
+
+    <h1>{{title}}</h1>
+    {{#each opts}}
+    <div class='chk {{checked ..}}' id='{{../_id}}_{{this}}'>{{this}}</div>
+    {{/each}}
+      {{#if showBtn}}
+   <div class='hider'>
+   Ok
+   </div>
+   {{/if}}
+</div>
+<!-- <div class='graphRight'>
+      {{> graph}}
+</div> -->
+
+</div>
+</template>

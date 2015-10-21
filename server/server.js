@@ -22,6 +22,10 @@ Meteor.methods({
     Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
     return Votes.update({qn:qn,usr:usr},{qn:qn,usr:usr,res:dat},{upsert:true});
   },
+  storeContact:function(survey,contact){
+    var dte = new Date();
+    return Contacts.insert({survey:survey,contact:contact,date:dte});
+  },
   saveCHK: function(qn,dat,usr){
     Count.update({qn:qn,usr:usr},{qn:qn,usr:usr},{upsert:true});
     return Votes.insert({qn:qn,usr:usr,res:dat});

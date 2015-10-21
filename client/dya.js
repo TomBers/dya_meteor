@@ -39,6 +39,9 @@ Template.dya.helpers({
   isSML: function(){
     return this.type === 'SML';
   },
+  isSCL: function(){
+    return this.type === 'SCL';
+  },
   showLND: function(){
     try{
     return Session.get(this.params.title+'_showLND');
@@ -83,12 +86,16 @@ Template.dya.events({
         // Router.go('/tablet/tst');//+template.data.params.title);
         $('html,body').scrollTop(0);
     }else{
-    var lnk = template.data.params.endLink;
-    if (typeof lnk != 'undefined'){
-      window.location.assign(lnk);
-    }else{
-      Router.go('/');
-    }
+      $(".qnView").fadeOut(function(){
+        $(".getEmail").fadeIn();
+      });
+
+    // var lnk = template.data.params.endLink;
+    // if (typeof lnk != 'undefined'){
+    //   window.location.assign(lnk);
+    // }else{
+    //   Router.go('/');
+    // }
   }
   },
   // , touchstart .hider,.starter

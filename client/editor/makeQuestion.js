@@ -17,6 +17,9 @@ var questionHooks = {
       if(doc.type === 'SML'){
         doc.opts = ['Positive','Neutral','Negative'];
       }
+      if(doc.type === 'SCL'){
+        doc.opts = ['100%','75%','50%','25%','0%'];
+      }
 
       return doc;
     }

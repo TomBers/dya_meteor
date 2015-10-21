@@ -28,6 +28,7 @@ Template.graph.helpers({
 
 Template.graph.rendered = function(){
   Session.setDefault('showAsBar', false);
+  this.data.showAsBar = false;
 
   Meteor.subscribe('Votes',this.data._id);
   Meteor.subscribe('Count',this.data._id);
@@ -71,7 +72,7 @@ Template.graph.rendered = function(){
 
     var options = {
       donut: true
-      ,donutWidth:90,
+      ,donutWidth:40,
       showLabel: false
 
   };

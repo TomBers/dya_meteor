@@ -3,6 +3,9 @@ body {
   font-family:"HelveticaNeue-Thin", Helvetica, Arial, sans-serif;
   font-size: 9px;
 }
+a{
+  font-size: 16px;
+}
 
 .frontPageMenuFont{
   font-size: 1.5em;
@@ -20,7 +23,9 @@ body {
   padding:20px;
   width: 50%;
 }
-
+.resBtn{
+  font-size: 1.2em;
+}
 .logo{
   position: absolute;
     width: 100%;
@@ -108,6 +113,7 @@ height: 43px;
 }
 .commentBox{
   font-size:1.2em;
+  margin-bottom: 50px;
 }
 .graphBox h1{
   margin-bottom: 30px;
@@ -121,8 +127,14 @@ height: 43px;
   text-align: center;
 }
 .key{
-  font-size: 1.6em;
+  font-size: 3em;
   display:inline;
+}
+.totalDisplay{
+  font-weight: 200 !important;
+  font-size:2.25em;
+  font-style: italic;
+  text-align: center;
 }
 
 .surveyList{
