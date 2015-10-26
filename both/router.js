@@ -55,7 +55,7 @@ Router.map(function() {
       return Meteor.subscribe('SaQ',this.params._id,this.params._title);
     },
     data: function() {
-      return {survey:Survey.findOne(), questions: Questions.find({},{sort: {order:1}}).fetch()};
+      return {survey:Survey.findOne(), questions: Questions.find({},{sort: {order:1}})};
     }
   });
 

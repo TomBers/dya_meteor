@@ -1,6 +1,7 @@
 Votes = new Mongo.Collection("votes");
 Comments = new Mongo.Collection("comments");
 Questions = new Mongo.Collection("questions");
+Sortable.collections = ['questions'];
 Analysis = new Mongo.Collection("analysis");
 Count = new Mongo.Collection("count");
 Survey = new Mongo.Collection("survey");

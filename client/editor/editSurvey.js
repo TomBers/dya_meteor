@@ -1,3 +1,10 @@
+Template.editSurvey.rendered = function(){
+  // console.log(this.data);
+  Session.set('surveyName',this.data.survey.title);
+  Session.set('surveyId', this.data.survey._id);
+  Session.set('surveyLength', Questions.find().fetch().length);
+}
+
 Template.editQn.events({
   "change .isVisible input": function (e,t) {
     Meteor.call('changeVisible',this._id,e.target.checked);
@@ -39,6 +46,11 @@ Template.editQn.events({
   }
 });
 
+Template.editSurvey.helpers({
+  qns: function(){
+  return Questions.find({},{sort: {order:1}});
+}
+});
 
 
 Template.editQn.helpers({
@@ -47,10 +59,3 @@ Template.editQn.helpers({
     else{return false;}
   }
 });
-
-Template.editSurvey.rendered = function(){
-  // console.log(this.data);
-  Session.set('surveyName',this.data.survey.title);
-  Session.set('surveyId', this.data.survey._id);
-  Session.set('surveyLength', this.data.questions.length);
-}

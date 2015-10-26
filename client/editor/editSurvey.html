@@ -3,7 +3,10 @@
     {{#with survey}}
 
     <h1><a href="/account" type="button"><span class="glyphicon glyphicon-chevron-left"></span></a>URL : <a href='/{{title}}' target='_blank' style="font-size:22px">http://dya.mod.bz/{{title}}</a></h1>
-    <a href='/updateSurvey/{{_id}}'>Update Survey settings</a>
+    <a href='/updateSurvey/{{_id}}' class="btn btn-info btn-sm"><span class="glyphicon glyphicon-cog"></span> Update Survey settings</a>
+
+    <a href="/mq/{{_id}}/{{title}}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span> Add Question</a>
+
 
     {{/with}}
 
@@ -22,13 +25,11 @@
     </div>
   </div>
 
-      {{#each questions}}
+      {{#sortable items=qns sortField="order" options=sortOptions}}
       {{> editQn}}
-      {{/each}}
+      {{/sortable}}
 
-    {{#with survey}}
-    <a href="/mq/{{_id}}/{{title}}">Add Question</a>
-    {{/with}}
+
   </div>
 </template>
 
@@ -36,6 +37,7 @@
   <div class='row' style="margin-top:20px;margin-bottom:10px;">
 
     <div class='col-xs-2 isVisible'>
+      {{order}}
         <input type="checkbox" checked="{{visible}}" />
     </div>
     <div class='col-xs-2' style="font-size:16px">
@@ -51,7 +53,7 @@
       <button class='btn btn-warning'>Clear Data</button>
     </div>
     <div class='col-xs-2'>
-      <button class='btn btn-danger'>Delete</button>
+      <button class='btn btn-danger'><span class="glyphicon glyphicon-trash"></span></button>
     </div>
 
 </div>

@@ -8,8 +8,12 @@ Session.set('surveyId', this.data.id);
 var questionHooks = {
   before: {
     insert: function(doc) {
+
+
       doc.survey = Session.get('surveyName');
-      var tmp = Session.get('surveyLength')
+
+      var tmp = Session.get('surveyLength');
+
       doc.order = ++tmp;
       Session.set('surveyLength',tmp);
       doc.visible=true;
