@@ -13,6 +13,10 @@ a{
 .ansView{
   max-width: 900px;
 }
+#goToQn{
+  font-size: 25px;
+  margin-top: 65px;
+}
 .shadow{
   /*width:95%;*/
   border-bottom:1px solid black;
