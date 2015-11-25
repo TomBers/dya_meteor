@@ -17,6 +17,15 @@ a{
   font-size: 25px;
   margin-top: 65px;
 }
+.emailLink{
+    font-size: 25px;
+    font-weight: 700;
+    height: 50px;
+    max-width: 220px;
+    margin: 50px auto;
+    background-color: white;
+    color: #374454;
+  }
 .shadow{
   /*width:95%;*/
   border-bottom:1px solid black;
@@ -59,8 +68,8 @@ a{
   justify-content: center;
   font-size: 2.5em;
   min-height: 200px;
-  background-color: #354353;
-  color: white;
+  background-color: white;
+  color: black;
 
 }
 /*.textOrImage{
@@ -276,6 +285,7 @@ textarea {
     margin-bottom:5px;
     padding-left:0px;
     padding-bottom:0px
+    border-bottom:1px solid black;
   }
 
 
@@ -307,6 +317,7 @@ textarea {
     box-shadow: none;
     padding-bottom:15px;
     padding-left:5px;
+    border-bottom:1px solid black;
   }
   .qnAns,.graphRight{
     float: none;
