@@ -93,6 +93,7 @@ nemo64:bootstrap-data@3.3.5
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
+okgrow:analytics@1.0.4
 ordered-dict@1.0.4
 promise@0.5.0
 random@1.0.4
